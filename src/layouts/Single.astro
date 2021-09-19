@@ -1,0 +1,17 @@
+---
+import DefaultLayout from './Default.astro';
+import { Markdown } from 'astro/components';
+
+const { title, date, categories, astro } = Astro.props;
+const { source } = astro;
+---
+<DefaultLayout content={{title}}>
+	<article>
+		<header>
+			<h1>{title}</h1>
+		</header>
+		<div>
+			<Markdown content={source} />
+		</div>
+	</article>
+</DefaultLayout>

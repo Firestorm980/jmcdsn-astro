@@ -1,0 +1,30 @@
+{
+  "name": "@example/blog",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "astro dev",
+    "build": "astro build"
+  },
+  "devDependencies": {
+    "@snowpack/plugin-postcss": "^1.4.3",
+    "astro": "^0.20.7",
+    "autoprefixer": "^10.3.4",
+    "eslint": "^7.32.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-import": "^2.24.2",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^5.1.0",
+    "eslint-plugin-standard": "^5.0.0",
+    "postcss-import": "^14.0.2",
+    "postcss-mixins": "^8.1.0",
+    "postcss-modules": "^4.2.2",
+    "postcss-nested": "^5.0.6",
+    "postcss-reporter": "^7.0.2",
+    "stylelint": "^13.13.1",
+    "stylelint-config-standard": "^22.0.0"
+  },
+  "dependencies": {
+    "normalize.css": "^8.0.1"
+  }
+}

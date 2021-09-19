@@ -1,0 +1,14 @@
+---
+import DefaultLayout from './Default.astro';
+
+const {page} = Astro.props;
+const title = `Page ${page.currentPage}`;
+---
+<DefaultLayout content={{title}}>
+	<header>
+		<h1>{title}</h1>
+	</header>
+	<ul>
+		{page.data.map(item => <li>{item.title}</li>)}
+	</ul>
+</DefaultLayout>

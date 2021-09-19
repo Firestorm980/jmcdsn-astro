@@ -1,0 +1,7 @@
+@import "normalize.css";
+
+/* Global */
+@import "./global/index.css";
+
+/* Base */
+@import "./base/index.css";

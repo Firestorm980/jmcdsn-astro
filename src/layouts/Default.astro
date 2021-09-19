@@ -1,0 +1,20 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import BaseHeader from '../components/BaseHeader.astro';
+import BaseFooter from '../components/BaseFooter.astro';
+
+const { content } = Astro.props;
+const { title, description, permalink } = content;
+---
+<html lang="en">
+  <head>
+    <BaseHead content={{title, description, permalink}} />
+  </head>
+  <body>
+    <BaseHeader />
+    <main>
+        <slot />
+    </main>
+    <BaseFooter />
+  </body>
+</html>
