@@ -1,0 +1,39 @@
+{
+  "title": "JMCDSN",
+  "url": "https://jmcdsn.com/",
+  "domain": "jmcdsn.com",
+  "description": "Graphic designer, web developer, all around nerd.",
+  "googleAnalyticsId": "UA-37728017-1",
+  "sendWebVitals": false,
+  "feed": {
+    "subtitle": "",
+    "filename": "feed.xml",
+    "path": "/feed/feed.xml",
+    "id": "https://jmcdsn.com"
+  },
+  "author": {
+    "name": "Jon Michael Christensen",
+    "email": "jon@jmchristensendesign.com",
+    "twitter": "@jonmchristensen"
+  },
+  "publisher": {
+    "name": "Jon Christensen"
+  },
+  "networks": [
+    {
+        "slug": "linkedin",
+        "name": "LinkedIn",
+        "url": "https://www.linkedin.com/in/jon-christensen-2768381a/"
+    },
+    {
+        "slug": "github",
+        "name": "Github",
+        "url": "https://github.com/Firestorm980/"
+    },
+    {
+        "slug": "twitter",
+        "name": "Twitter",
+        "url": "https://twitter.com/jonmchristensen"
+    }
+  ]
+}
