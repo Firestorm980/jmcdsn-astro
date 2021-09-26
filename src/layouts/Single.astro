@@ -5,7 +5,7 @@ import { Markdown } from 'astro/components';
 const { title, date, categories, astro } = Astro.props;
 const { source } = astro;
 ---
-<DefaultLayout content={{title}}>
+<DefaultLayout content={{title, bodyClass: 'single'}}>
 	<article>
 		<header>
 			<h1>{title}</h1>

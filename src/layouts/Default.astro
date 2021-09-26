@@ -2,18 +2,22 @@
 import BaseHead from '../components/BaseHead.astro';
 import BaseHeader from '../components/BaseHeader.astro';
 import BaseFooter from '../components/BaseFooter.astro';
+import SiteSVG from '../components/SiteSVG.astro';
 
 const { content } = Astro.props;
-const { title, description, permalink } = content;
+const { title, description, permalink, bodyClass } = content;
 ---
 <html lang="en">
   <head>
     <BaseHead content={{title, description, permalink}} />
   </head>
-  <body>
+  <body class={(bodyClass) ? bodyClass : 'page'}>
+		<SiteSVG />
     <BaseHeader />
-    <main>
+    <main id="main" class="site-main">
+			<div class="site-main__content">
         <slot />
+			</div>
     </main>
     <BaseFooter />
   </body>

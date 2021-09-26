@@ -4,7 +4,7 @@ import DefaultLayout from './Default.astro';
 const {page} = Astro.props;
 const title = `Page ${page.currentPage}`;
 ---
-<DefaultLayout content={{title}}>
+<DefaultLayout content={{title, bodyClass: 'archive'}}>
 	<header>
 		<h1>{title}</h1>
 	</header>
