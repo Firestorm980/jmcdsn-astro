@@ -1,7 +1,7 @@
 :root {
+	--width-small: 40rem;
 	--width-default: 50rem;
 	--width-large: 60rem;
 	--width-xlarge: 70rem;
 	--width-xxlarge: 80rem;
-	--width-small: 40rem;
 }

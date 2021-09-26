@@ -1,0 +1,27 @@
+.navigation {
+	& ul {
+		align-items: center;
+		display: flex;
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+
+	& a {
+		align-items: center;
+		display: flex;
+		justify-content: center;
+		min-height: calc(44 / 16 * 1rem);
+		padding: 0.5em 1em;
+	}
+}
+
+.navigation--social {
+	& a {
+		&:hover,
+		&:focus {
+			background-color: var(--color-primary);
+			color: var(--color-background);
+		}
+	}
+}

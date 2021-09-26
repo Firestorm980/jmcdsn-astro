@@ -1,0 +1,11 @@
+.skip-link {
+	left: 0;
+	margin: 0;
+	position: fixed;
+	top: 0;
+	transform: translate(-100%, -100%);
+
+	&:focus {
+		transform: translate(1rem, 1rem);
+	}
+}

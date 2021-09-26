@@ -1,0 +1,10 @@
+.icon {
+	align-items: center;
+	display: inline-flex;
+	fill: currentColor;
+	height: 1em;
+	justify-content: center;
+	stroke: currentColor;
+	stroke-width: 0;
+	width: 1em;
+}

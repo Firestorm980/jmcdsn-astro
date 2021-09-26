@@ -181,4 +181,6 @@
 	--color-red-700: #b91c1c;
 	--color-red-800: #991b1b;
 	--color-red-900: #7f1d1d;
+	--color-primary: var(--color-amber-500);
+	--color-background: var(--color-gray-800);
 }

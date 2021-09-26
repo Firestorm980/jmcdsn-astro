@@ -1,0 +1,33 @@
+.site-header {
+	background-color: hsla(240, 3.7%, 15.9%, 80%);
+	background-image: radial-gradient(rgba(0, 0, 0, 0) 1px, var(--color-gray-800) 1px);
+	background-size: 0.25rem 0.25rem;
+	border-top: 2px solid var(--color-primary);
+	position: sticky;
+	top: 0;
+}
+
+.site-header__inner {
+	align-items: center;
+	display: flex;
+	justify-content: space-between;
+}
+
+.site-header__logo {
+	border-color: transparent;
+	border-style: solid;
+	border-width: 1px;
+	color: var(--color-primary);
+	display: inline-flex;
+
+	&:hover,
+	&:focus {
+		border-color: currentColor;
+		background-color: var(--color-primary);
+		color: var(--color-background);
+	}
+}
+
+.site-header__navigation {
+	display: flex;
+}

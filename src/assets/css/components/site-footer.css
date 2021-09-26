@@ -1,0 +1,8 @@
+.site-footer {
+	font-size: var(--step--1);
+	padding: 1rem 10vw;
+
+	& p {
+		margin: 0;
+	}
+}
