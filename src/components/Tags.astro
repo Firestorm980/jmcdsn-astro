@@ -1,0 +1,16 @@
+---
+let {tags} = Astro.props;
+
+tags.sort();
+---
+
+<ul class="tags">
+	{tags.map((tag) => {
+		const classes = `tag tag--${tag.toLowerCase().replace(' ','-')}`;
+		return (
+			<li>
+				<span class={classes}>{tag}</span>
+			</li>
+		)
+	})}
+</ul>

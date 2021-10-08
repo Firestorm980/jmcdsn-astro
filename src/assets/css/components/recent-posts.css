@@ -1,0 +1,17 @@
+.recent-posts {
+
+}
+
+.recent-posts__list {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+	gap: 1.25rem;
+	list-style: none;
+	padding: 0;
+}
+
+.recent-posts__list-item {
+	display: flex;
+	flex-grow: 1;
+	flex-basis: 20rem;
+}

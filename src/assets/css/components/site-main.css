@@ -2,9 +2,8 @@
 	align-items: center;
 	display: flex;
 	flex-grow: 1;
-	padding: 10vh 10vw;
 }
 
 .site-main__content {
-	max-width: 72ch;
+	width: 100%;
 }

@@ -1,0 +1,20 @@
+---
+import Card from './Card.astro';
+
+// Load your data with fetch(), Astro.fetchContent(), etc.
+let posts = await Astro.fetchContent('./../pages/my-thoughts/**/*.md');
+
+// Sort posts in reverse chronological order (newest first).
+posts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+---
+<div class="recent-posts">
+	<ul class="recent-posts__list">
+		{posts.slice(0, 4).map((post) => {
+			return (
+				<li class="recent-posts__list-item">
+					<Card post={post} />
+				</li>
+			)
+		})}
+	</ul>
+</div>

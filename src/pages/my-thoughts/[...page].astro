@@ -1,6 +1,7 @@
 ---
 import Archive from '../../layouts/Archive.astro';
 import Single from '../../layouts/Single.astro';
+import { getPostLink } from './../../utils';
 
 export async function getStaticPaths({ paginate }) {
 	// Load your data with fetch(), Astro.fetchContent(), etc.
@@ -11,12 +12,11 @@ export async function getStaticPaths({ paginate }) {
 
 	// Remap URLs for posts and add params.
 	const postParams = posts.map(post => {
-		const { url } = post;
-		const [postsFolder, yearFolder, folderSlug, fileName] = url.split('/').filter(item => item !== '');
+		const href = getPostLink(post);
 
 		return {
 			params: {
-				page: folderSlug,
+				page: href,
 			},
 			props: {
 				...post

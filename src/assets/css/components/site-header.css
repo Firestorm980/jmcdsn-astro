@@ -3,8 +3,10 @@
 	background-image: radial-gradient(rgba(0, 0, 0, 0) 1px, var(--color-gray-800) 1px);
 	background-size: 0.25rem 0.25rem;
 	border-top: 2px solid var(--color-primary);
-	position: sticky;
+	left: 0;
+	position: fixed;
 	top: 0;
+	width: 100%;
 }
 
 .site-header__inner {
@@ -17,7 +19,7 @@
 	border-color: transparent;
 	border-style: solid;
 	border-width: 1px;
-	color: var(--color-primary);
+	color: var(--color-white);
 	display: inline-flex;
 
 	&:hover,
@@ -30,4 +32,8 @@
 
 .site-header__navigation {
 	display: flex;
+
+	& a {
+		color: var(--color-white);
+	}
 }
