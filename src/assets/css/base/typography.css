@@ -63,13 +63,17 @@ a {
 	background-color: transparent;
 	color: var(--color-primary);
 	text-decoration: underline;
+	text-decoration-color: currentColor;
+	text-decoration-thickness: 0.125rem;
 	transition-duration: var(--transition-duration);
 	transition-property: background, border-color, color, text-decoration-color;
 	transition-timing-function: var(--transition-easing);
 
 	&:hover,
 	&:focus {
+		background-color: var(--color-amber-900);
 		text-decoration: none;
+		text-decoration-color: transparent;
 	}
 }
 

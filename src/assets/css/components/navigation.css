@@ -3,8 +3,8 @@
 		align-items: center;
 		display: flex;
 		list-style: none;
-		padding: 0;
 		margin: 0;
+		padding: 0;
 	}
 
 	& a {
@@ -13,6 +13,13 @@
 		justify-content: center;
 		min-height: calc(44 / 16 * 1rem);
 		padding: 0.5em 1em;
+		text-decoration: none;
+
+		&:hover,
+		&:focus {
+			background-color: var(--color-primary);
+			color: var(--color-background);
+		}
 	}
 }
 
