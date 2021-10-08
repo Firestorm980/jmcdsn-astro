@@ -13,3 +13,19 @@ export function getPostLink (post) {
 
   return href
 }
+
+/**
+ * Set post link.
+ *
+ * @param {object} post The post object.
+ * @returns {string} The URL for the post.
+ */
+export function setPostLink (post) {
+  const { url } = post
+  // eslint-disable-next-line no-unused-vars
+  const [postsFolder, yearFolder, folderSlug, fileName] = url.split('/').filter(item => item !== '')
+
+  const href = folderSlug
+
+  return href
+}
