@@ -1,4 +1,8 @@
 :root {
+	/* Heights */
+	--height-header: 4.125rem;
+
+	/* Widths */
 	--width-small: 40rem;
 	--width-default: 50rem;
 	--width-large: 60rem;

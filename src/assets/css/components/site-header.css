@@ -1,10 +1,10 @@
 .site-header {
-	background-color: hsla(240, 3.7%, 15.9%, 80%);
-	background-image: radial-gradient(rgba(0, 0, 0, 0) 1px, var(--color-gray-800) 1px);
-	background-size: 0.25rem 0.25rem;
+	background-color: var(--color-background);
+	border-bottom: 1px solid var(--color-gray-700);
 	border-top: 2px solid var(--color-primary);
+	height: var(--height-header);
 	left: 0;
-	position: sticky;
+	position: fixed;
 	top: 0;
 	width: 100%;
 }
@@ -24,8 +24,8 @@
 
 	&:hover,
 	&:focus {
-		border-color: currentColor;
 		background-color: var(--color-primary);
+		border-color: currentColor;
 		color: var(--color-background);
 	}
 }

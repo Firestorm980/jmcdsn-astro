@@ -15,7 +15,7 @@
 	--step-2: clamp(1.27rem, 0.94rem + 1.64vw, 2.25rem);
 	--step-3: clamp(1.42rem, 0.84rem + 2.93vw, 3.18rem);
 	--step-4: clamp(1.6rem, 0.64rem + 4.83vw, 4.5rem);
-	--step-5: clamp(1.8rem, 0.28rem + 7.6vw, 6.36rem);
+	--step-5: clamp(2.49rem, 1.2rem + 6.45vw, 6.36rem);
 
 	/* Weight */
 	--font-weight-normal: 400;
