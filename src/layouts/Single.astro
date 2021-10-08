@@ -1,16 +1,23 @@
 ---
+import dayjs from 'dayjs';
+import Tags from './../components/Tags.astro';
 import DefaultLayout from './Default.astro';
 import { Markdown } from 'astro/components';
 
 const { title, date, categories, astro } = Astro.props;
+const post_date = new Date(date);
 const { source } = astro;
 ---
 <DefaultLayout content={{title, bodyClass: 'single'}}>
 	<article>
-		<header>
-			<h1>{title}</h1>
+		<header class="single__header">
+			<h1 class="single__heading">{title}</h1>
+			<time class="single__date" datetime={post_date.toISOString()}>
+				{dayjs(date, 'YYYY-MM-DD').format('dddd, MMMM D, YYYY')}
+			</time>
+			{categories.length && <div class="single__tags"><Tags tags={categories} /></div>}
 		</header>
-		<div>
+		<div class="content single__content">
 			<Markdown content={source} />
 		</div>
 	</article>
