@@ -45,12 +45,18 @@
 		top: 0;
 		width: 100%;
 	}
+
+	&:hover,
+	&:focus {
+		background-color: transparent;
+	}
 }
 
 .card__date {
 	color: var(--color-gray-200);
 	font-size: var(--step--1);
 	margin-bottom: 2.5rem;
+	transition: inherit;
 }
 
 .card__tags {

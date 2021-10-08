@@ -4,14 +4,14 @@
 
 .recent-posts__list {
 	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
 	gap: 1.25rem;
+	grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
 	list-style: none;
 	padding: 0;
 }
 
 .recent-posts__list-item {
 	display: flex;
-	flex-grow: 1;
 	flex-basis: 20rem;
+	flex-grow: 1;
 }
