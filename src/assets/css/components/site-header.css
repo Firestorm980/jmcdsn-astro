@@ -4,7 +4,7 @@
 	background-size: 0.25rem 0.25rem;
 	border-top: 2px solid var(--color-primary);
 	left: 0;
-	position: fixed;
+	position: sticky;
 	top: 0;
 	width: 100%;
 }

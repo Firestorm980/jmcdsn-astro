@@ -1,0 +1,18 @@
+.single__header,
+.single__content {
+	padding: 10vh 10vw;
+}
+
+.single__header {
+	background-color: var(--color-gray-900);
+	display: flex;
+	flex-direction: column;
+}
+
+.single__heading {
+	margin: 0 0 0.25em;
+}
+
+.single__tags {
+	margin-top: 4em;
+}
