@@ -1,9 +1,20 @@
 ---
 import DefaultLayout from '../layouts/Default.astro';
 
-const title = '404';
+const title = 'Oh no! Not a 404!';
 ---
 
 <DefaultLayout content={{ title }}>
-  <h1>{title}</h1>
+	<div class="section">
+		<div class="content">
+	  	<h1>{title}</h1>
+			<p>The worst thing to happen since <em>Birdemic</em>.</p>
+			<p>
+				<a href="https://en.wikipedia.org/wiki/Phrases_from_The_Hitchhiker%27s_Guide_to_the_Galaxy#Don.27t_Panic">Don’t panic!</a> Sure you’re far from home, but at least the <a href="https://en.wikipedia.org/wiki/Vogon">Vogons</a> haven’t destroyed it (yet). Let’s get you back on track.
+			</p>
+			<p>
+				<a class="button button--primary" href="http://jmcdsn.com/">Go back to the homepage</a>
+			</p>
+		</div>
+	</div>
 </DefaultLayout>
