@@ -1,6 +1,6 @@
 .single__header,
 .single__content {
-	padding: 10vh 10vw;
+	padding: clamp(5vh, 7.5vh, 10vh) clamp(5vw, 7.5vw, 10vw);
 }
 
 .single__header {
@@ -16,5 +16,6 @@
 }
 
 .single__date {
+	color: var(--color-gray-300);
 	margin-bottom: 1em;
 }

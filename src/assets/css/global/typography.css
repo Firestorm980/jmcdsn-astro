@@ -18,6 +18,9 @@
 	--step-5: clamp(2.49rem, 1.2rem + 6.45vw, 6.36rem);
 
 	/* Weight */
+	--font-weight-light: 300;
 	--font-weight-normal: 400;
+	--font-weight-medium: 500;
+	--font-weight-semibold: 600;
 	--font-weight-bold: 700;
 }

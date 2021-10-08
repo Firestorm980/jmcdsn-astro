@@ -1,7 +1,7 @@
 .site-footer {
 	border-top: 1px solid var(--color-gray-700);
 	font-size: var(--step--1);
-	padding: 1rem 10vw;
+	padding: 1rem clamp(5vw, 7.5vw, 10vw);
 
 	& p {
 		margin: 0;

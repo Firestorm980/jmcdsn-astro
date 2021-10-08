@@ -8,11 +8,11 @@
 }
 
 .tag {
-	border-color: var(--color-gray-50);
+	border-color: var(--color-gray-700);
 	border-radius: 1.5em;
 	border-style: solid;
 	border-width: 2px;
-	color: var(--color-gray-400);
+	color: var(--color-gray-300);
 	display: inline-flex;
 	font-size: var(--step--1);
 	line-height: 1;
