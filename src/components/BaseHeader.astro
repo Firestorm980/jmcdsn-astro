@@ -1,6 +1,6 @@
 ---
 import siteData from './../data/site.json';
-import SiteSocial from './SiteSocial.astro';
+import Navigation from './Navigation.vue';
 
 ---
 <header class="site-header">
@@ -21,15 +21,6 @@ import SiteSocial from './SiteSocial.astro';
 				</g>
 			</svg>
 		</a>
-		<div class="site-header__navigation">
-			<nav class="navigation navigation--primary">
-				<ul>
-					<li><a href="/about-me/">About Me</a></li>
-					<li><a href="/my-thoughts/">My Thoughts</a></li>
-					<li><a href="/contact/">Contact</a></li>
-				</ul>
-			</nav>
-			<SiteSocial />
-		</div>
+		<Navigation client:load />
 	</div>
 </header>
