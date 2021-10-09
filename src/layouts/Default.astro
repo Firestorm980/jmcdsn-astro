@@ -13,7 +13,7 @@ const { title, description, permalink, bodyClass } = content;
   </head>
   <body class={(bodyClass) ? bodyClass : 'page'}>
 		<SiteSVG />
-    <BaseHeader />
+    <BaseHeader client:load />
     <main id="main" class="site-main">
 			<div class="site-main__content">
         <slot />

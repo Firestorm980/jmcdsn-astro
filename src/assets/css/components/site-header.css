@@ -2,17 +2,22 @@
 	background-color: var(--color-background);
 	border-bottom: 1px solid var(--color-gray-700);
 	border-top: 2px solid var(--color-primary);
-	height: var(--height-header);
 	left: 0;
 	position: fixed;
 	top: 0;
 	width: 100%;
+	z-index: 1;
 }
 
 .site-header__inner {
 	align-items: center;
 	display: flex;
+	flex-direction: column;
 	justify-content: space-between;
+
+	@media (min-width: 40em) {
+		flex-direction: row;
+	}
 }
 
 .site-header__logo {
@@ -28,4 +33,11 @@
 		border-color: currentColor;
 		color: var(--color-background);
 	}
+}
+
+.site-header__navigation {
+	align-items: center;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
 }

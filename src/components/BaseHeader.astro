@@ -1,9 +1,9 @@
 ---
 import siteData from './../data/site.json';
 import Navigation from './Navigation.vue';
-
+import NavigationSocial from './NavigationSocial.vue';
 ---
-<header class="site-header">
+<header id="site-header" class="site-header">
     <a href="#main" class="skip-link button button--primary">Skip to content</a>
 
 	<div class="site-header__inner">
@@ -21,6 +21,23 @@ import Navigation from './Navigation.vue';
 				</g>
 			</svg>
 		</a>
-		<Navigation client:load />
+		<div class="site-header__navigation">
+			<Navigation />
+			<NavigationSocial />
+		</div>
 	</div>
 </header>
+<script>
+	(function(){
+		const body = document.querySelector('body');
+		const header = document.getElementById('site-header');
+
+		const resize = () => {
+			const {height} = header.getBoundingClientRect();
+			body.style.setProperty('--height-header',`${height}px`);
+		}
+
+		window.addEventListener('resize', resize);
+		resize();
+	})();
+</script>

@@ -1,6 +1,6 @@
 .navigation {
 	& button {
-		@media (min-width: var(--breakpoint-navigation)) {
+		@media (min-width: 40em) {
 			display: none;
 		}
 	}
@@ -31,25 +31,5 @@
 }
 
 .navigation__inner {
-	background-color: var(--color-background);
 	display: flex;
-	flex-direction: column;
-	height: calc(100vh - var(--height-header));
-	left: 0;
-	overflow-y: auto;
-	position: absolute;
-	top: 100%;
-	width: 100%;
-
-	&[data-open="false"] {
-		display: none;
-	}
-
-	@media (min-width: var(--breakpoint-navigation)) {
-		background-color: transparent;
-		flex-direction: row;
-		height: auto;
-		position: static;
-		width: auto;
-	}
 }
