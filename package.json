@@ -10,7 +10,7 @@
   },
   "devDependencies": {
     "@snowpack/plugin-postcss": "^1.4.3",
-    "astro": "^0.20.7",
+    "astro": "^0.20.10",
     "autoprefixer": "^10.3.4",
     "dayjs": "^1.10.7",
     "eslint": "^7.32.0",
