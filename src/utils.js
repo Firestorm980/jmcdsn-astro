@@ -21,11 +21,11 @@ export function getPostLink (post) {
  * @returns {string} The URL for the post.
  */
 export function setPostLink (post) {
-  const { url } = post
+  const { file } = post
+  const { pathname } = file
   // eslint-disable-next-line no-unused-vars
-  const [postsFolder, yearFolder, folderSlug, fileName] = url.split('/').filter(item => item !== '')
-
-  const href = folderSlug
+  const parts = pathname.split('/').filter(item => item !== '')
+  const [href] = parts.slice(-2)
 
   return href
 }
