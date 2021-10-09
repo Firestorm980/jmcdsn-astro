@@ -8,4 +8,7 @@
 	--width-large: 60rem;
 	--width-xlarge: 70rem;
 	--width-xxlarge: 80rem;
+
+	/* Breakpoints */
+	--breakpoint-navigation: 40em; /* 640px */
 }

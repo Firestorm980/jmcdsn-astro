@@ -29,11 +29,3 @@
 		color: var(--color-background);
 	}
 }
-
-.site-header__navigation {
-	display: flex;
-
-	& a {
-		color: var(--color-white);
-	}
-}
