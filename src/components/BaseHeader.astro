@@ -34,7 +34,7 @@ import NavigationSocial from './NavigationSocial.vue';
 
 		const resize = () => {
 			const {height} = header.getBoundingClientRect();
-			body.style.setProperty('--height-header',`${height}px`);
+			body.style.setProperty('--height-header',`${Math.ceil(height)}px`);
 		}
 
 		window.addEventListener('resize', resize);
