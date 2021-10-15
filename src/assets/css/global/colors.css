@@ -201,6 +201,23 @@
 	--color-red-700: #b91c1c;
 	--color-red-800: #991b1b;
 	--color-red-900: #7f1d1d;
+
+	/* Theme */
+	--color-base: var(--color-white);
 	--color-primary: var(--color-amber-500);
+	--color-accent: var(--color-gray-300);
+	--color-accent-border: var(--color-gray-700);
+	--color-body: var(--color-gray-200);
+	--color-headings: var(--color-gray-50);
 	--color-background: var(--color-gray-warm-800);
+
+	@media (prefers-color-scheme: light) {
+		--color-base: var(--color-black);
+		--color-primary: var(--color-indigo-500);
+		--color-accent: var(--color-gray-600);
+		--color-accent-border: var(--color-gray-300);
+		--color-body: var(--color-gray-700);
+		--color-headings: var(--color-gray-800);
+		--color-background: var(--color-gray-cool-100);
+	}
 }

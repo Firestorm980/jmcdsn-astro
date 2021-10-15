@@ -15,7 +15,7 @@
 
 	& a {
 		align-items: center;
-		color: var(--color-white);
+		color: var(--color-base);
 		display: flex;
 		justify-content: center;
 		min-height: calc(44 / 16 * 1rem);

@@ -24,7 +24,7 @@
 	border-color: transparent;
 	border-style: solid;
 	border-width: 1px;
-	color: var(--color-white);
+	color: var(--color-base);
 	display: inline-flex;
 
 	&:hover,
