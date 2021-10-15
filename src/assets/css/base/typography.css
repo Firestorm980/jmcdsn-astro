@@ -101,7 +101,7 @@ li::marker {
 code {
 	background-color: var(--color-gray-900);
 	border-radius: 0.5rem;
-	display: inline-block;
+	display: inline;
 	padding: 0.25em 0.5em;
 }
 
