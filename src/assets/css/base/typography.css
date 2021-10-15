@@ -86,7 +86,7 @@ a {
 hr {
 	background-image: linear-gradient(to left, transparent, var(--color-primary), transparent);
 	border: none;
-	height: 1px;
+	height: 0.125rem;
 }
 
 q::after,
@@ -98,8 +98,19 @@ li::marker {
 	color: var(--color-primary);
 }
 
+code {
+	background-color: var(--color-gray-900);
+	border-radius: 0.5rem;
+	display: inline-block;
+	padding: 0.25em 0.5em;
+}
+
 pre {
 	overflow-x: auto;
+
+	& code {
+		padding: 0.75em 1em;
+	}
 }
 
 kbd {
@@ -107,13 +118,6 @@ kbd {
 	border-bottom: 0.125em solid var(--color-gray-700);
 	border-radius: 0.25rem;
 	padding: 0.25em 0.5em;
-}
-
-code {
-	background-color: var(--color-background);
-	border-radius: 0.25rem;
-	display: inline-block;
-	padding: 0.5em 1em;
 }
 
 blockquote {
@@ -144,12 +148,12 @@ table {
 	border-collapse: collapse;
 
 	& thead {
-		border-bottom: 1px solid var(--color-background);
+		border-bottom: 1px solid var(--color-accent-border);
 		color: var(--color-headings);
 	}
 
 	& tr:nth-child(even) {
-		background-color: var(--color-background);
+		background-color: var(--color-accent-border);
 	}
 
 	& th,
