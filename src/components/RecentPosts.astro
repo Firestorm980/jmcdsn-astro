@@ -2,7 +2,7 @@
 import Card from './Card.astro';
 
 // Load your data with fetch(), Astro.fetchContent(), etc.
-let posts = await Astro.fetchContent('./../pages/my-thoughts/**/*.md');
+let posts = await Astro.fetchContent('./../posts/**/*.md');
 
 // Sort posts in reverse chronological order (newest first).
 posts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());

@@ -1,14 +1,30 @@
 ---
 import DefaultLayout from './Default.astro';
+import Card from './../components/Card.astro';
 
 const {page} = Astro.props;
-const title = `Page ${page.currentPage}`;
+const title = `Blog | Page ${page.currentPage}`;
 ---
 <DefaultLayout content={{title, bodyClass: 'archive'}}>
-	<header>
-		<h1>{title}</h1>
+	<header class="section section--emphasis">
+		<div class="content">
+			<h1>
+				Blog
+				<span class="subtitle">My thoughts about stuff and things</span>
+			</h1>
+		</div>
 	</header>
-	<ul>
-		{page.data.map(item => <li>{item.title}</li>)}
-	</ul>
+	<section class="section">
+		<div class="content">
+			<h2 class="sr-only">Posts</h2>
+			<p>Showing {page.start + 1} &mdash; {page.end + 1} of {page.total}</p>
+			<ul class="post-list">
+				{page.data.map(post => <li class="post-list__item"><Card post={post} /></li>)}
+			</ul>
+			<nav class="navigation navigation--pagination" aria-label="Pagination">
+				{page.url.prev && <a class="navigation__link navigation__link--previous" href={page.url.prev}><svg class="icon" aria-hidden="true"><use xlink:href="#icon-chevron-left"></use></svg>Previous Page</a>}
+				{page.url.next && <a class="navigation__link navigation__link--next" href={page.url.next}>Next Page<svg class="icon" aria-hidden="true"><use xlink:href="#icon-chevron-right"></use></svg></a>}
+			</nav>
+		</div>
+	</section>
 </DefaultLayout>

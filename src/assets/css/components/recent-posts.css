@@ -12,6 +12,5 @@
 
 .recent-posts__list-item {
 	display: flex;
-	flex-basis: 20rem;
-	flex-grow: 1;
+	min-height: 30vh;
 }

@@ -19,3 +19,9 @@
 	color: var(--color-gray-300);
 	margin-bottom: 1em;
 }
+
+.single__content {
+	& p:first-child {
+		font-size: var(--step-1);
+	}
+}
