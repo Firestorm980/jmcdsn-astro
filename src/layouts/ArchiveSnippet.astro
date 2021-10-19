@@ -1,0 +1,32 @@
+---
+import DefaultLayout from './Default.astro';
+import { getSnippetLink } from './../utils';
+
+const { kind, snippets } = Astro.props;
+const title = 'Snippets';
+---
+<DefaultLayout content={{title, bodyClass: kind}}>
+	<header class="section section--emphasis">
+		<div class="content">
+			<h1>
+				{title}
+				<span class="subtitle">A repository of little code goodies</span>
+			</h1>
+		</div>
+	</header>
+	<div class="section">
+		<div class="content">
+			<ul>
+				{snippets.map(snippet => {
+					const {title} = snippet;
+					const href = getSnippetLink(snippet);
+					return (
+						<li>
+							<a href={href}>{title}</a>
+						</li>
+					)
+				})}
+			</ul>
+		</div>
+	</div>
+</DefaultLayout>

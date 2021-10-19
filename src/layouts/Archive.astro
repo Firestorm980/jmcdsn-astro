@@ -2,10 +2,10 @@
 import DefaultLayout from './Default.astro';
 import Card from './../components/Card.astro';
 
-const {page} = Astro.props;
+const { page, kind } = Astro.props;
 const title = `Blog | Page ${page.currentPage}`;
 ---
-<DefaultLayout content={{title, bodyClass: 'archive'}}>
+<DefaultLayout content={{title, bodyClass: kind}}>
 	<header class="section section--emphasis">
 		<div class="content">
 			<h1>

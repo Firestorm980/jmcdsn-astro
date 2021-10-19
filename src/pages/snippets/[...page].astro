@@ -1,0 +1,47 @@
+---
+import ArchiveSnippet from '../../layouts/ArchiveSnippet.astro';
+import Single from '../../layouts/Single.astro';
+import { setSnippetLink } from './../../utils'
+
+export async function getStaticPaths() {
+	// Load your data with fetch(), Astro.fetchContent(), etc.
+	let snippets = await Astro.fetchContent('./../../snippets/**/*.md');
+
+	// Remap URLs for snippets and add params.
+	const snippetParams = snippets.map(snippet => {
+		const href = setSnippetLink(snippet);
+
+		return {
+			params: {
+				page: href,
+			},
+			props: {
+				kind: 'single',
+				...snippet
+			}
+		};
+	});
+
+	return [
+		// Archive
+		{
+			params: {
+				page: '/'
+			},
+			props: {
+				kind: 'archive',
+				snippets
+			}
+		},
+		// Individual
+		...snippetParams,
+	];
+}
+
+const { kind } = Astro.props;
+---
+{
+	'single' === kind
+	? <Single {...Astro.props} />
+	: <ArchiveSnippet {...Astro.props} />
+}

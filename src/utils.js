@@ -29,3 +29,27 @@ export function setPostLink (post) {
 
   return href
 }
+
+export function getSnippetLink (snippet) {
+  const { file } = snippet
+  const { pathname } = file
+  // eslint-disable-next-line no-unused-vars
+  const parts = pathname.split('/').filter(item => item !== '')
+  const [filename] = parts.slice(-1)
+
+  const href = `/snippets/${filename.replace('.md', '')}/`
+
+  return href
+}
+
+export function setSnippetLink (snippet) {
+  const { file } = snippet
+  const { pathname } = file
+  // eslint-disable-next-line no-unused-vars
+  const parts = pathname.split('/').filter(item => item !== '')
+  const [filename] = parts.slice(-1)
+
+  const href = `/${filename.replace('.md', '')}`
+
+  return href
+}
