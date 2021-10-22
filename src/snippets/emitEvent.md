@@ -1,5 +1,7 @@
 ---
 title: Emit Event
+categories:
+- JavaScript
 ---
 ```js
 /**

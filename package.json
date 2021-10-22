@@ -48,6 +48,8 @@
     "@swup/js-plugin": "^1.0.4",
     "@swup/progress-plugin": "^1.0.1",
     "@swup/scroll-plugin": "^1.1.0",
+    "highlight.js": "^11.3.1",
+    "motion": "^10.4.0",
     "normalize.css": "^8.0.1",
     "swup": "^2.0.14"
   }

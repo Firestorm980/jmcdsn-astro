@@ -1,5 +1,9 @@
 ---
 title: FLIP
+categories:
+- JavaScript
+- Animation
+- Performance
 ---
 ```js
 /**

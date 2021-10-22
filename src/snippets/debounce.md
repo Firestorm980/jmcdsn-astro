@@ -1,5 +1,8 @@
 ---
 title: Debounce
+categories:
+- JavaScript
+- Performance
 ---
 ```js
 /**

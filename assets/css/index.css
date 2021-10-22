@@ -1,4 +1,5 @@
 @import "normalize.css";
+@import "highlight.js/styles/dark.css";
 
 /* Global */
 @import "./global/index.css";

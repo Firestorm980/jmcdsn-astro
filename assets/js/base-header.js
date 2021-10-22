@@ -1,3 +1,5 @@
+import { debounce } from './util'
+
 const body = document.querySelector('body')
 const header = document.getElementById('site-header')
 
@@ -6,5 +8,9 @@ const resize = () => {
   body.style.setProperty('--height-header', `${Math.ceil(height)}px`)
 }
 
-window.addEventListener('resize', resize)
+const bind = () => {
+  window.addEventListener('resize', debounce(resize))
+}
+
 resize()
+bind()
