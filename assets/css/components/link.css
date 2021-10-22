@@ -1,0 +1,10 @@
+.link--heading {
+	font-size: 0.75em;
+	text-decoration: none;
+
+	&:hover,
+	&:focus {
+		background-color: transparent;
+		text-decoration: underline;
+	}
+}
