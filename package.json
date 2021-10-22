@@ -3,15 +3,21 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview"
+    "preview": "astro preview",
+    "dev": "npm-run-all dev:* --parallel",
+    "build": "npm-run-all build:*",
+    "build:astro": "astro build || true",
+    "build:css": "NODE_ENV=production postcss ./assets/css/index.css -o ./dist/assets/css/index.css",
+    "build:js": "NODE_ENV=production rollup -c rollup.config.js",
+    "dev:astro": "astro build || true",
+    "dev:css": "NODE_ENV=development postcss ./assets/css/index.css -o ./dist/assets/css/index.css",
+    "dev:js": "NODE_ENV=development rollup -c rollup.config.js",
+    "dev:preview": "astro preview"
   },
   "devDependencies": {
-    "@snowpack/plugin-postcss": "^1.4.3",
-    "astro": "^0.20.10",
+    "astro": "^0.20.12",
     "autoprefixer": "^10.3.4",
+    "cssnano": "^5.0.8",
     "dayjs": "^1.10.7",
     "eslint": "^7.32.0",
     "eslint-config-standard": "^16.0.3",
@@ -19,16 +25,28 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^5.1.0",
     "eslint-plugin-standard": "^5.0.0",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.3.11",
+    "postcss-cli": "^9.0.1",
+    "postcss-custom-media": "^8.0.0",
     "postcss-import": "^14.0.2",
     "postcss-mixins": "^8.1.0",
     "postcss-modules": "^4.2.2",
-    "postcss-nested": "^5.0.6",
+    "postcss-nesting": "^8.0.1",
     "postcss-reporter": "^7.0.2",
+    "rollup": "^2.58.0",
+    "rollup-plugin-terser": "^7.0.2",
     "stylelint": "^13.13.1",
     "stylelint-config-standard": "^22.0.0",
     "stylelint-order": "^4.1.0"
   },
   "dependencies": {
-    "normalize.css": "^8.0.1"
+    "@swup/a11y-plugin": "^2.0.0",
+    "@swup/body-class-plugin": "^1.0.2",
+    "@swup/js-plugin": "^1.0.4",
+    "@swup/progress-plugin": "^1.0.1",
+    "@swup/scroll-plugin": "^1.1.0",
+    "normalize.css": "^8.0.1",
+    "swup": "^2.0.14"
   }
 }
