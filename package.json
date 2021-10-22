@@ -11,10 +11,12 @@
     "build:js": "NODE_ENV=production rollup -c rollup.config.js",
     "dev:astro": "astro build || true",
     "dev:css": "NODE_ENV=development postcss ./assets/css/index.css -o ./dist/assets/css/index.css",
-    "dev:js": "NODE_ENV=development rollup -c rollup.config.js",
+    "dev:js": "NODE_ENV=development rollup -c rollup.config.js -w",
     "dev:preview": "astro preview"
   },
   "devDependencies": {
+    "@rollup/plugin-commonjs": "^21.0.1",
+    "@rollup/plugin-node-resolve": "^13.0.6",
     "astro": "^0.20.12",
     "autoprefixer": "^10.3.4",
     "cssnano": "^5.0.8",
