@@ -9,7 +9,7 @@
     "build:astro": "astro build || true",
     "build:css": "NODE_ENV=production postcss ./assets/css/index.css -o ./dist/assets/css/index.css",
     "build:js": "NODE_ENV=production rollup -c rollup.config.js",
-    "dev:astro": "astro build || true",
+    "dev:astro": "astro dev || true",
     "dev:css": "NODE_ENV=development postcss ./assets/css/index.css -o ./dist/assets/css/index.css -w",
     "dev:js": "NODE_ENV=development rollup -c rollup.config.js -w",
     "dev:preview": "astro preview"
@@ -38,8 +38,8 @@
     "postcss-reporter": "^7.0.2",
     "rollup": "^2.58.0",
     "rollup-plugin-terser": "^7.0.2",
-    "stylelint": "^13.13.1",
-    "stylelint-config-standard": "^22.0.0",
+    "stylelint": "^14.0.1",
+    "stylelint-config-standard": "^23.0.0",
     "stylelint-order": "^4.1.0"
   },
   "dependencies": {
@@ -48,6 +48,7 @@
     "@swup/js-plugin": "^1.0.4",
     "@swup/progress-plugin": "^1.0.1",
     "@swup/scroll-plugin": "^1.1.0",
+    "entypo": "^2.2.1",
     "highlight.js": "^11.3.1",
     "motion": "^10.4.0",
     "normalize.css": "^8.0.1",
