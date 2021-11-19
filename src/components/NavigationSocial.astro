@@ -1,20 +1,17 @@
 ---
 import siteData from './../data/site.json';
+import Icon from './../components/Icon.astro';
 
 const {networks} = siteData;
 ---
 <div class="navigation navigation--social">
 	<ul>
 		{networks.map((network) => {
-			const xlinkHref = `#icon-${network.slug}`;
-
 			return (
 				<li>
 					<a href={ network.url }>
 						<span class="sr-only">Visit me on { network.name }</span>
-						<svg class="icon" aria-hidden="true">
-							<use xlink:href={xlinkHref}></use>
-						</svg>
+						<Icon name={network.slug} />
 					</a>
 				</li>
 			)

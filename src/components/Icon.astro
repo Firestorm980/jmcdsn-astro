@@ -1,0 +1,7 @@
+---
+const {name} = Astro.props;
+const href = `#icon-${name}`
+---
+<svg class="icon" aria-hidden="true">
+	<use xlink:href={href}></use>
+</svg>

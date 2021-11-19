@@ -1,7 +1,8 @@
 ---
 import siteData from './../data/site.json';
-import Navigation from './Navigation.vue';
-import NavigationSocial from './NavigationSocial.vue';
+import Navigation from './Navigation.astro';
+import NavigationSocial from './NavigationSocial.astro';
+import Icon from './Icon.astro';
 ---
 <header id="site-header" class="site-header">
     <a href="#main" class="skip-link button button--primary">Skip to content</a>
@@ -21,7 +22,16 @@ import NavigationSocial from './NavigationSocial.vue';
 				</g>
 			</svg>
 		</a>
-		<div class="site-header__navigation">
+
+		<button class="site-header__button" data-action="open" type="button">
+			<span class="sr-only">Open Menu</span>
+			<Icon name="list" />
+		</button>
+		<div id="site-header-navigation" class="site-header__navigation">
+			<button class="site-header__button" data-action="close" type="button">
+				<span class="sr-only">Close Menu</span>
+				<Icon name="close" />
+			</button>
 			<Navigation />
 			<NavigationSocial />
 		</div>
