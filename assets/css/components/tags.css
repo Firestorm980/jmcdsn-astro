@@ -17,7 +17,4 @@
 	font-size: var(--step--1);
 	line-height: 1;
 	padding: 0.5em 1em;
-	transition-duration: var(--transition-duration);
-	transition-property: border-color, color;
-	transition-timing-function: var(--transition-easing);
 }

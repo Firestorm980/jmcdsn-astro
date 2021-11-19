@@ -1,31 +1,55 @@
 .card {
-	border-color: var(--color-primary);
-	border-style: solid;
-	border-width: 2px;
+	--border: 0.1875rem;
+
+	background-color: var(--color-background);
+	border-radius: calc(var(--border) * 4);
 	display: flex;
 	flex-direction: column;
 	padding: 1.25rem;
 	position: relative;
 	transition-duration: var(--transition-duration);
-	transition-property: background, color;
+	transition-property: all;
 	transition-timing-function: var(--transition-easing);
 	width: 100%;
 
 	&:hover,
 	&:focus-within {
-		background-color: var(--color-primary);
-		color: var(--color-background);
+		background-color: transparent;
+		color: hsl(var(--color-white));
 
 		& .card__heading,
 		& .card__link,
 		& .card__date {
-			color: var(--color-background);
+			color: hsl(var(--color-white));
+			text-shadow: 0.125em 0.125em 0.125em var(--color-shadow);
 		}
 
 		& .tag {
-			border-color: var(--color-background);
-			color: var(--color-background);
+			border-color: hsl(var(--color-white));
+			color: hsl(var(--color-white));
 		}
+	}
+
+	&::before {
+		background: var(--color-gradient);
+		border-radius: calc(var(--border) * 5);
+		content: "";
+		height: calc(100% + (var(--border) * 2));
+		left: calc(var(--border) * -1);
+		position: absolute;
+		top: calc(var(--border) * -1);
+		width: calc(100% + (var(--border) * 2));
+		z-index: -1;
+	}
+
+	& .card__heading,
+	& .card__link,
+	& .card__date,
+	& .tag {
+		text-shadow: 0.125em 0.125em 0.125em transparent;
+		transition-duration: var(--transition-duration);
+		transition-property: all;
+		transition-timing-function: var(--transition-easing);
 	}
 }
 
@@ -57,7 +81,6 @@
 	color: var(--color-accent);
 	font-size: var(--step--1);
 	margin-bottom: 2.5rem;
-	transition: inherit;
 }
 
 .card__tags {

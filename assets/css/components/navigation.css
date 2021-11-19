@@ -17,21 +17,38 @@
 		align-items: center;
 		color: var(--color-base);
 		display: flex;
+		font-weight: 500;
 		justify-content: center;
 		min-height: calc(44 / 16 * 1rem);
 		padding: 0.5em 1em;
-		text-decoration: none;
+		text-decoration: underline;
+		text-decoration-color: transparent;
+		text-decoration-thickness: 2px;
+		transition-property: color, text-decoration, transform;
 
 		&:hover,
 		&:focus {
-			background-color: var(--color-primary);
-			color: var(--color-background);
+			background: none;
+			text-decoration-color: var(--color-primary);
 		}
 	}
 }
 
 .navigation__inner {
 	display: flex;
+}
+
+.navigation--social {
+
+	& a {
+		color: var(--color-base);
+
+		&:hover,
+		&:focus {
+			color: var(--color-primary);
+			transform: scale(1.2);
+		}
+	}
 }
 
 .navigation--pagination {
