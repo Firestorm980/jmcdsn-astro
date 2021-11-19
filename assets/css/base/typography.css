@@ -22,13 +22,13 @@ h6 {
 	font-weight: var(--font-weight-medium);
 	line-height: 1.2;
 	margin-bottom: 0.5em;
+	margin-left: -0.04em;
 	margin-top: 1em;
 }
 
 h1,
 .h1 {
 	font-size: var(--step-5);
-	margin-left: -0.04em;
 
 	& .subtitle {
 		background: var(--color-gradient);
