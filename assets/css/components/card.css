@@ -1,28 +1,30 @@
 .card {
-	background-color: var(--color-background);
+	background-color: var(--color-accent-background);
+	border: 1px solid var(--color-accent-border);
+	border-radius: 0.5rem;
 	display: flex;
 	flex-direction: column;
+	padding: 1.5rem;
 	position: relative;
 	transition-duration: var(--transition-duration);
-	transition-property: all;
+	transition-property: background-color, background-size, border-color, color;
 	transition-timing-function: var(--transition-easing);
 	width: 100%;
 
 	&:hover,
 	&:focus-within {
-		background-color: transparent;
-		color: hsl(var(--color-white));
+		border-color: var(--color-primary);
+		color: hsl(var(--color-base));
 
 		& .card__heading,
 		& .card__link,
 		& .card__date {
-			color: hsl(var(--color-white));
-			text-shadow: 0.125em 0.125em 0.125em var(--color-shadow);
+			color: hsl(var(--color-base));
 		}
 
 		& .tag {
-			border-color: hsl(var(--color-white));
-			color: hsl(var(--color-white));
+			border-color: hsl(var(--color-base));
+			color: hsl(var(--color-base));
 		}
 	}
 
@@ -30,9 +32,8 @@
 	& .card__link,
 	& .card__date,
 	& .tag {
-		text-shadow: 0.125em 0.125em 0.125em transparent;
 		transition-duration: var(--transition-duration);
-		transition-property: all;
+		transition-property: background-color, background-size, border-color, color;;
 		transition-timing-function: var(--transition-easing);
 	}
 }
@@ -44,6 +45,7 @@
 }
 
 .card__link {
+	text-decoration: none;
 
 	&::after {
 		content: "";

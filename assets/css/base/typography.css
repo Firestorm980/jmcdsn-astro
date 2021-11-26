@@ -61,13 +61,15 @@ h5,
 }
 
 a {
-	background-color: transparent;
+	background-image: linear-gradient(to bottom, transparent 1px, var(--color-primary) 1px);
+	background-position-x: right;
+	background-position-y: bottom;
+	background-repeat: no-repeat;
+	background-size: 0% min(0.125em, 3px);
 	color: var(--color-primary);
-	text-decoration: underline;
-	text-decoration-color: currentColor;
-	text-decoration-thickness: min(0.125em, 3px);
+	text-decoration: none;
 	transition-duration: var(--transition-duration);
-	transition-property: background, border-color, color, text-decoration-color;
+	transition-property: background-color, background-size, border-color, color;
 	transition-timing-function: var(--transition-easing);
 
 	&:hover,
@@ -75,8 +77,8 @@ a {
 		--bg-color: hsl(var(--color-amber-900));
 
 		background-color: var(--bg-color);
-		text-decoration: none;
-		text-decoration-color: transparent;
+		background-position-x: left;
+		background-size: 100% min(0.125em, 3px);
 
 		@media (prefers-color-scheme: light) {
 			--bg-color: hsl(var(--color-indigo-200));
