@@ -1,6 +1,6 @@
 .link--heading {
 	font-size: 0.75em;
-	opacity: 0%;
+	opacity: 0;
 	text-decoration: none;
 	transition-property: opacity, background;
 }
@@ -12,7 +12,7 @@ h5,
 h6 {
 	&:hover {
 		& .link--heading {
-			opacity: 100%;
+			opacity: 1;
 		}
 	}
 }

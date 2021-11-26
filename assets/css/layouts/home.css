@@ -19,12 +19,4 @@
 			}
 		}
 	}
-
-	& .section {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		margin: 0;
-		min-height: calc(100vh - var(--height-header));
-	}
 }

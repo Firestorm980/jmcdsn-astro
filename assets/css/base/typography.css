@@ -65,7 +65,7 @@ a {
 	color: var(--color-primary);
 	text-decoration: underline;
 	text-decoration-color: currentColor;
-	text-decoration-thickness: 0.125em;
+	text-decoration-thickness: min(0.125em, 3px);
 	transition-duration: var(--transition-duration);
 	transition-property: background, border-color, color, text-decoration-color;
 	transition-timing-function: var(--transition-easing);
@@ -132,7 +132,7 @@ blockquote {
 	&::before {
 		background-image: linear-gradient(to bottom, var(--color-primary), transparent);
 		border-radius: 0.125rem;
-		content: '';
+		content: "";
 		height: 100%;
 		left: 0;
 		position: absolute;
