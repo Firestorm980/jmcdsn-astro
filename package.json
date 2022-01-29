@@ -17,7 +17,7 @@
   "devDependencies": {
     "@rollup/plugin-commonjs": "^21.0.1",
     "@rollup/plugin-node-resolve": "^13.0.6",
-    "astro": "^0.21.4",
+    "astro": "^0.22.20",
     "autoprefixer": "^10.3.4",
     "cssnano": "^5.0.8",
     "dayjs": "^1.10.7",
@@ -38,9 +38,9 @@
     "postcss-reporter": "^7.0.2",
     "rollup": "^2.58.0",
     "rollup-plugin-terser": "^7.0.2",
-    "stylelint": "^14.1.0",
+    "stylelint": "^14.3.0",
     "stylelint-config-standard": "^24.0.0",
-    "stylelint-order": "^4.1.0"
+    "stylelint-order": "^5.0.0"
   },
   "dependencies": {
     "@swup/a11y-plugin": "^2.0.0",
