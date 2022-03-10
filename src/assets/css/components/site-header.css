@@ -45,12 +45,16 @@
 
 .site-header__navigation-content {
 	backdrop-filter: blur(0.5rem);
-	background-color: hsla(var(--color-gray-warm-800) 90%);
+	background-color: hsla(var(--color-gray-warm-800), 90%);
 	border-top: 1px solid var(--color-accent-border);
 	display: flex;
 	flex-direction: column;
 	flex-grow: 1;
 	width: min(90%, 30rem);
+
+	@nest [data-theme="light"] & {
+		background-color: hsla(var(--color-gray-cool-50), 90%);
+	}
 }
 
 .site-header__button {

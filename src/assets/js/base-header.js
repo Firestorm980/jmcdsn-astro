@@ -30,8 +30,6 @@ const onHeaderClick = (event) => {
   const { target, detail } = event
   const focus = detail === 0
 
-  console.log(target)
-
   if (!target.matches('.site-header__button')) {
     return
   }

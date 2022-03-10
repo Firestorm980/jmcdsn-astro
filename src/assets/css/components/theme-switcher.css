@@ -27,6 +27,11 @@
 	position: absolute;
 	top: 0;
 	width: 100%;
+
+	&:checked + .theme-switcher__label {
+		background-color: var(--color-primary);
+		color: var(--color-background);
+	}
 }
 
 .theme-switcher__label {
