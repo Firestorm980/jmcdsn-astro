@@ -16,8 +16,8 @@ export async function getStaticPaths() {
 				page: href,
 			},
 			props: {
-				kind: 'single',
-				...snippet
+				kind: 'single single-snippet',
+				post: {...snippet}
 			}
 		};
 	});
@@ -25,9 +25,7 @@ export async function getStaticPaths() {
 	return [
 		// Archive
 		{
-			params: {
-				page: '/'
-			},
+			params: {},
 			props: {
 				kind: 'archive',
 				snippets
@@ -38,10 +36,10 @@ export async function getStaticPaths() {
 	];
 }
 
-const { kind } = Astro.props;
+const { kind, snippets, post } = Astro.props;
 ---
 {
-	'single' === kind
-	? <Single {...Astro.props} />
-	: <ArchiveSnippet {...Astro.props} />
+	'archive' !== kind
+	? <Single kind={kind} post={post} />
+	: <ArchiveSnippet kind={kind} snippets={snippets} />
 }

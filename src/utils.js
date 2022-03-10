@@ -49,7 +49,7 @@ export function setSnippetLink (snippet) {
   const parts = pathname.split('/').filter(item => item !== '')
   const [filename] = parts.slice(-1)
 
-  const href = `/${filename.replace('.md', '')}`
+  const href = filename.replace('.md', '')
 
   return href
 }

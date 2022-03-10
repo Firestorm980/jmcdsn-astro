@@ -101,21 +101,6 @@ li::marker {
 	color: var(--color-primary);
 }
 
-code {
-	background-color: hsl(var(--color-gray-900));
-	border-radius: 0.5rem;
-	display: inline;
-	padding: 0.25em 0.5em;
-}
-
-pre {
-	overflow-x: auto;
-
-	& code {
-		padding: 0.75em 1em;
-	}
-}
-
 kbd {
 	background-color: var(--color-background);
 	border-bottom: 0.125em solid hsl(var(--color-gray-700));

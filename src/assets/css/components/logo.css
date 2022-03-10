@@ -3,7 +3,7 @@
 }
 
 .logo__letter {
-	fill: currentColor;
+	fill: currentcolor;
 	transition-duration: var(--transition-duration);
 	transition-property: fill;
 	transition-timing-function: var(--transition-easing);

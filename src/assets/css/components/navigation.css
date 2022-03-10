@@ -1,4 +1,5 @@
 .navigation {
+
 	& button {
 		@media (min-width: 48em) {
 			display: none;

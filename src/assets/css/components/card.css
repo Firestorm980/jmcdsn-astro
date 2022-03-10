@@ -33,7 +33,7 @@
 	& .card__date,
 	& .tag {
 		transition-duration: var(--transition-duration);
-		transition-property: background-color, background-size, border-color, color;;
+		transition-property: background-color, background-size, border-color, color;
 		transition-timing-function: var(--transition-easing);
 	}
 }

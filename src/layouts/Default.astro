@@ -13,7 +13,7 @@ const { title, description, permalink, bodyClass } = content;
   </head>
   <body class={(bodyClass) ? bodyClass : 'page'}>
 		<SiteSVG />
-    <BaseHeader client:load />
+    <BaseHeader />
     <main id="main" class="site-main">
 			<div id="swup" class="site-main__content transition transition--page">
         <slot />

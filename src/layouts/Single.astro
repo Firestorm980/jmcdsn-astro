@@ -4,9 +4,10 @@ import Tags from './../components/Tags.astro';
 import DefaultLayout from './Default.astro';
 import { Markdown } from 'astro/components';
 
-const { title, date, categories, astro, kind } = Astro.props;
-const post_date = (date) ? new Date(date) : false;
+const { kind, post } = Astro.props;
+const { title, date, categories, astro } = post;
 const { source } = astro;
+const post_date = (date) ? new Date(date) : false;
 ---
 <DefaultLayout content={{title, bodyClass: kind}}>
 	<article>

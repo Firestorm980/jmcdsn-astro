@@ -19,15 +19,23 @@ export async function getStaticPaths({ paginate }) {
 				page: href,
 			},
 			props: {
-				kind: 'single',
-				...post
+				kind: 'single single-post',
+				post: {...post}
 			}
 		};
 	});
 
 	// Create pagination.
 	let paginationParams = paginate(posts);
-	paginationParams = paginationParams.map((params) => ({ ...params, kind: 'archive' }))
+	paginationParams = paginationParams.map((params) => {
+		return {
+			...params,
+			props: {
+				...params.props,
+				kind: 'archive'
+			}
+		}
+	});
 
 	// Return the combined params.
 	return [
@@ -36,9 +44,9 @@ export async function getStaticPaths({ paginate }) {
 	];
 };
 
-const { kind } = Astro.props;
+const { kind, page, post } = Astro.props;
 ---
-{'single' === kind
-	? <Single {...Astro.props} />
-	: <Archive {...Astro.props} />
+{'archive' !== kind
+	? <Single kind={kind} post={post} />
+	: <Archive kind={kind} page={page} />
 }
