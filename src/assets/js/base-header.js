@@ -1,10 +1,6 @@
-import { debounce } from './util'
-
-const body = document.querySelector('body')
 const header = document.getElementById('site-header')
 const navigation = document.getElementById('site-header-navigation')
 const buttons = document.querySelectorAll('.site-header__button')
-const mq = window.matchMedia('(min-width: 48em)')
 
 const close = (focus) => {
   const isOpen = false
@@ -50,7 +46,7 @@ const onHeaderClick = (event) => {
 }
 
 const setup = () => {
-  const isOpen = mq.matches
+  const isOpen = false
 
   navigation.setAttribute('aria-hidden', !isOpen)
   navigation.setAttribute('data-open', isOpen)
@@ -63,7 +59,6 @@ const setup = () => {
 }
 
 const bind = () => {
-  mq.addEventListener('change', setup)
   header.addEventListener('click', onHeaderClick)
 }
 

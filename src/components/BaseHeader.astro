@@ -2,37 +2,29 @@
 import siteData from './../data/site.json';
 import Navigation from './Navigation.astro';
 import NavigationSocial from './NavigationSocial.astro';
-import Icon from './Icon.astro';
+import SiteLogo from './SiteLogo.astro';
+import ThemeSwitcher from './ThemeSwitcher.astro';
 ---
 <header id="site-header" class="site-header">
     <a href="#main" class="skip-link button button--primary">Skip to content</a>
 
 	<div class="site-header__inner">
-		<a href="/" class="site-header__logo">
-			<span class="sr-only">{siteData.title}</span>
-			<svg class="logo" xmlns="http://www.w3.org/2000/svg" width="150" height="61" viewBox="0 0 150 61" aria-hidden="true" fill="none">
-				<path class="logo__background" d="M0 0h150v61H0z"/>
-				<g>
-					<path class="logo__letter" data-letter="J" d="M31.458 41.785c.868.123 1.53-.084 2.024-.744.248-.288.372-.784.372-1.487V15.505h4.462v24.75c0 1.653-.413 3.183-1.446 4.298-1.033 1.115-2.77 1.777-5.413 1.61v-4.378z"/>
-					<path class="logo__letter" data-letter="M" d="M48.812 45.875l-2.85-19.09-.167-1.28h-.248v20.37h-4.132v-30.37h5.455l2.645 13.884.206 1.61h.084l.207-1.61 2.646-13.885h5.455v30.37h-4.13v-20.37h-.25l-.164 1.28-2.85 19.09H48.81z"/>
-					<path class="logo__letter" data-letter="C" d="M73.024 35.463v4.174c-.042 1.238-.29 2.355-.744 3.305-.372.826-.95 1.61-1.776 2.232-.826.66-1.942 1.03-3.43 1.03-1.488 0-2.645-.37-3.47-1.03-.827-.62-1.365-1.406-1.736-2.232-.455-.95-.703-2.066-.744-3.305V21.744c.04-1.198.29-2.314.744-3.264.372-.827.91-1.653 1.735-2.273.827-.62 1.983-1.033 3.47-1.033 1.488 0 2.605.414 3.43 1.033.827.62 1.405 1.446 1.777 2.273.455.95.702 2.065.744 3.264v4.174H68.85v-4.174c0-.826-.207-1.404-.66-1.9-.208-.207-.58-.33-1.034-.33-.785 0-1.157.578-1.364 1.115-.124.33-.165.7-.207 1.114v17.893c.042.867.29 1.445.703 1.9.207.207.496.33.868.33.95 0 1.322-.496 1.53-1.115.123-.29.164-.662.164-1.115v-4.174h4.174z"/>
-					<path class="logo__letter" data-letter="D" d="M75.71 45.875v-30.37h3.51c4.133 0 6.364.826 7.563 3.14 1.157 2.314 1.322 6.116 1.322 12.066 0 5.95-.165 9.712-1.322 12.024-1.198 2.314-3.43 3.14-7.562 3.14h-3.51zm4.46-4.463c1.53 0 2.397-.164 2.853-1.652.206-.703.372-1.777.413-3.223.04-1.447.04-3.39.04-5.867 0-2.48 0-4.422-.04-5.868-.04-1.405-.207-2.48-.413-3.224-.455-1.445-1.322-1.61-2.852-1.61V41.41z"/>
-					<path class="logo__letter" data-letter="S" d="M98.475 23.645c0-.99-.04-2.107-.33-2.975-.29-.826-.744-1.404-1.446-1.404-1.158.04-1.53 1.238-1.53 3.016 0 1.033.455 2.107 1.116 3.264.66 1.158 1.528 2.355 2.396 3.637 1.033 1.53 2.066 3.1 2.852 4.63.785 1.526 1.322 3.097 1.322 4.75 0 2.024-.33 3.925-1.28 5.33-.95 1.405-2.48 2.314-4.918 2.314-2.852 0-4.463-1.074-5.372-2.727s-1.115-3.842-1.115-6.115l4.38-.414c0 1.282.042 2.564.373 3.515.29.992.785 1.652 1.735 1.652 1.322 0 1.817-1.404 1.817-3.348 0-.99-.495-2.15-1.156-3.347-.373-.578-.745-1.2-1.158-1.818-.868-1.24-1.818-2.645-2.81-4.174-.992-1.528-1.735-3.1-2.19-4.71-.248-.785-.372-1.61-.372-2.438 0-1.652.372-3.43 1.322-4.793.95-1.323 2.396-2.274 4.504-2.315 2.687-.04 4.257 1.074 5.124 2.686.868 1.654 1.116 3.68 1.116 5.374l-4.38.41z"/>
-					<path class="logo__letter" data-letter="N" d="M109.96 30.05l-.37-1.405h-.25v17.23h-4.09v-30.37h3.967l4.34 15.825.37 1.406h.25v-17.23h4.09v30.37H114.3l-4.34-15.827z"/>
-				</g>
-			</svg>
-		</a>
+		<SiteLogo />
 
 		<button class="site-header__button" data-action="open" type="button">
-			<span class="sr-only">Open Menu</span>
-			<Icon name="list" />
+			Menu
 		</button>
-		<div id="site-header-navigation" class="site-header__navigation">
+	</div>
+	<div id="site-header-navigation" class="site-header__navigation">
+		<div class="site-header__inner">
+			<SiteLogo />
 			<button class="site-header__button" data-action="close" type="button">
-				<span class="sr-only">Close Menu</span>
-				<Icon name="close" />
+				Close
 			</button>
+		</div>
+		<div class="site-header__navigation-content">
 			<Navigation />
+			<ThemeSwitcher />
 			<NavigationSocial />
 		</div>
 	</div>
