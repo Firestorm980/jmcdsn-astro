@@ -4,7 +4,15 @@ const buttons = document.querySelectorAll('.site-header__button')
 
 const close = (focus) => {
   const isOpen = false
+  const handleTransitionend = () => {
+    const focusElement = document.querySelector('.site-header__button[data-action="open"]')
 
+    if (focus) {
+      focusElement.focus();
+    }
+  }
+
+  navigation.addEventListener('transitionend', handleTransitionend, { once: true })
   navigation.setAttribute('aria-hidden', !isOpen)
   navigation.setAttribute('data-open', isOpen)
 
@@ -16,7 +24,15 @@ const close = (focus) => {
 
 const open = (focus) => {
   const isOpen = true
+  const handleTransitionend = () => {
+    const focusElement = document.querySelector('.site-header__button[data-action="close"]')
 
+    if (focus) {
+      focusElement.focus();
+    }
+  }
+
+  navigation.addEventListener('transitionend', handleTransitionend, { once: true })
   navigation.setAttribute('aria-hidden', !isOpen)
   navigation.setAttribute('data-open', isOpen)
 
@@ -43,6 +59,33 @@ const onHeaderClick = (event) => {
   }
 }
 
+const onNavigationKeydown = (event) => {
+  const { shiftKey, key, target } = event
+  const isOpen = navigation.getAttribute('data-open') === 'true'
+
+  if (!isOpen) {
+    return;
+  }
+
+  if ('Tab' !== key) {
+    return;
+  }
+
+  const focusableArray = Array.from(navigation.querySelectorAll('a, input, button'));
+  const first = focusableArray[0]
+  const last = focusableArray[focusableArray.length - 1]
+
+  if (first === target && shiftKey) {
+    event.preventDefault();
+    last.focus();
+  }
+
+  if (last === target && !shiftKey) {
+    event.preventDefault();
+    first.focus();
+  }
+}
+
 const setup = () => {
   const isOpen = false
 
@@ -58,6 +101,7 @@ const setup = () => {
 
 const bind = () => {
   header.addEventListener('click', onHeaderClick)
+  navigation.addEventListener('keydown', onNavigationKeydown)
 }
 
 setup()

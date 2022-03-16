@@ -1,5 +1,6 @@
 ---
 import siteData from './../data/site.json';
+import Icon from './Icon.astro';
 import Navigation from './Navigation.astro';
 import NavigationSocial from './NavigationSocial.astro';
 import SiteLogo from './SiteLogo.astro';
@@ -12,14 +13,17 @@ import ThemeSwitcher from './ThemeSwitcher.astro';
 		<SiteLogo />
 
 		<button class="site-header__button" data-action="open" type="button">
-			Menu
+			<Icon name="list" />
+			<span>Menu</span>
 		</button>
 	</div>
 	<div id="site-header-navigation" class="site-header__navigation">
+		<div class="site-header__backdrop"></div>
 		<div class="site-header__inner">
 			<SiteLogo />
 			<button class="site-header__button" data-action="close" type="button">
-				Close
+				<Icon name="close" />
+				<span>Close</span>
 			</button>
 		</div>
 		<div class="site-header__navigation-content">
