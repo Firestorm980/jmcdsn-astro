@@ -1,7 +1,6 @@
 // postcss.config.js
 module.exports = ({ env }) => ({
   plugins: {
-    stylelint: {},
     'postcss-reporter': {},
     autoprefixer: {},
     'postcss-import': {},
