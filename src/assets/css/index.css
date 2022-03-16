@@ -1,15 +1,17 @@
-/* stylelint-disable */
 @import "normalize.css";
-/* stylelint-enable */
 
 /* Global */
+
 @import "./global/index.css";
 
 /* Base */
+
 @import "./base/index.css";
 
 /* Components */
+
 @import "./components/index.css";
 
 /* Layouts */
+
 @import "./layouts/index.css";

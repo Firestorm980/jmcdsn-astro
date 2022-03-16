@@ -6,10 +6,10 @@
     "preview": "astro preview",
     "dev": "npm-run-all dev:* --parallel",
     "build": "npm-run-all build:*",
-    "build:astro": "astro build --experimental-static-build",
+    "build:astro": "astro build",
     "build:css": "NODE_ENV=production postcss ./assets/css/index.css -o ./dist/assets/css/index.css",
     "build:js": "NODE_ENV=production rollup -c rollup.config.js",
-    "dev:astro": "astro dev --experimental-static-build",
+    "dev:astro": "astro dev",
     "dev:css": "NODE_ENV=development postcss ./assets/css/index.css -o ./dist/assets/css/index.css -w",
     "dev:js": "NODE_ENV=development rollup -c rollup.config.js -w",
     "dev:preview": "astro preview"
@@ -17,7 +17,7 @@
   "devDependencies": {
     "@rollup/plugin-commonjs": "^21.0.1",
     "@rollup/plugin-node-resolve": "^13.0.6",
-    "astro": "^0.23.2",
+    "astro": "^0.24.3",
     "autoprefixer": "^10.4.2",
     "cssnano": "^5.0.17",
     "dayjs": "^1.10.7",
