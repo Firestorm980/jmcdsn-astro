@@ -2,7 +2,7 @@ const header = document.getElementById('site-header')
 const navigation = document.getElementById('site-header-navigation')
 const buttons = document.querySelectorAll('.site-header__button')
 
-const close = (focus) => {
+export const close = (focus) => {
   const isOpen = false
   const handleTransitionend = () => {
     const focusElement = document.querySelector('.site-header__button[data-action="open"]')
@@ -22,7 +22,7 @@ const close = (focus) => {
   })
 }
 
-const open = (focus) => {
+export const open = (focus) => {
   const isOpen = true
   const handleTransitionend = () => {
     const focusElement = document.querySelector('.site-header__button[data-action="close"]')
@@ -86,6 +86,16 @@ const onNavigationKeydown = (event) => {
   }
 }
 
+const onNavigationClick = (event) => {
+  const { target } = event;
+
+  if ( ! target.matches('a') && ! target.matches('.site-header__backdrop') ) {
+    return;
+  }
+
+  close()
+}
+
 const setup = () => {
   const isOpen = false
 
@@ -101,6 +111,7 @@ const setup = () => {
 
 const bind = () => {
   header.addEventListener('click', onHeaderClick)
+  navigation.addEventListener('click', onNavigationClick)
   navigation.addEventListener('keydown', onNavigationKeydown)
 }
 
