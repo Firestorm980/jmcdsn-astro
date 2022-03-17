@@ -53,18 +53,20 @@
 	--color-indigo-900: 242.2, 47.4%, 34.3%;
 
 	/* Theme */
-	--color-base: hsl(var(--color-gray-warm-50));
-	--color-primary: hsl(var(--color-amber-500));
-	--color-accent: hsl(var(--color-gray-warm-300));
-	--color-accent-background: hsl(var(--color-gray-warm-900));
-	--color-accent-border: hsl(var(--color-gray-warm-700));
-	--color-body: hsl(var(--color-gray-warm-200));
-	--color-headings: hsl(var(--color-gray-warm-50));
-	--color-background: hsl(var(--color-gray-warm-800));
-	--color-gradient: linear-gradient(165deg, #f59e0b, #f39909, #ed8c06, #e37a05, #d96606, #ce5409, #c5460b, #c2410c);
-	--color-shadow: hsla(var(--color-amber-900), 0.5);
+	&[data-theme="dark"] {
+		--color-base: hsl(var(--color-gray-warm-50));
+		--color-primary: hsl(var(--color-amber-500));
+		--color-accent: hsl(var(--color-gray-warm-300));
+		--color-accent-background: hsl(var(--color-gray-warm-900));
+		--color-accent-border: hsl(var(--color-gray-warm-700));
+		--color-body: hsl(var(--color-gray-warm-200));
+		--color-headings: hsl(var(--color-gray-warm-50));
+		--color-background: hsl(var(--color-gray-warm-800));
+		--color-gradient: linear-gradient(165deg, #f59e0b, #f39909, #ed8c06, #e37a05, #d96606, #ce5409, #c5460b, #c2410c);
+		--color-shadow: hsla(var(--color-amber-900), 0.5);
+	}
 
-	@media (prefers-color-scheme: light) {
+	&[data-theme="light"] {
 		--color-base: hsl(var(--color-gray-cool-900));
 		--color-primary: hsl(var(--color-indigo-500));
 		--color-accent: hsl(var(--color-gray-cool-600));

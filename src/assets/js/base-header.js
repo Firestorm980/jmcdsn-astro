@@ -1,14 +1,18 @@
-import { debounce } from './util'
-
-const body = document.querySelector('body')
 const header = document.getElementById('site-header')
 const navigation = document.getElementById('site-header-navigation')
 const buttons = document.querySelectorAll('.site-header__button')
-const mq = window.matchMedia('(min-width: 48em)')
 
-const close = (focus) => {
+export const close = (focus) => {
   const isOpen = false
+  const handleTransitionend = () => {
+    const focusElement = document.querySelector('.site-header__button[data-action="open"]')
 
+    if (focus) {
+      focusElement.focus();
+    }
+  }
+
+  navigation.addEventListener('transitionend', handleTransitionend, { once: true })
   navigation.setAttribute('aria-hidden', !isOpen)
   navigation.setAttribute('data-open', isOpen)
 
@@ -18,9 +22,17 @@ const close = (focus) => {
   })
 }
 
-const open = (focus) => {
+export const open = (focus) => {
   const isOpen = true
+  const handleTransitionend = () => {
+    const focusElement = document.querySelector('.site-header__button[data-action="close"]')
 
+    if (focus) {
+      focusElement.focus();
+    }
+  }
+
+  navigation.addEventListener('transitionend', handleTransitionend, { once: true })
   navigation.setAttribute('aria-hidden', !isOpen)
   navigation.setAttribute('data-open', isOpen)
 
@@ -33,8 +45,6 @@ const open = (focus) => {
 const onHeaderClick = (event) => {
   const { target, detail } = event
   const focus = detail === 0
-
-  console.log(target)
 
   if (!target.matches('.site-header__button')) {
     return
@@ -49,8 +59,45 @@ const onHeaderClick = (event) => {
   }
 }
 
+const onNavigationKeydown = (event) => {
+  const { shiftKey, key, target } = event
+  const isOpen = navigation.getAttribute('data-open') === 'true'
+
+  if (!isOpen) {
+    return;
+  }
+
+  if ('Tab' !== key) {
+    return;
+  }
+
+  const focusableArray = Array.from(navigation.querySelectorAll('a, input, button'));
+  const first = focusableArray[0]
+  const last = focusableArray[focusableArray.length - 1]
+
+  if (first === target && shiftKey) {
+    event.preventDefault();
+    last.focus();
+  }
+
+  if (last === target && !shiftKey) {
+    event.preventDefault();
+    first.focus();
+  }
+}
+
+const onNavigationClick = (event) => {
+  const { target } = event;
+
+  if ( ! target.matches('a') && ! target.matches('.site-header__backdrop') ) {
+    return;
+  }
+
+  close()
+}
+
 const setup = () => {
-  const isOpen = mq.matches
+  const isOpen = false
 
   navigation.setAttribute('aria-hidden', !isOpen)
   navigation.setAttribute('data-open', isOpen)
@@ -63,8 +110,9 @@ const setup = () => {
 }
 
 const bind = () => {
-  mq.addEventListener('change', setup)
   header.addEventListener('click', onHeaderClick)
+  navigation.addEventListener('click', onNavigationClick)
+  navigation.addEventListener('keydown', onNavigationKeydown)
 }
 
 setup()
