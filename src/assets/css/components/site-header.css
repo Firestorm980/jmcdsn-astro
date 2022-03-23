@@ -17,14 +17,16 @@
 	opacity: 0;
 	position: absolute;
 	top: 0;
-	transition-duration: var(--transition-duration);
+	transition-duration: var(--transition-duration-300);
 	transition-property: opacity, visibility;
-	transition-timing-function: var(--transition-easing);
+	transition-timing-function: var(--transition-ease-in);
 	visibility: hidden;
 	width: 100%;
 
 	@nest [data-open="true"] & {
 		opacity: 1;
+		transition-duration: var(--transition-duration-400);
+		transition-timing-function: var(--transition-ease-out);
 		visibility: visible;
 	}
 
@@ -63,7 +65,7 @@
 	opacity: 0;
 	position: fixed;
 	top: 0;
-	transition-duration: var(--transition-duration);
+	transition-duration: var(--transition-duration-300);
 	transition-property: opacity, visibility;
 	transition-timing-function: var(--transition-easing);
 	visibility: hidden;
@@ -71,6 +73,7 @@
 
 	&[data-open="true"] {
 		opacity: 1;
+		transition-duration: var(--transition-duration-400);
 		visibility: visible;
 	}
 }

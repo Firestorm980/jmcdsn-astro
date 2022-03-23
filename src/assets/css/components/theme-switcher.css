@@ -1,7 +1,18 @@
 .theme-switcher {
 	margin-left: 2rem;
 	margin-right: 2rem;
+	opacity: 0;
 	padding: 1rem 0;
+	transition-delay: var(--transition-duration-300);
+	transition-duration: var(--transition-duration-400);
+	transition-property: opacity, visibility;
+	transition-timing-function: ease-out;
+	visibility: hidden;
+
+	@nest [data-open="true"] & {
+		opacity: 1;
+		visibility: visible;
+	}
 }
 
 .theme-switcher__fieldset {

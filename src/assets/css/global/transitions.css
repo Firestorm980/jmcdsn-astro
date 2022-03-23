@@ -1,4 +1,13 @@
 :root {
-	--transition-duration: 200ms;
-	--transition-easing: ease-in-out;
+	--transition-duration-100: 100ms;
+	--transition-duration-200: 200ms;
+	--transition-duration-300: 300ms;
+	--transition-duration-400: 400ms;
+	--transition-duration-500: 500ms;
+
+	--transition-duration: var(--transition-duration-200);
+	--transition-easing: cubic-bezier(0.45, 0, 0.55, 1);
+	--transition-ease-in: cubic-bezier(0.11, 0, 0.5, 0);
+	--transition-ease-out: cubic-bezier(0.5, 1, 0.89, 1);
+	--transition-ease-in-out: var(--transition-easing);
 }

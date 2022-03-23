@@ -49,7 +49,20 @@
 	}
 
 	& li {
+		opacity: 0;
+		transform: translateX(-50%);
+		transition-delay: calc(var(--index) * 50ms);
+		transition-duration: var(--transition-duration-400);
+		transition-property: opacity, transform, visibility;
+		transition-timing-function: var(--transition-ease-out);
+		visibility: hidden;
 		width: 100%;
+
+		@nest [data-open="true"] & {
+			opacity: 1;
+			transform: translateX(0);
+			visibility: visible;
+		}
 	}
 
 	& a {
@@ -60,6 +73,17 @@
 }
 
 .navigation--social {
+	opacity: 0;
+	transition-delay: var(--transition-duration-400);
+	transition-duration: var(--transition-duration-400);
+	transition-property: opacity, visibility;
+	transition-timing-function: var(--transition-ease-out);
+	visibility: hidden;
+
+	@nest [data-open="true"] & {
+		opacity: 1;
+		visibility: visible;
+	}
 
 	& a {
 		color: var(--color-base);
