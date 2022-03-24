@@ -10,7 +10,6 @@
 }
 
 .site-header__backdrop {
-	backdrop-filter: blur(0.5rem);
 	background-color: hsl(var(--color-gray-warm-900), 90%);
 	height: 100%;
 	left: 0;
