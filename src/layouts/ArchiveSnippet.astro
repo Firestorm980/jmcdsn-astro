@@ -1,5 +1,6 @@
 ---
 import DefaultLayout from '@layouts/Default.astro';
+import Tags from '@components/Tags.astro';
 import { getSnippetLink } from './../utils';
 
 const { kind, snippets } = Astro.props;
@@ -17,13 +18,16 @@ const title = 'Snippets';
 	</header>
 	<div class="section">
 		<div class="content">
-			<ul>
+			<ul class="snippets">
 				{snippets.map(snippet => {
-					const {title} = snippet;
+					const {title, categories} = snippet;
 					const href = getSnippetLink(snippet);
 					return (
-						<li>
-							<a href={href}>{title}</a>
+						<li class="snippets__item">
+							<a class="snippets__item-link" href={href}>
+								<span class="snippets__item-title">{title}</span>
+								{categories?.length && <div class="snippets__item-tags"><Tags tags={categories} /></div>}
+							</a>
 						</li>
 					)
 				})}
