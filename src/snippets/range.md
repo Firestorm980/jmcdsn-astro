@@ -1,5 +1,5 @@
 ---
-name: Range
+title: Range
 categories:
 - JavaScript
 ---
