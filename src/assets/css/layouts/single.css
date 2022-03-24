@@ -8,6 +8,10 @@
 	flex-direction: column;
 	justify-content: center;
 	min-height: 80vh;
+
+	@nest .single-snippet & {
+		min-height: 0;
+	}
 }
 
 .single__heading {
