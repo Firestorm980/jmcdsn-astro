@@ -3,6 +3,9 @@ title: Emit Event
 categories:
 - JavaScript
 ---
+Emit a custom event.
+
+Since the code to emit an event manually can be a little verbose, this simplifies that so it is easier to do it in a single line.
 ```js
 /**
  * Emit a custom event.

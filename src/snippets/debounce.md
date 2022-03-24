@@ -4,6 +4,9 @@ categories:
 - JavaScript
 - Performance
 ---
+Debounce your functions for better performance.
+
+There are others that use `setTimeout` but we're using `requestAnimationFrame` here since it will not interfere as much on the main thread and should retain good _visual_ performance (reduce jank) for repeated tasks.
 ```js
 /**
  * Debounce functions for better performance.
