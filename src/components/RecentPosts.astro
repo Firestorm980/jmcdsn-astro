@@ -5,7 +5,7 @@ import Card from '@components/Card.astro';
 let posts = await Astro.glob('./../posts/**/*.md');
 
 // Sort posts in reverse chronological order (newest first).
-posts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+posts.sort((a, b) => new Date(b.frontmatter.date).getTime() - new Date(a.frontmatter.date).getTime());
 ---
 <div class="recent-posts">
 	<ul class="recent-posts__list">
