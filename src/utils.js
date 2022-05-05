@@ -6,9 +6,7 @@
  */
 export function getPostLink (post) {
   const { file } = post
-  const { pathname } = file
-  // eslint-disable-next-line no-unused-vars
-  const parts = pathname.split('/').filter(item => item !== '')
+  const parts = file.split('/').filter(item => item !== '')
   const [href] = parts.slice(-2)
 
   return `/my-thoughts/${href}/`
@@ -22,9 +20,7 @@ export function getPostLink (post) {
  */
 export function setPostLink (post) {
   const { file } = post
-  const { pathname } = file
-  // eslint-disable-next-line no-unused-vars
-  const parts = pathname.split('/').filter(item => item !== '')
+  const parts = file.split('/').filter(item => item !== '')
   const [href] = parts.slice(-2)
 
   return href
@@ -32,9 +28,7 @@ export function setPostLink (post) {
 
 export function getSnippetLink (snippet) {
   const { file } = snippet
-  const { pathname } = file
-  // eslint-disable-next-line no-unused-vars
-  const parts = pathname.split('/').filter(item => item !== '')
+  const parts = file.split('/').filter(item => item !== '')
   const [filename] = parts.slice(-1)
 
   const href = `/snippets/${filename.replace('.md', '')}/`
@@ -44,9 +38,7 @@ export function getSnippetLink (snippet) {
 
 export function setSnippetLink (snippet) {
   const { file } = snippet
-  const { pathname } = file
-  // eslint-disable-next-line no-unused-vars
-  const parts = pathname.split('/').filter(item => item !== '')
+  const parts = file.split('/').filter(item => item !== '')
   const [filename] = parts.slice(-1)
 
   const href = filename.replace('.md', '')

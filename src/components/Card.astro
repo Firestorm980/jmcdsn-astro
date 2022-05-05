@@ -4,7 +4,8 @@ import Tags from '@components/Tags.astro';
 import { getPostLink } from './../utils.js';
 
 const {post} = Astro.props;
-const {title, date, categories, url} = post;
+const { frontmatter } = post;
+const {title, date, categories} = frontmatter;
 const post_date = new Date(date);
 const href = getPostLink(post);
 ---
