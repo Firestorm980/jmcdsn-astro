@@ -1,10 +1,7 @@
----
-import { Markdown } from 'astro/components';
 import DefaultLayout from '@layouts/Default.astro';
 import RecentPosts from '@components/RecentPosts.astro';
 
-const title = 'Home';
----
+export const title = 'Home';
 
 <DefaultLayout content={{ title, bodyClass: 'page home', permalink: '/' }}>
 	<div class="section">
@@ -14,20 +11,20 @@ const title = 'Home';
 				<span>Developer.</span>
 				<span>Nerd.</span>
 			</h1>
-			<Markdown>
+			
 			As long as I remember, I’ve always loved design and technology. Now, I use both of these to solve problems and make websites for clients and their users.
 
 			Want to know more? You won’t need a mind meld. Go ahead and read a few of my thoughts on various subjects from tech, design, and entertainment, or perhaps get the full story on the self-proclaimed nerd I am.
-			</Markdown>
+			
 		</div>
 	</div>
 
 	<section class="section">
 		<div class="content">
 			<h2>Latest Posts</h2>
-			<Markdown>
+			
 			Read my thoughts about the web, design, technology, and entertainment. Really, about how all these things intersect together in our lives. I also may post something just generally nerdy every now and then.
-			</Markdown>
+			
 		</div>
 		<RecentPosts />
 	</section>
