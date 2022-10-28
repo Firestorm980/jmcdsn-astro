@@ -25,7 +25,8 @@
 		padding: 0.5em 1em;
 		text-decoration: underline;
 		text-decoration-color: transparent;
-		text-decoration-thickness: min(0.125em, 0.25rem);
+		text-decoration-thickness: 2px;
+		text-underline-offset: 0.125em;
 		transition-property: color, text-decoration, transform;
 
 		&:hover,
@@ -42,6 +43,7 @@
 
 .navigation--primary {
 	margin: auto 0;
+	padding: 1rem 0;
 
 	& ul {
 		align-items: flex-start;
@@ -50,7 +52,7 @@
 
 	& li {
 		opacity: 0;
-		transform: translateX(-50%);
+		transform: translateY(-50%);
 		transition-delay: calc(var(--index) * 50ms);
 		transition-duration: var(--transition-duration-400);
 		transition-property: opacity, transform, visibility;
@@ -60,7 +62,7 @@
 
 		@nest [data-open="true"] & {
 			opacity: 1;
-			transform: translateX(0);
+			transform: translateY(0);
 			visibility: visible;
 		}
 	}
@@ -69,6 +71,7 @@
 		display: block;
 		font-size: var(--step-3);
 		padding: 1rem 2rem;
+		text-align: center;
 	}
 }
 

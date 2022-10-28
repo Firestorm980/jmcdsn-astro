@@ -11,7 +11,7 @@
 
 .site-header__backdrop {
 	backdrop-filter: blur(0.5rem);
-	background-color: hsl(var(--color-gray-warm-900), 90%);
+	background-color: hsl(var(--color-gray-900), 80%);
 	height: 100%;
 	left: 0;
 	opacity: 0;
@@ -31,7 +31,7 @@
 	}
 
 	@nest [data-theme="light"] & {
-		background-color: hsl(var(--color-gray-warm-100), 90%);
+		background-color: hsl(var(--color-gray-100), 80%);
 	}
 }
 
@@ -79,19 +79,20 @@
 }
 
 .site-header__navigation-content {
-	background-color: var(--color-background);
 	display: flex;
 	flex-direction: column;
 	flex-grow: 1;
+	opacity: 0;
+	overflow-y: auto;
 	position: relative;
-	transform: translateX(-100%);
 	transition-duration: var(--transition-duration);
-	transition-property: transform;
+	transition-property: opacity, visibility;
 	transition-timing-function: var(--transition-easing);
-	width: min(90%, 30rem);
+	visibility: hidden;
 
 	@nest [data-open="true"] & {
-		transform: translateX(0%);
+		opacity: 1;
+		visibility: visible;
 	}
 }
 
@@ -101,6 +102,7 @@
 	background-color: transparent;
 	border: 1px solid var(--color-accent-border);
 	border-radius: 0.25em;
+	box-shadow: 0 0 0.25em transparent;
 	color: var(--color-base);
 	display: inline-flex;
 	font-size: 1rem;
@@ -111,13 +113,14 @@
 	margin-right: 2rem;
 	padding: 0.25em 0.5em;
 	transition-duration: var(--transition-duration);
-	transition-property: background-color, border-color, color;
+	transition-property: background-color, border-color, box-shadow, color;
 	transition-timing-function: var(--transition-easing);
 
 	&:hover,
 	&:focus {
 		background-color: var(--color-primary);
 		border-color: var(--color-primary);
+		box-shadow: 0 0 0.25em var(--color-primary);
 		color: var(--color-background);
 	}
 }
