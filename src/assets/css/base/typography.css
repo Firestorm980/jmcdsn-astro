@@ -11,6 +11,11 @@ body {
 	line-height: 1.5;
 }
 
+:focus {
+	outline: 0.125rem dashed currentcolor;
+	outline-offset: -0.125rem;
+}
+
 h1,
 h2,
 h3,

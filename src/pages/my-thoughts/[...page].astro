@@ -1,14 +1,14 @@
 ---
-import Archive from '../../layouts/Archive.astro';
-import Single from '../../layouts/Single.astro';
+import Archive from '@layouts/Archive.astro';
+import Single from '@layouts/Single.astro';
 import { setPostLink } from './../../utils';
 
 export async function getStaticPaths({ paginate }) {
-	// Load your data with fetch(), Astro.fetchContent(), etc.
-	let posts = await Astro.fetchContent('./../../posts/**/*.md');
+	// Load your data with fetch(), Astro.glob(), etc.
+	let posts = await Astro.glob('./../../posts/**/*.md');
 
 	// Sort posts in reverse chronological order (newest first).
-	posts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+	posts.sort((a, b) => new Date(b.frontmatter.date).getTime() - new Date(a.frontmatter.date).getTime());
 
 	// Remap URLs for posts and add params.
 	const postParams = posts.map(post => {

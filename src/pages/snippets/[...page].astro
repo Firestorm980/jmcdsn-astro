@@ -1,11 +1,11 @@
 ---
-import ArchiveSnippet from '../../layouts/ArchiveSnippet.astro';
-import Single from '../../layouts/Single.astro';
+import ArchiveSnippet from '@layouts/ArchiveSnippet.astro';
+import Single from '@layouts/Single.astro';
 import { setSnippetLink } from './../../utils'
 
 export async function getStaticPaths() {
-	// Load your data with fetch(), Astro.fetchContent(), etc.
-	let snippets = await Astro.fetchContent('./../../snippets/**/*.md');
+	// Load your data with fetch(), Astro.glob(), etc.
+	let snippets = await Astro.glob('./../../snippets/**/*.md');
 
 	// Remap URLs for snippets and add params.
 	const snippetParams = snippets.map(snippet => {

@@ -16,22 +16,15 @@
 
 	& a {
 		align-items: center;
-		background: none;
 		color: var(--color-base);
 		display: flex;
 		font-weight: 500;
 		justify-content: center;
-		min-height: calc(44 / 16 * 1rem);
 		padding: 0.5em 1em;
-		text-decoration: underline;
-		text-decoration-color: transparent;
-		text-decoration-thickness: min(0.125em, 0.25rem);
-		transition-property: color, text-decoration, transform;
 
 		&:hover,
 		&:focus {
-			background: none;
-			text-decoration-color: var(--color-primary);
+			background-color: transparent;
 		}
 	}
 }
@@ -42,30 +35,61 @@
 
 .navigation--primary {
 	margin: auto 0;
+	padding: 1rem 0;
 
 	& ul {
 		align-items: flex-start;
 		flex-direction: column;
+		gap: 2rem;
 	}
 
 	& li {
+		opacity: 0;
+		text-align: center;
+		transform: translateY(-50%);
+		transition-delay: calc(var(--index) * 50ms);
+		transition-duration: var(--transition-duration-400);
+		transition-property: opacity, transform, visibility;
+		transition-timing-function: var(--transition-ease-out);
+		visibility: hidden;
 		width: 100%;
+
+		@nest [data-open="true"] & {
+			opacity: 1;
+			transform: translateY(0);
+			visibility: visible;
+		}
 	}
 
 	& a {
-		display: block;
+		display: inline-flex;
 		font-size: var(--step-3);
-		padding: 1rem 2rem;
+		padding: 0;
+		text-align: center;
 	}
 }
 
 .navigation--social {
+	opacity: 0;
+	transition-delay: var(--transition-duration-400);
+	transition-duration: var(--transition-duration-400);
+	transition-property: opacity, visibility;
+	transition-timing-function: var(--transition-ease-out);
+	visibility: hidden;
+
+	@nest [data-open="true"] & {
+		opacity: 1;
+		visibility: visible;
+	}
 
 	& a {
 		color: var(--color-base);
+		transform: scale(1);
+		transition-property: color, transform;
 
 		&:hover,
 		&:focus {
+			background: none;
 			color: var(--color-primary);
 			transform: scale(1.2);
 		}
