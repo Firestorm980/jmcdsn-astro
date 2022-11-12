@@ -1,0 +1,11 @@
+---
+const {path, name} = Astro.props;
+
+const { default: innerHTML } = await import(/* @vite-ignore */`../assets/${path}?raw`);
+
+---
+
+<div class="svg">
+	<span class="sr-only">{name}</span>
+	<div class="svg" aria-hidden="true" set:html={innerHTML} />
+</div>
