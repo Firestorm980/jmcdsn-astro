@@ -12,7 +12,7 @@ body {
 }
 
 :focus {
-	outline: 0.125rem dashed currentColor;
+	outline: 0.125rem dashed currentcolor;
 	outline-offset: -0.125rem;
 }
 

@@ -16,23 +16,15 @@
 
 	& a {
 		align-items: center;
-		background: none;
 		color: var(--color-base);
 		display: flex;
 		font-weight: 500;
 		justify-content: center;
-		min-height: calc(44 / 16 * 1rem);
 		padding: 0.5em 1em;
-		text-decoration: underline;
-		text-decoration-color: transparent;
-		text-decoration-thickness: 2px;
-		text-underline-offset: 0.125em;
-		transition-property: color, text-decoration, transform;
 
 		&:hover,
 		&:focus {
-			background: none;
-			text-decoration-color: var(--color-primary);
+			background-color: transparent;
 		}
 	}
 }
@@ -48,10 +40,12 @@
 	& ul {
 		align-items: flex-start;
 		flex-direction: column;
+		gap: 2rem;
 	}
 
 	& li {
 		opacity: 0;
+		text-align: center;
 		transform: translateY(-50%);
 		transition-delay: calc(var(--index) * 50ms);
 		transition-duration: var(--transition-duration-400);
@@ -68,9 +62,9 @@
 	}
 
 	& a {
-		display: block;
+		display: inline-flex;
 		font-size: var(--step-3);
-		padding: 1rem 2rem;
+		padding: 0;
 		text-align: center;
 	}
 }
@@ -90,9 +84,12 @@
 
 	& a {
 		color: var(--color-base);
+		transform: scale(1);
+		transition-property: color, transform;
 
 		&:hover,
 		&:focus {
+			background: none;
 			color: var(--color-primary);
 			transform: scale(1.2);
 		}
