@@ -11,7 +11,7 @@ const post_last_updated =(last_updated) ? dayjs(last_updated, 'YYYY-MM-DD') : fa
 ---
 <DefaultLayout content={{title, bodyClass: kind}}>
 	<article>
-		<header class="single__header">
+		<header class="single__header section">
 			<h1 class="single__heading">{title}</h1>
 			{post_date && (
 				<time class="single__date" datetime={post_date.toISOString()}>
@@ -25,7 +25,7 @@ const post_last_updated =(last_updated) ? dayjs(last_updated, 'YYYY-MM-DD') : fa
 			)}
 			{categories?.length && <div class="single__tags"><Tags tags={categories} /></div>}
 		</header>
-		<div class="content single__content">
+		<div class="content single__content section">
 			<Content />
 		</div>
 	</article>
