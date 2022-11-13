@@ -4,7 +4,8 @@ import Tags from '@components/Tags.astro';
 import DefaultLayout from '@layouts/Default.astro';
 
 const { kind, post } = Astro.props;
-const { title, date, categories } = post;
+const { frontmatter, Content } = post;
+const { title, date, categories } = frontmatter;
 const post_date = (date) ? new Date(date) : false;
 ---
 <DefaultLayout content={{title, bodyClass: kind}}>
@@ -19,7 +20,7 @@ const post_date = (date) ? new Date(date) : false;
 			{categories?.length && <div class="single__tags"><Tags tags={categories} /></div>}
 		</header>
 		<div class="content single__content">
-			<slot />
+			<Content />
 		</div>
 	</article>
 </DefaultLayout>

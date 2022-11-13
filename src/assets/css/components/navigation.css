@@ -108,15 +108,46 @@
 
 	& .navigation__link {
 		display: inline-flex;
+
+		& .icon {
+			transform: translateX(0);
+			transition-duration: var(--transition-duration);
+			transition-property: color, transform;
+			transition-timing-function: var(--transition-easing);
+		}
+
+		&:hover,
+		&:focus {
+
+			& .icon {
+				color: var(--color-primary);
+			}
+		}
 	}
 
 	& .navigation__link--previous {
 		grid-column: 1;
 		justify-content: flex-start;
+
+		&:hover,
+		&:focus {
+
+			& .icon {
+				transform: translateX(-50%);
+			}
+		}
 	}
 
 	& .navigation__link--next {
 		grid-column: 2;
 		justify-content: flex-end;
+
+		&:hover,
+		&:focus {
+
+			& .icon {
+				transform: translateX(50%);
+			}
+		}
 	}
 }
