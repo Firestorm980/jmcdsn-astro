@@ -1,7 +1,29 @@
 ---
 import DefaultLayout from '@layouts/Default.astro';
+import SVG from '../components/SVG.astro';
 
 const title = 'About Me';
+const clients = [
+	{ slug: 'microsoft', name: 'Microsoft'},
+	{ slug: 'sanus', name: 'Sanus'},
+	{ slug: 'tivo', name: 'TiVo'},
+	{ slug: 'the-undefeated', name: 'The Undefeated'},
+	{ slug: 'fivethirtyeight', name: 'FiveThirtyEight'},
+	{ slug: 'university-st-thomas', name: 'University St. Thomas'},
+	{ slug: 'music-instrument-museum', name: 'Music Instrument Museum'},
+	{ slug: 'california-grants-portal', name: 'California Grants Portal'},
+	{ slug: 'sheehy', name: 'Sheehy Construction'},
+	{ slug: 'encompass-health', name: 'Encompass Health'},
+];
+const tools = [
+	{ slug: 'git', name: 'Git'},
+	{ slug: 'github', name: 'Github'},
+	{ slug: 'js', name: 'JavaScript'},
+	{ slug: 'npm', name: 'Node Package Manager (NPM)'},
+	{ slug: 'postcss', name: 'PostCSS'},
+	{ slug: 'tailwindcss', name: 'Tailwind CSS'},
+	{ slug: 'wordpress', name: 'WordPress'},
+];
 ---
 
 <DefaultLayout content={{ title }}>
@@ -19,6 +41,15 @@ const title = 'About Me';
 		<div class="content">
 			<h2>What I do</h2>
 			<p>Primarily, I’m a designer and front end web developer, but I’ve also done quite a bit of full stack development. My focus is making great websites from conception through launch (and sometimes after) with the tools of the trade for my clients across a variety of platforms and devices. I make them with performance in mind for the end user. For content management, I always aim for ease of use. The architecture of a site is on my mind from the jump, with the goal of making things clean and extensible. While some men may use a <a href="https://en.wikipedia.org/wiki/Sonic_screwdriver">sonic screwdriver</a>, here are some of the tools I use to turn clients’ website dreams into reality.</p>
+			<ul class="logos">
+				{tools.map((tool, index) => {
+					return (
+						<li style={`--index: ${index}; --total: ${tools.length}`}>
+							<SVG path={`images/tool-logos/${tool.slug}.svg`} name={tool.name} />
+						</li>
+					)
+				})}
+			</ul>
 		</div>
 	</section>
 	<section class="section">
@@ -33,6 +64,15 @@ const title = 'About Me';
 		<div class="content">
 			<h2>Who I’ve worked with</h2>
 			<p>I’ve worked with a lot of different clients. Here is just a short list of a few.</p>
+			<ul class="logos">
+				{clients.map((client, index) => {
+					return (
+						<li style={`--index: ${index}; --total: ${clients.length}`}>
+							<SVG path={`images/client-logos/${client.slug}.svg`} name={client.name} />
+						</li>
+					)
+				})}
+			</ul>
 		</div>
 	</section>
 </DefaultLayout>
