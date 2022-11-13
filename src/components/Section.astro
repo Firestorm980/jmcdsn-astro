@@ -1,0 +1,17 @@
+---
+const { emphasis = false, tag = 'section' } = Astro.props;
+const Tag = tag;
+
+const classArray = [ 'section' ];
+
+if ( emphasis ) {
+	classArray.push('section--emphasis');
+}
+
+const classes = classArray.join( ' ' );
+---
+<Tag class={classes}>
+	<div class="content">
+		<slot />
+	</div>
+</Tag>
