@@ -5,8 +5,9 @@ import DefaultLayout from '@layouts/Default.astro';
 
 const { kind, post } = Astro.props;
 const { frontmatter, Content } = post;
-const { title, date, categories } = frontmatter;
-const post_date = (date) ? new Date(date) : false;
+const { title, date, categories, last_updated } = frontmatter;
+const post_date = (date) ? dayjs(date, 'YYYY-MM-DD') : false;
+const post_last_updated =(last_updated) ? dayjs(last_updated, 'YYYY-MM-DD') : false;
 ---
 <DefaultLayout content={{title, bodyClass: kind}}>
 	<article>
@@ -14,7 +15,12 @@ const post_date = (date) ? new Date(date) : false;
 			<h1 class="single__heading">{title}</h1>
 			{post_date && (
 				<time class="single__date" datetime={post_date.toISOString()}>
-					{dayjs(date, 'YYYY-MM-DD').format('dddd, MMMM D, YYYY')}
+					{post_date.format('dddd, MMMM D, YYYY')}
+				</time>
+			)}
+			{post_last_updated && (
+				<time class="single__date single__date--last-updated" datetime={post_last_updated.toISOString()}>
+					{post_last_updated.format('dddd, MMMM D, YYYY')}
 				</time>
 			)}
 			{categories?.length && <div class="single__tags"><Tags tags={categories} /></div>}
