@@ -1,6 +1,5 @@
 .site-header {
 	background-color: var(--color-background);
-	border-bottom: 1px solid var(--color-accent-border);
 	border-top: 2px solid var(--color-primary);
 	left: 0;
 	position: fixed;
@@ -11,6 +10,7 @@
 
 .site-header__backdrop {
 	backdrop-filter: blur(0.5rem);
+	/* stylelint-disable-next-line color-function-notation */
 	background-color: hsl(var(--color-gray-900), 80%);
 	height: 100%;
 	left: 0;
@@ -31,6 +31,7 @@
 	}
 
 	@nest [data-theme="light"] & {
+		/* stylelint-disable-next-line color-function-notation */
 		background-color: hsl(var(--color-gray-100), 80%);
 	}
 }
@@ -38,7 +39,6 @@
 .site-header__inner {
 	align-items: center;
 	background-color: var(--color-background);
-	border-bottom: 1px solid var(--color-accent-border);
 	display: flex;
 	justify-content: space-between;
 	position: relative;
