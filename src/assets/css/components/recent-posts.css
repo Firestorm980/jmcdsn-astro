@@ -1,3 +1,7 @@
+.recent-posts {
+	max-width: none;
+}
+
 .recent-posts__list {
 	display: grid;
 	gap: 1.5rem;

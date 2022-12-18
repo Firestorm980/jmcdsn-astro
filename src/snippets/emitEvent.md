@@ -2,6 +2,8 @@
 title: Emit Event
 categories:
 - JavaScript
+last_updated: '2022-11-13'
+description: Emit a custom event.
 ---
 ```js
 /**

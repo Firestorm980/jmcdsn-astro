@@ -1,10 +1,19 @@
 ---
-
+const links = [
+	{ slug: '/about-me/', name: 'About Me' },
+	{ slug: '/my-thoughts/', name: 'My Thoughts' },
+	{ slug: '/snippets/', name: 'Snippets' },
+	{ slug: '/contact/', name: 'Contact' }
+];
 ---
 <nav class="navigation navigation--primary">
 	<ul>
-		<li style="--index: 1;"><a href="/about-me/">About Me</a></li>
-		<li style="--index: 2;"><a href="/my-thoughts/">My Thoughts</a></li>
-		<li style="--index: 3;"><a href="/contact/">Contact</a></li>
+		{links.map(({slug, name}, index) => {
+			return (
+				<li style={`--index: ${index}; --total: ${links.length}`}>
+					<a href={slug}>{name}</a>
+				</li>
+			)
+		})}
 	</ul>
 </nav>

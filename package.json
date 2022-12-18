@@ -40,7 +40,6 @@
     "@swup/progress-plugin": "^1.0.1",
     "@swup/scroll-plugin": "^1.1.0",
     "entypo": "^2.2.1",
-    "motion": "^10.4.0",
     "normalize.css": "^8.0.1",
     "swup": "^2.0.14"
   }

@@ -1,0 +1,60 @@
+import DefaultLayout from '@layouts/Default.astro';
+import Section from '@components/Section.astro';
+import Logos from '@components/Logos.astro';
+
+export const title = 'About Me';
+
+export const clients = [
+	{ slug: 'images/client-logos/microsoft.svg', name: 'Microsoft'},
+	{ slug: 'images/client-logos/sanus.svg', name: 'Sanus'},
+	{ slug: 'images/client-logos/tivo.svg', name: 'TiVo'},
+	{ slug: 'images/client-logos/the-undefeated.svg', name: 'The Undefeated'},
+	{ slug: 'images/client-logos/fivethirtyeight.svg', name: 'FiveThirtyEight'},
+	{ slug: 'images/client-logos/university-st-thomas.svg', name: 'University St. Thomas'},
+	{ slug: 'images/client-logos/music-instrument-museum.svg', name: 'Music Instrument Museum'},
+	{ slug: 'images/client-logos/california-grants-portal.svg', name: 'California Grants Portal'},
+	{ slug: 'images/client-logos/sheehy.svg', name: 'Sheehy Construction'},
+	{ slug: 'images/client-logos/encompass-health.svg', name: 'Encompass Health'},
+];
+export const tools = [
+	{ slug: 'images/tool-logos/git.svg', name: 'Git'},
+	{ slug: 'images/tool-logos/github.svg', name: 'Github'},
+	{ slug: 'images/tool-logos/js.svg', name: 'JavaScript'},
+	{ slug: 'images/tool-logos/npm.svg', name: 'Node Package Manager (NPM)'},
+	{ slug: 'images/tool-logos/postcss.svg', name: 'PostCSS'},
+	{ slug: 'images/tool-logos/tailwindcss.svg', name: 'Tailwind CSS'},
+	{ slug: 'images/tool-logos/wordpress.svg', name: 'WordPress'},
+];
+
+<DefaultLayout content={{ title }}>
+	<Section tag='header' emphasis>
+		<h1>
+			{title}
+
+			<span class="subtitle">The story behind the nerd</span>
+		</h1>
+
+		The quick version: I'm a graduate of Iowa State University with a Bachelor's of Fine Arts in Graphic Design. I've been coding websites since I was in high school. I want to make high quality websites that accomplish the goals of the client in the best way possible while making great experiences for their users. Want to know more? Keep reading for the full story. You can also [visit me on Github](https://github.com/Firestorm980/) and [follow on Twitter](https://twitter.com/jonmchristensen).
+	</Section>
+	<Section>
+		## What I do
+
+		Primarily, I'm a designer and front end web developer, but I've also done quite a bit of full stack development. My focus is making great websites from conception through launch (and sometimes after) with the tools of the trade for my clients across a variety of platforms and devices. I make them with performance in mind for the end user. For content management, I always aim for ease of use. The architecture of a site is on my mind from the jump, with the goal of making things clean and extensible. While some men may use a [sonic screwdriver](https://en.wikipedia.org/wiki/Sonic_screwdriver), here are some of the tools I use to turn clients' website dreams into reality.
+		<Logos items={tools} />
+	</Section>
+	<Section>
+		## Who am I
+
+		I'm a graduate of ISU's College of Design with a BFA in Graphic Design. There I learned the principles of design and how to think critically to solve client issues. I learned how to code websites when I was in high school and was instantly hooked. Thus, my two passions of design and development. Bringing the two together was like Chell to the [Handheld Portal Device](https://en.wikipedia.org/wiki/Portal_(video_game)#Gameplay). One does the solving, the other does the execution.
+
+		If you couldn't tell by now, I'm also a bit of a nerd. I'm also a husband and a father (to a wife, son, and daughter who are just as nerdy) living in beautiful Minnesota. I also have a dog who just happens to have the same title as a [Dothraki queen](https://en.wikipedia.org/wiki/Daenerys_Targaryen) who is just as cunning. On the side I'm an avid PC gamer, dedicated hockey fan, and an occasionally successful bard in my tabletop campaigns.
+
+		[I fight for the users](https://en.wikipedia.org/wiki/List_of_Tron_characters#Tron_2). I believe in making great sites for _people_. For the clients of clients. I believe in asking for the “why” behind a design or development decision. Design is firstly an exercise in problem solving. Making things look and work great is part of that, but it's more than just a pretty layout. I want to make sure I solve my client's problems and not just cover them up with a coat of paint. Hopefully at the same time, we're solving real world problems that will go on to help real people. The end result is a win for the users and by extension, the client.
+	</Section>
+	<Section>
+		## Who I've worked with
+
+		I've worked with a lot of different clients. Here is just a short list of a few.
+		<Logos items={clients} />
+	</Section>
+</DefaultLayout>

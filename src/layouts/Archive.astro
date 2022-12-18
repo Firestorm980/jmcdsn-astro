@@ -1,31 +1,39 @@
 ---
 import DefaultLayout from '@layouts/Default.astro';
 import Card from '@components/Card.astro';
+import Section from '@components/Section.astro';
+import Icon from '@components/Icon.astro';
 
 const { page, kind } = Astro.props;
 const title = `Blog | Page ${page.currentPage}`;
 ---
 <DefaultLayout content={{title, bodyClass: kind}}>
-	<header class="section section--emphasis">
-		<div class="content">
-			<h1>
-				Blog
+	<Section tag='header' emphasis>
+		<h1>
+			Blog
 
-				<span class="subtitle">My thoughts about stuff and things</span>
-			</h1>
-		</div>
-	</header>
-	<section class="section">
-		<div class="content">
-			<h2 class="sr-only">Posts</h2>
-			<p>Showing {page.start + 1} &mdash; {page.end + 1} of {page.total}</p>
-			<ul class="post-list">
-				{page.data.map(post => <li class="post-list__item"><Card post={post} /></li>)}
-			</ul>
-			<nav class="navigation navigation--pagination" aria-label="Pagination">
-				{page.url.prev && <a class="navigation__link navigation__link--previous" href={page.url.prev}><svg class="icon" aria-hidden="true"><use xlink:href="#icon-chevron-left"></use></svg>Previous Page</a>}
-				{page.url.next && <a class="navigation__link navigation__link--next" href={page.url.next}>Next Page<svg class="icon" aria-hidden="true"><use xlink:href="#icon-chevron-right"></use></svg></a>}
-			</nav>
-		</div>
-	</section>
+			<span class="subtitle">My thoughts about stuff and things</span>
+		</h1>
+	</Section>
+	<Section>
+		<h2 class="sr-only">Posts</h2>
+		<p>Showing {page.start + 1} &mdash; {page.end + 1} of {page.total}</p>
+		<ul class="post-list">
+			{page.data.map(post => <li class="post-list__item"><Card post={post} /></li>)}
+		</ul>
+		<nav class="navigation navigation--pagination" aria-label="Pagination">
+			{page.url.prev && (
+				<a class="navigation__link navigation__link--previous" href={page.url.prev}>
+					<Icon name="chevron-left" />
+					Previous Page
+				</a>
+			)}
+			{page.url.next && (
+				<a class="navigation__link navigation__link--next" href={page.url.next}>
+					Next Page
+					<Icon name="chevron-right" />
+				</a>
+			)}
+		</nav>
+	</Section>
 </DefaultLayout>

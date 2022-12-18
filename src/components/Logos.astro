@@ -1,0 +1,14 @@
+---
+import SVG from '@components/SVG.astro';
+
+const { items } = Astro.props;
+---
+<ul class="logos">
+	{items.map(({slug, name}, index) => {
+		return (
+			<li style={`--index: ${index}; --total: ${items.length}`}>
+				<SVG path={slug} name={name} />
+			</li>
+		)
+	})}
+</ul>

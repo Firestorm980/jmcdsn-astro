@@ -4,19 +4,73 @@ import SwupBodyClassPlugin from '@swup/body-class-plugin'
 import SwupProgressPlugin from '@swup/progress-plugin'
 import SwupScrollPlugin from '@swup/scroll-plugin'
 import SwupJsPlugin from '@swup/js-plugin'
-import { animate, stagger } from 'motion'
 import { close } from './base-header'
+
+/**
+ * Helper function to animate multiple elements.
+ *
+ * @param {Array} elements Array of nodes to animate.
+ * @param {Array} keyframes Array of keyframe objects.
+ * @param {Object} options The animation options.
+ * @returns Array of animations with promises.
+ */
+const animateAll = (elements, keyframes, options) => {
+  const { stagger, delay } = options
+  const animations = elements.map((element, index) => {
+    const optionsWithStagger = { ...options, delay: stagger ? stagger * index : delay }
+
+    return new Promise((resolve) => {
+      const animation = element.animate(
+        keyframes,
+        optionsWithStagger
+      )
+      animation.addEventListener('finish', resolve, { once: true })
+    })
+  })
+
+  return animations
+}
 
 const options = [
   {
     from: '(.*)', // meaning any
     to: '(.*)', // meaning any
-    out: (next) => {
+    out: async (next) => {
+      // Close the navigation
       close()
-      animate('.section', { opacity: [1, 0] }, { duration: 1 }).finished.then(next)
+
+      // Get elements
+      const sections = Array.from(document.querySelectorAll('.section'))
+
+      // Create all animations
+      const animations = animateAll(
+        sections,
+        [{ opacity: 1 }, { opacity: 0 }],
+        { duration: 300, stagger: 200, fill: 'forwards' }
+      )
+
+      // Wait for them to finsih
+      await Promise.all(animations)
+
+      // Keep going!
+      next()
     },
-    in: (next) => {
-      animate('.section', { opacity: [0, 1] }, { duration: 1, delay: stagger(0.2) }).finished.then(next)
+    in: async (next) => {
+      // Get elements
+      const sections = Array.from(document.querySelectorAll('.section'))
+
+      // Create all animations
+      const animations = animateAll(
+        sections,
+        [{ opacity: 0 }, { opacity: 1 }],
+        { duration: 1000, fill: 'forwards' }
+      )
+
+      // Wait for them to finsih
+      await Promise.all(animations)
+
+      // Keep going!
+      next()
     }
   }
 ]

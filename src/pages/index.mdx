@@ -1,31 +1,28 @@
 import DefaultLayout from '@layouts/Default.astro';
 import RecentPosts from '@components/RecentPosts.astro';
+import Section from '@components/Section.astro';
 
 export const title = 'Home';
 
 <DefaultLayout content={{ title, bodyClass: 'page home', permalink: '/' }}>
-	<div class="section">
-		<div class="content">
-			<h1>
-				<span>Designer.</span>
-				<span>Developer.</span>
-				<span>Nerd.</span>
-			</h1>
-			
-			As long as I remember, I’ve always loved design and technology. Now, I use both of these to solve problems and make websites for clients and their users.
 
-			Want to know more? You won’t need a mind meld. Go ahead and read a few of my thoughts on various subjects from tech, design, and entertainment, or perhaps get the full story on the self-proclaimed nerd I am.
-			
-		</div>
-	</div>
+	<Section>
+		<h1>
+			<span>Designer.</span>
+			<span>Developer.</span>
+			<span>Nerd.</span>
+		</h1>
 
-	<section class="section">
-		<div class="content">
-			<h2>Latest Posts</h2>
-			
-			Read my thoughts about the web, design, technology, and entertainment. Really, about how all these things intersect together in our lives. I also may post something just generally nerdy every now and then.
-			
-		</div>
+		As long as I remember, I've always loved design and technology. Now, I use both of these to solve problems and make websites for clients and their users.
+
+		Want to know more? You won't need a mind meld. Go ahead and read a few of [my thoughts](/my-thoughts/) on various subjects from tech, design, and entertainment, or perhaps [get the full story](/about-me/) on the self-proclaimed nerd I am.
+	</Section>
+
+	<Section>
+		## Latest Posts
+
+		Read my thoughts about the web, design, technology, and entertainment. Really, about how all these things intersect together in our lives. I also may post something just generally nerdy every now and then.
 		<RecentPosts />
-	</section>
+	</Section>
+
 </DefaultLayout>

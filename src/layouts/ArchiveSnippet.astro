@@ -1,33 +1,59 @@
 ---
+import dayjs from 'dayjs';
 import DefaultLayout from '@layouts/Default.astro';
+import Markdown from '@astrojs/markdown-component';
+import Section from '@components/Section.astro';
 import { getSnippetLink } from './../utils';
 
 const { kind, snippets } = Astro.props;
 const title = 'Snippets';
 ---
 <DefaultLayout content={{title, bodyClass: kind}}>
-	<header class="section section--emphasis">
-		<div class="content">
-			<h1>
-				{title}
+	<Section tag='header' emphasis>
+		<h1>
+			{title}
 
-				<span class="subtitle">A repository of little code goodies</span>
-			</h1>
-		</div>
-	</header>
-	<div class="section">
-		<div class="content">
-			<ul>
+			<span class="subtitle">A repository of little code goodies</span>
+		</h1>
+	</Section>
+	<Section>
+		<table class="snippets">
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Description</th>
+					<th>Categories</th>
+					<th>Last Updated</th>
+				</tr>
+			</thead>
+			<tbody>
 				{snippets.map(snippet => {
-					const {title} = snippet;
+					const {frontmatter} = snippet;
+					const {title, description, last_updated, categories } = frontmatter;
 					const href = getSnippetLink(snippet);
+					const post_last_updated =(last_updated) ? dayjs(last_updated, 'YYYY-MM-DD') : false;
 					return (
-						<li>
-							<a href={href}>{title}</a>
-						</li>
+						<tr>
+							<td>
+								<a href={href}>{title}</a>
+							</td>
+							<td>
+								<Markdown>{description}</Markdown>
+							</td>
+							<td>
+								{categories.join(', ')}
+							</td>
+							<td>
+								{post_last_updated && (
+									<time class="single__date single__date--last-updated" datetime={post_last_updated.toISOString()}>
+										{post_last_updated.format('dddd, MMMM D, YYYY')}
+									</time>
+								)}
+							</td>
+						</tr>
 					)
 				})}
-			</ul>
-		</div>
-	</div>
+			</tbody>
+		</table>
+	</Section>
 </DefaultLayout>

@@ -4,6 +4,8 @@ categories:
 - JavaScript
 - Animation
 - Performance
+last_updated: '2022-11-13'
+description: Custom First Last Invert Play function handler.
 ---
 ```js
 /**
