@@ -1,0 +1,11 @@
+---
+import dayjs from 'dayjs';
+
+const { className, date } = Astro.props;
+const post_date = new Date(date);
+---
+{!!date ? (
+	<time datetime={post_date.toISOString()} class={className}>
+		{dayjs(date, 'YYYY-MM-DD').format('dddd, MMMM D, YYYY')}
+	</time>
+) : null}

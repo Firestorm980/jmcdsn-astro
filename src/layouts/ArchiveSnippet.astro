@@ -3,9 +3,11 @@ import dayjs from 'dayjs';
 import DefaultLayout from '@layouts/Default.astro';
 import Markdown from '@astrojs/markdown-component';
 import Section from '@components/Section.astro';
-import { getSnippetLink } from './../utils';
+import { getCollection } from 'astro:content';
+import Time from '@components/Time.astro';
 
-const { kind, snippets } = Astro.props;
+const { kind } = Astro.props;
+const snippets = await getCollection('snippets')
 const title = 'Snippets';
 ---
 <DefaultLayout content={{title, bodyClass: kind}}>
@@ -28,14 +30,12 @@ const title = 'Snippets';
 			</thead>
 			<tbody>
 				{snippets.map(snippet => {
-					const {frontmatter} = snippet;
-					const {title, description, last_updated, categories } = frontmatter;
-					const href = getSnippetLink(snippet);
-					const post_last_updated =(last_updated) ? dayjs(last_updated, 'YYYY-MM-DD') : false;
+					const { data, slug } = snippet;
+					const { title, description, last_updated, categories } = data;
 					return (
 						<tr>
 							<td>
-								<a href={href}>{title}</a>
+								<a href={slug}>{title}</a>
 							</td>
 							<td>
 								<Markdown>{description}</Markdown>
@@ -44,11 +44,7 @@ const title = 'Snippets';
 								{categories.join(', ')}
 							</td>
 							<td>
-								{post_last_updated && (
-									<time class="single__date single__date--last-updated" datetime={post_last_updated.toISOString()}>
-										{post_last_updated.format('dddd, MMMM D, YYYY')}
-									</time>
-								)}
+								<Time date={last_updated} />
 							</td>
 						</tr>
 					)
