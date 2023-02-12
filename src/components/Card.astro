@@ -1,22 +1,19 @@
 ---
 import dayjs from 'dayjs';
 import Tags from '@components/Tags.astro';
-import { getPostLink } from './../utils.js';
+import Time from './Time.astro';
 
-const {post} = Astro.props;
-const { frontmatter } = post;
-const {title, date, categories} = frontmatter;
-const post_date = new Date(date);
-const href = getPostLink(post);
+const { post } = Astro.props;
+const { data } = post;
+const { title, date, categories } = data;
+const slug = `/my-thoughts/${post.slug.split('/').pop()}`
 ---
 <article class="card">
 	<h3 class="card__heading">
-		<a class="card__link" href={href}>
+		<a class="card__link" href={slug}>
 			{title}
 		</a>
 	</h3>
-	<time class="card__date" datetime={post_date.toISOString()}>
-		{dayjs(date, 'YYYY-MM-DD').format('dddd, MMMM D, YYYY')}
-	</time>
+	<Time className="card__date" date={date} />
 	{categories.length && <div class="card__tags"><Tags tags={categories} /></div>}
 </article>

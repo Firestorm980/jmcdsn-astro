@@ -10,7 +10,7 @@
   },
   "devDependencies": {
     "@astrojs/markdown-component": "^1.0.1",
-    "astro": "^1.5.3",
+    "astro": "^2.0.6",
     "autoprefixer": "^10.4.12",
     "cssnano": "^5.1.13",
     "dayjs": "^1.11.6",
@@ -32,8 +32,8 @@
     "stylelint-order": "^5.0.0"
   },
   "dependencies": {
-    "@astrojs/mdx": "^0.11.5",
-    "@astrojs/sitemap": "^0.1.0",
+    "@astrojs/mdx": "^0.11.6",
+    "@astrojs/sitemap": "^0.1.2",
     "@swup/a11y-plugin": "^2.0.0",
     "@swup/body-class-plugin": "^1.0.2",
     "@swup/js-plugin": "^1.0.4",

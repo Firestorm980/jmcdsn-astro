@@ -1,12 +1,10 @@
 ---
 const {path, name} = Astro.props;
+const svgs = import.meta.glob('../assets/images/**/*.svg', { as: 'raw' })
+const match = svgs[`../assets/${path}.svg`];
+const svg = (await match())
 ---
-<script type="module" define:vars={{path}}>
-	const svg = await fetch(`/assets/${path}`).then(res => res.text());
-	const div = document.querySelector(`[data-path="${path}"]`);
-	div.innerHTML = svg;
-</script>
 <div>
 	<span class="sr-only">{name}</span>
-	<div class="svg" aria-hidden="true" data-path={path} />
+	<div class="svg" aria-hidden="true" set:html={svg} />
 </div>

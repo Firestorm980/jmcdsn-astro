@@ -1,19 +1,16 @@
 ---
+import { getCollection } from 'astro:content';
 import ArchiveSnippet from '@layouts/ArchiveSnippet.astro';
 import Single from '@layouts/Single.astro';
-import { setSnippetLink } from './../../utils'
 
-export async function getStaticPaths() {
-	// Load your data with fetch(), Astro.glob(), etc.
-	let snippets = await Astro.glob('./../../snippets/**/*.md');
+export async function getStaticPaths({ paginate }) {
+	const snippets = await getCollection('snippets')
 
 	// Remap URLs for snippets and add params.
 	const snippetParams = snippets.map(snippet => {
-		const href = setSnippetLink(snippet);
-
 		return {
 			params: {
-				page: href,
+				page: snippet.slug,
 			},
 			props: {
 				kind: 'single single-snippet',
@@ -22,17 +19,23 @@ export async function getStaticPaths() {
 		};
 	});
 
-	return [
-		// Archive
-		{
-			params: {},
+	// Create pagination.
+	let paginationParams = paginate(snippets);
+	paginationParams = paginationParams.map((params) => {
+		return {
+			...params,
 			props: {
-				kind: 'archive',
-				snippets
+				...params.props,
+				kind: 'archive'
 			}
-		},
+		}
+	});
+
+	return [
 		// Individual
 		...snippetParams,
+		// Archive
+		...paginationParams,
 	];
 }
 
