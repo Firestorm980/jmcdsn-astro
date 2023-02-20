@@ -1,5 +1,4 @@
 ---
-import dayjs from 'dayjs';
 import Tags from '@components/Tags.astro';
 import DefaultLayout from '@layouts/Default.astro';
 import Time from '@components/Time.astro';
@@ -12,8 +11,8 @@ const { Content } = await post.render();
 	<article>
 		<header class="single__header section">
 			<h1 class="single__heading">{title}</h1>
-			<Time date={date} className="single__date" />
-			<Time date={last_updated} className="single__date" />
+			<Time date={date} class="single__date" />
+			<Time date={last_updated} class="single__date" />
 			{categories?.length && <div class="single__tags"><Tags tags={categories} /></div>}
 		</header>
 		<div class="content single__content section">

@@ -1,5 +1,4 @@
 ---
-import dayjs from 'dayjs';
 import DefaultLayout from '@layouts/Default.astro';
 import Markdown from '@astrojs/markdown-component';
 import Section from '@components/Section.astro';
@@ -44,7 +43,7 @@ const title = 'Snippets';
 								{categories.join(', ')}
 							</td>
 							<td>
-								<Time date={last_updated} />
+								<Time date={last_updated} format="D/M/YYYY" />
 							</td>
 						</tr>
 					)

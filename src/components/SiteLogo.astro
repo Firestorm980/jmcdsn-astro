@@ -1,7 +1,8 @@
 ---
 import siteData from '@data/site.json';
+import Link from './Link.astro';
 ---
-<a href="/" class="site-header__logo">
+<Link class="site-header__logo">
 	<span class="sr-only">{siteData.title}</span>
 	<svg class="logo" xmlns="http://www.w3.org/2000/svg" width="150" height="61" viewBox="0 0 150 61" aria-hidden="true" fill="none">
 		<path class="logo__background" d="M0 0h150v61H0z"/>
@@ -14,4 +15,4 @@ import siteData from '@data/site.json';
 			<path class="logo__letter" data-letter="N" d="M109.96 30.05l-.37-1.405h-.25v17.23h-4.09v-30.37h3.967l4.34 15.825.37 1.406h.25v-17.23h4.09v30.37H114.3l-4.34-15.827z"/>
 		</g>
 	</svg>
-</a>
+</Link>

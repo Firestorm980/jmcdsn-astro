@@ -1,4 +1,8 @@
 .snippets {
 	max-width: none;
 	width: 100%;
+
+	& th {
+		text-align: left;
+	}
 }

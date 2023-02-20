@@ -1,0 +1,10 @@
+---
+const { href = '' } = Astro.props;
+
+const base = import.meta.env.BASE_URL
+const updatedHref = `${base}${href}`
+---
+
+<a href={updatedHref} class={Astro.props.class}>
+	<slot /><!-- children will go here -->
+</a>

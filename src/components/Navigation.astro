@@ -1,9 +1,11 @@
 ---
+import Link from "@components/Link.astro";
+
 const links = [
-	{ slug: '/about-me/', name: 'About Me' },
-	{ slug: '/my-thoughts/', name: 'My Thoughts' },
-	{ slug: '/snippets/', name: 'Snippets' },
-	{ slug: '/contact/', name: 'Contact' }
+	{ slug: 'about-me/', name: 'About Me' },
+	{ slug: 'my-thoughts/', name: 'My Thoughts' },
+	{ slug: 'snippets/', name: 'Snippets' },
+	{ slug: 'contact/', name: 'Contact' }
 ];
 ---
 <nav class="navigation navigation--primary">
@@ -11,7 +13,7 @@ const links = [
 		{links.map(({slug, name}, index) => {
 			return (
 				<li style={`--index: ${index}; --total: ${links.length}`}>
-					<a href={slug}>{name}</a>
+					<Link href={slug}>{name}</Link>
 				</li>
 			)
 		})}
