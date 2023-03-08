@@ -8,7 +8,7 @@ export const close = (focus) => {
     const focusElement = document.querySelector('.site-header__button[data-action="open"]')
 
     if (focus) {
-      focusElement.focus();
+      focusElement.focus()
     }
   }
 
@@ -28,7 +28,7 @@ export const open = (focus) => {
     const focusElement = document.querySelector('.site-header__button[data-action="close"]')
 
     if (focus) {
-      focusElement.focus();
+      focusElement.focus()
     }
   }
 
@@ -63,34 +63,42 @@ const onNavigationKeydown = (event) => {
   const { shiftKey, key, target } = event
   const isOpen = navigation.getAttribute('data-open') === 'true'
 
+  // Not open? Skip.
   if (!isOpen) {
-    return;
+    return
   }
 
-  if ('Tab' !== key) {
-    return;
+  // Close the navigation on escape.
+  if (key === 'Escape') {
+    close(true)
+    return
   }
 
-  const focusableArray = Array.from(navigation.querySelectorAll('a, input, button'));
+  // Don't care about any other keys now but tab.
+  if (key !== 'Tab') {
+    return
+  }
+
+  const focusableArray = Array.from(navigation.querySelectorAll('a, input, button'))
   const first = focusableArray[0]
   const last = focusableArray[focusableArray.length - 1]
 
   if (first === target && shiftKey) {
-    event.preventDefault();
-    last.focus();
+    event.preventDefault()
+    last.focus()
   }
 
   if (last === target && !shiftKey) {
-    event.preventDefault();
-    first.focus();
+    event.preventDefault()
+    first.focus()
   }
 }
 
 const onNavigationClick = (event) => {
-  const { target } = event;
+  const { target } = event
 
-  if ( ! target.matches('a') && ! target.matches('.site-header__backdrop') ) {
-    return;
+  if (!target.matches('a') && !target.matches('.site-header__backdrop')) {
+    return
   }
 
   close()
