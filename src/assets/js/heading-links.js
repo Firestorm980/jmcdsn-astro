@@ -30,3 +30,6 @@ const init = () => {
 }
 
 init()
+
+// Rerun this when swup navigates.
+document.addEventListener('swup:contentReplaced', init)
