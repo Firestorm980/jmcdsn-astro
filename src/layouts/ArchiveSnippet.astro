@@ -9,7 +9,7 @@ const { kind } = Astro.props;
 const snippets = await getCollection('snippets')
 const title = 'Snippets';
 ---
-<DefaultLayout content={{title, bodyClass: kind}}>
+<DefaultLayout content={{title, bodyClass: kind, description: 'Snippet archive for Jon Michael Christensen.'}}>
 	<Section tag='header' emphasis>
 		<h1>
 			{title}

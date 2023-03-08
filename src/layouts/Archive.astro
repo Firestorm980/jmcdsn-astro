@@ -7,7 +7,7 @@ import Icon from '@components/Icon.astro';
 const { page, kind } = Astro.props;
 const title = `Blog | Page ${page.currentPage}`;
 ---
-<DefaultLayout content={{title, bodyClass: kind}}>
+<DefaultLayout content={{title, bodyClass: kind, description: 'Blog for Jon Michael Christensen.'}}>
 	<Section tag='header' emphasis>
 		<h1>
 			Blog
