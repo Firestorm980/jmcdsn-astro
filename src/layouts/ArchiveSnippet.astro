@@ -18,37 +18,39 @@ const title = 'Snippets';
 		</h1>
 	</Section>
 	<Section>
-		<table class="snippets">
-			<thead>
-				<tr>
-					<th>Name</th>
-					<th>Description</th>
-					<th>Categories</th>
-					<th>Last Updated</th>
-				</tr>
-			</thead>
-			<tbody>
-				{snippets.map(snippet => {
-					const { data, slug } = snippet;
-					const { title, description, last_updated, categories } = data;
-					return (
-						<tr>
-							<td>
-								<a href={slug}>{title}</a>
-							</td>
-							<td>
-								<Markdown>{description}</Markdown>
-							</td>
-							<td>
-								{categories.join(', ')}
-							</td>
-							<td>
-								<Time date={last_updated} format="D/M/YYYY" />
-							</td>
-						</tr>
-					)
-				})}
-			</tbody>
-		</table>
+		<div class="snippets">
+			<table class="snippets__table">
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Description</th>
+						<th>Categories</th>
+						<th>Last Updated</th>
+					</tr>
+				</thead>
+				<tbody>
+					{snippets.map(snippet => {
+						const { data, slug } = snippet;
+						const { title, description, last_updated, categories } = data;
+						return (
+							<tr>
+								<td>
+									<a href={slug}>{title}</a>
+								</td>
+								<td>
+									<Markdown>{description}</Markdown>
+								</td>
+								<td>
+									{categories.join(', ')}
+								</td>
+								<td>
+									<Time date={last_updated} format="D/M/YYYY" />
+								</td>
+							</tr>
+						)
+					})}
+				</tbody>
+			</table>
+		</div>
 	</Section>
 </DefaultLayout>
