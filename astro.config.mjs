@@ -2,6 +2,8 @@ import sitemap from '@astrojs/sitemap'
 import mdx from '@astrojs/mdx'
 import { defineConfig } from 'astro/config'
 import image from '@astrojs/image'
+import AstroPWA from '@vite-pwa/astro'
+import siteData from './src/data/site.json'
 
 // https://astro.build/config
 export default defineConfig({
@@ -12,5 +14,45 @@ export default defineConfig({
   site: 'https://firestorm980.github.io',
   // Your public domain, e.g.: https://my-site.dev/. Used to generate sitemaps and canonical URLs.
   base: '/jmcdsn-astro',
-  integrations: [sitemap(), mdx(), image()]
+  integrations: [
+    sitemap(),
+    mdx(),
+    image(),
+    AstroPWA({
+      registerType: 'autoUpdate',
+      manifest: {
+        name: siteData.title,
+        short_name: siteData.title,
+        description: siteData.description,
+        icons: [
+          {
+            src: 'assets/images/favicons/android-chrome-192x192.png',
+            sizes: '192x192',
+            type: 'image/png'
+          },
+          {
+            src: 'assets/images/favicons/android-chrome-512x512.png',
+            sizes: '512x512',
+            type: 'image/png'
+          }
+        ],
+        theme_color: '#f39c12',
+        background_color: '#f39c12',
+        display: 'standalone'
+      },
+      workbox: {
+
+        globPatterns: [
+          '**/*.{js,css,svg,png,jpg,jpeg,gif,webp,woff,woff2,ttf,eot,ico}',
+          'offline/*.html',
+          'index.html',
+          '404.html'
+        ]
+      },
+      devOptions: {
+        enabled: process.env.SW_DEV === 'true'
+      },
+      navigationFallback: null
+    })
+  ]
 })

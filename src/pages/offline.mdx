@@ -1,0 +1,18 @@
+import Section from '@components/Section.astro';
+import DefaultLayout from '@layouts/Default.astro';
+import Link from '@components/Link.astro';
+
+export const title = 'You are offline.';
+
+<DefaultLayout content={{ title }}>
+	<Section>
+		<h1>
+			{title}
+
+			<span class="subtitle">So, you don't have internet.</span>
+		</h1>
+		<p>
+			No worries. When you get back your network connection you can try again.
+		</p>
+	</Section>
+</DefaultLayout>
