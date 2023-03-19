@@ -19,7 +19,7 @@ export default defineConfig({
     mdx(),
     image(),
     AstroPWA({
-      registerType: 'autoUpdate',
+      strategies: 'injectManifest',
       manifest: {
         name: siteData.title,
         short_name: siteData.title,
@@ -40,19 +40,16 @@ export default defineConfig({
         background_color: '#f39c12',
         display: 'standalone'
       },
-      workbox: {
-
+      injectManifest: {
         globPatterns: [
           '**/*.{js,css,svg,png,jpg,jpeg,gif,webp,woff,woff2,ttf,eot,ico}',
-          'offline/*.html',
-          'index.html',
-          '404.html'
+          '/offline/index.html',
+          '/404.html'
         ]
       },
       devOptions: {
-        enabled: process.env.SW_DEV === 'true'
-      },
-      navigationFallback: null
+        enabled: import.meta.env.DEV
+      }
     })
   ]
 })

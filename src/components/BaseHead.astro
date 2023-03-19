@@ -1,5 +1,4 @@
 ---
-import { pwaInfo } from 'virtual:pwa-info';
 import siteData from '@data/site.json';
 import '@assets/css/index.css';
 
@@ -46,5 +45,5 @@ const headTitle = `${title} | ${siteData.title}`;
 <meta name="theme-color" content="#f39c12">
 
 <!-- Service Worker / PWA -->
-{ pwaInfo && <Fragment set:html={pwaInfo.webManifest.linkTag} /> }
-<script src="/src/assets/js/sw.js"></script>
+<link rel="manifest" href={`${base}manifest.webmanifest`}>
+<script src={`${base}registerSW.js`}></script>

@@ -32,8 +32,7 @@
 	font-weight: 200 700;
 	src:
 		url("/assets/fonts/GeneralSans-Variable.woff2") format("woff2"),
-		url("/assets/fonts/GeneralSans-Variable.woff") format("woff"),
-		url("/assets/fonts/GeneralSans-Variable.ttf") format("truetype");
+		url("/assets/fonts/GeneralSans-Variable.woff") format("woff");
 }
 
 /**
@@ -54,8 +53,7 @@
 	font-weight: 200 700;
 	src:
 		url("/assets/fonts/GeneralSans-VariableItalic.woff2") format("woff2"),
-		url("/assets/fonts/GeneralSans-VariableItalic.woff") format("woff"),
-		url("/assets/fonts/GeneralSans-VariableItalic.ttf") format("truetype");
+		url("/assets/fonts/GeneralSans-VariableItalic.woff") format("woff");
 }
 
 :root {
