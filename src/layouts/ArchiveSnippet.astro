@@ -1,6 +1,5 @@
 ---
 import DefaultLayout from '@layouts/Default.astro';
-import Markdown from '@astrojs/markdown-component';
 import Section from '@components/Section.astro';
 import { getCollection } from 'astro:content';
 import Time from '@components/Time.astro';
@@ -38,7 +37,7 @@ const title = 'Snippets';
 									<a href={slug}>{title}</a>
 								</td>
 								<td>
-									<Markdown>{description}</Markdown>
+									{description}
 								</td>
 								<td>
 									{categories.join(', ')}
