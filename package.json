@@ -27,7 +27,7 @@
     "postcss-modules": "^5.0.0",
     "postcss-nesting": "^10.2.0",
     "postcss-reporter": "^7.0.5",
-    "stylelint": "^15.6.0",
+    "stylelint": "^15.10.1",
     "stylelint-config-standard": "^33.0.0",
     "stylelint-order": "^6.0.3"
   },
