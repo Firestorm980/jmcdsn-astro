@@ -12,5 +12,5 @@ export default defineConfig({
   site: 'https://jmcdsn.com',
   // Your public domain, e.g.: https://my-site.dev/. Used to generate sitemaps and canonical URLs.
   base: '/',
-  integrations: [sitemap(), mdx(), image()]
+  integrations: [sitemap(), mdx()]
 })
