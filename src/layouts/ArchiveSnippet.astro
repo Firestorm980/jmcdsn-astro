@@ -3,6 +3,7 @@ import DefaultLayout from '@layouts/Default.astro';
 import Section from '@components/Section.astro';
 import { getCollection } from 'astro:content';
 import Time from '@components/Time.astro';
+import Link from '@components/Link.astro';
 
 const { kind } = Astro.props;
 const snippets = await getCollection('snippets')
@@ -31,10 +32,11 @@ const title = 'Snippets';
 					{snippets.map(snippet => {
 						const { data, slug } = snippet;
 						const { title, description, last_updated, categories } = data;
+						const href = `snippets/${slug.split('/').pop()}`
 						return (
 							<tr>
 								<td>
-									<a href={slug}>{title}</a>
+									<Link href={href}>{title}</Link>
 								</td>
 								<td>
 									{description}
