@@ -33,13 +33,13 @@
   "dependencies": {
     "@astrojs/mdx": "^1.0.2",
     "@astrojs/sitemap": "^3.0.0",
-    "@swup/a11y-plugin": "^2.0.0",
-    "@swup/body-class-plugin": "^1.0.2",
-    "@swup/js-plugin": "^1.0.4",
-    "@swup/progress-plugin": "^1.0.1",
-    "@swup/scroll-plugin": "^1.1.0",
+    "@swup/a11y-plugin": "^4.4.0",
+    "@swup/body-class-plugin": "^3.1.1",
+    "@swup/js-plugin": "^3.1.1",
+    "@swup/progress-plugin": "^3.1.0",
+    "@swup/scroll-plugin": "^3.3.0",
     "entypo": "^2.2.1",
     "normalize.css": "^8.0.1",
-    "swup": "^2.0.14"
+    "swup": "^4.4.0"
   }
 }
