@@ -1,5 +1,5 @@
 ---
-title: Emit Event
+title: emitEvent
 categories:
 - JavaScript
 last_updated: '2022-11-13'

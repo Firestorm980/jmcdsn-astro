@@ -1,5 +1,5 @@
 ---
-title: Debounce
+title: debounce
 categories:
 - JavaScript
 - Performance
