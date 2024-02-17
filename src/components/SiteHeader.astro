@@ -1,3 +1,34 @@
 ---
+import Icon from '@/components/Icon.astro';
+import Navigation from '@/components/Navigation.astro';
+import NavigationSocial from '@/components/NavigationSocial.astro';
+import SiteLogo from '@/components/SiteLogo.astro';
+import ThemeSwitcher from '@/components/ThemeSwitcher.astro';
 ---
-<header class="site-header"></header>
+<header id="site-header" class="site-header">
+    <a href="#main" class="skip-link button button--primary">Skip to content</a>
+
+	<div class="site-header__inner">
+		<SiteLogo />
+
+		<button class="site-header__button" data-action="open" type="button">
+			<Icon name="list" />
+			<span>Menu</span>
+		</button>
+	</div>
+	<div id="site-header-navigation" class="site-header__navigation">
+		<div class="site-header__backdrop"></div>
+		<div class="site-header__inner">
+			<SiteLogo />
+			<button class="site-header__button" data-action="close" type="button">
+				<Icon name="close" />
+				<span>Close</span>
+			</button>
+		</div>
+		<div class="site-header__navigation-content">
+			<Navigation />
+			<ThemeSwitcher />
+			<NavigationSocial />
+		</div>
+	</div>
+</header>

@@ -1,9 +1,9 @@
 ---
-import DefaultLayout from '@layouts/Default.astro';
-import Section from '@components/Section.astro';
+import DefaultLayout from '@/layouts/Default.astro';
+import Section from '@/components/Section.astro';
 import { getCollection } from 'astro:content';
-import Time from '@components/Time.astro';
-import Link from '@components/Link.astro';
+import FormattedDate from '@/components/FormattedDate.astro';
+import Link from '@/components/Link.astro';
 
 const { kind } = Astro.props;
 const snippets = await getCollection('snippets')
@@ -45,7 +45,7 @@ const title = 'Snippets';
 									{categories.join(', ')}
 								</td>
 								<td>
-									<Time date={last_updated} format="D/M/YYYY" />
+									<FormattedDate date={last_updated} />
 								</td>
 							</tr>
 						)
