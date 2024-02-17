@@ -1,9 +1,16 @@
 ---
 import BaseLayout from '../layouts/Base.astro';
 
+interface Props {
+    title: string;
+    description: string;
+    kind: string;
+}
+
 const {
     title,
-    description
+    description,
+    kind
 } = Astro.props;
 
 const layoutProps = {
@@ -11,7 +18,7 @@ const layoutProps = {
     description,
     permalink: '',
     image: '',
-    bodyClass: 'archive archive--post',
+    bodyClass: `archive archive--${kind}`,
 }
 ---
 <BaseLayout {...layoutProps}>

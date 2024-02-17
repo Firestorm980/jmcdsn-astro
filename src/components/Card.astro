@@ -6,11 +6,11 @@ import Link from '@/components/Link.astro';
 const { post } = Astro.props;
 const { data } = post;
 const { title, date, categories } = data;
-const slug = `my-thoughts/${post.slug.split('/').pop()}`
+const href = `${post.collection}/${post.slug}`;
 ---
 <article class="card">
 	<h3 class="card__heading">
-		<Link class="card__link" href={slug}>
+		<Link class="card__link" href={href}>
 			{title}
 		</Link>
 	</h3>

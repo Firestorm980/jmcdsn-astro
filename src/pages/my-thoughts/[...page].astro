@@ -1,27 +1,40 @@
 ---
 import { getCollection } from "astro:content";
-import Archive from '../../layouts/Archive.astro';
-import Pagination from "../../components/Pagination.astro";
-import EntryList from "../../components/EntryList.astro";
-import type { PaginationPage, PaginationEntry } from "../../types";
-import { filterDrafts, sortEntriesByDate } from "../../utils";
+import Archive from '@/layouts/Archive.astro';
+import Pagination from "@/components/Pagination.astro";
+import Section from "@/components/Section.astro";
+import Card from "@/components/Card.astro";
+import type { PaginationPage, PaginationEntry } from "@/types";
+import { filterDrafts, sortEntriesByDate } from "@/utils";
 
 export async function getStaticPaths({ paginate }) {
     let entries = await getCollection('my-thoughts') as PaginationEntry[];
 
-    entries = sortEntriesByDate(entries);
-    entries = filterDrafts(entries);
+    entries = sortEntriesByDate(entries) as PaginationEntry[];
+    entries = filterDrafts(entries) as PaginationEntry[];
 
     return paginate(entries);
 }
 
 const { page } : { page: PaginationPage } = Astro.props;
-const title = 'My thoughts';
+const title = 'Blog';
 const description = "A collection of my thoughts on various subjects.";
 ---
 
-<Archive title={`${title} | Page ${page.currentPage}`} description={description}>
-    <h1>{title}</h1>
-    <EntryList data={page.data} />
-    <Pagination page={page} ariaLabel={`Pagination for: ${title}`} />
+<Archive title={`${title} | Page ${page.currentPage}`} description={description} kind="posts">
+    <Section tag='header' emphasis>
+		<h1>
+			{title}
+
+			<span class="subtitle">My thoughts about stuff and things</span>
+		</h1>
+	</Section>
+	<Section>
+		<h2 class="sr-only">Posts</h2>
+		<p>Showing {page.start + 1} &mdash; {page.end + 1} of {page.total}</p>
+		<ul class="post-list">
+			{page.data.map(post => <li class="post-list__item"><Card post={post} /></li>)}
+		</ul>
+		<Pagination page={page} ariaLabel={`Pagination for: ${title}`} />
+	</Section>
 </Archive>
