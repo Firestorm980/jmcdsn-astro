@@ -1,10 +1,10 @@
 
-import DefaultLayout from '@/layouts/Default.astro';
+import BaseLayout from '@/layouts/Base.astro';
 import Section from '@/components/Section.astro';
 
 export const title = 'Contact';
 
-<DefaultLayout content={{ title }}>
+<BaseLayout title={title}>
 	<Section tag="header" emphasis>
 		<h1>
 			{title}
@@ -19,4 +19,4 @@ export const title = 'Contact';
 
 		If you're looking for more official things, you can take a look at [my LinkedIn profile](https://www.linkedin.com/in/jon-christensen-2768381a/).
 	</Section>
-</DefaultLayout>
+</BaseLayout>

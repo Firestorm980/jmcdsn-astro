@@ -1,8 +1,18 @@
 ---
-import siteData from '@/data/site.json';
 import Icon from '@/components/Icon.astro';
 
-const {networks} = siteData;
+const networks = [
+    {
+        slug: "linkedin",
+        name: "LinkedIn",
+        url: "https://www.linkedin.com/in/jon-christensen-2768381a/"
+    },
+    {
+        slug: "github",
+        name: "Github",
+        url: "https://github.com/Firestorm980/"
+    }
+]
 ---
 <div class="navigation navigation--social">
 	<ul>

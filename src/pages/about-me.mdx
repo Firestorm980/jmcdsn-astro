@@ -1,4 +1,4 @@
-import DefaultLayout from '@/layouts/Default.astro';
+import BaseLayout from '@/layouts/Base.astro';
 import Section from '@/components/Section.astro';
 import Logos from '@/components/Logos.astro';
 
@@ -26,7 +26,7 @@ export const tools = [
 	{ slug: 'images/tool-logos/wordpress', name: 'WordPress'},
 ];
 
-<DefaultLayout content={{ title }}>
+<BaseLayout title={title}>
 	<Section tag='header' emphasis>
 		<h1>
 			{title}
@@ -57,4 +57,4 @@ export const tools = [
 		I've worked with a lot of different clients. Here is just a short list of a few.
 		<Logos items={clients} />
 	</Section>
-</DefaultLayout>
+</BaseLayout>
