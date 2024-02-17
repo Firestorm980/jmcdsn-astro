@@ -52,12 +52,6 @@
 		transition-timing-function: var(--transition-ease-out);
 		visibility: hidden;
 		width: 100%;
-
-		@nest [data-open="true"] & {
-			opacity: 1;
-			transform: translateY(0);
-			visibility: visible;
-		}
 	}
 
 	& a {
@@ -69,6 +63,12 @@
 	}
 }
 
+[data-open="true"] .navigation--primary li {
+	opacity: 1;
+	transform: translateY(0);
+	visibility: visible;
+}
+
 .navigation--social {
 	opacity: 0;
 	transition-delay: var(--transition-duration-400);
@@ -76,11 +76,6 @@
 	transition-property: opacity, visibility;
 	transition-timing-function: var(--transition-ease-out);
 	visibility: hidden;
-
-	@nest [data-open="true"] & {
-		opacity: 1;
-		visibility: visible;
-	}
 
 	& a {
 		color: var(--color-base);
@@ -100,6 +95,11 @@
 		margin: 0 2rem;
 		padding: 1rem 0;
 	}
+}
+
+[data-open="true"] .navigation--social {
+	opacity: 1;
+	visibility: visible;
 }
 
 .navigation--pagination {
