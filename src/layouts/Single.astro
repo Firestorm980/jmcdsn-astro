@@ -1,12 +1,12 @@
 ---
-import type { Entry, Post } from '../types';
-
 interface Props {
     entry: Entry;
 }
 
-import BaseLayout from '../layouts/Base.astro';
-import FormattedDate from '../components/FormattedDate.astro';
+import BaseLayout from '@/layouts/Base.astro';
+import FormattedDate from '@/components/FormattedDate.astro';
+import Tags from '@/components/Tags.astro';
+import type { Entry, Post } from '@/types';
 
 const { entry } = Astro.props;
 const { data } = entry;
@@ -14,7 +14,6 @@ const {
     title,
     description = '',
     date,
-    draft,
     categories,
     featured_image = ''
 } = data as Post;
@@ -29,10 +28,15 @@ const layoutProps = {
 ---
 <BaseLayout {...layoutProps}>
     <article>
-        <h1>{title}</h1>
-        <FormattedDate date={date} />
-        <div class="entry-content">
-            <Content />
-        </div>
+        <header class="single__header section">
+			<h1 class="single__heading">{title}</h1>
+            <div class="single__date">
+                <FormattedDate date={date} />
+            </div>
+			{categories?.length && <div class="single__tags"><Tags tags={categories} /></div>}
+		</header>
+		<div class="content single__content section">
+			<Content />
+		</div>
     </article>
 </BaseLayout>

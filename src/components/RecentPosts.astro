@@ -1,15 +1,16 @@
 ---
 import { getCollection } from 'astro:content';
 import Card from '@/components/Card.astro';
+import { filterDrafts, sortEntriesByDate } from '@/utils';
 
-let posts = await getCollection('my-thoughts')
+let entries = await getCollection('my-thoughts')
 
-// Sort posts in reverse chronological order (newest first).
-posts.sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
+entries = sortEntriesByDate(entries);
+entries = filterDrafts(entries);
 ---
 <div class="recent-posts">
 	<ul class="recent-posts__list">
-		{posts.slice(0, 4).map((post) => {
+		{entries.slice(0, 4).map((post) => {
 			return (
 				<li class="recent-posts__list-item">
 					<Card post={post} />
