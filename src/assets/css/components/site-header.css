@@ -21,7 +21,6 @@
 	transition-timing-function: var(--transition-ease-in);
 	visibility: hidden;
 	width: 100%;
-
 }
 
 [data-open="true"] .site-header__backdrop {
@@ -69,12 +68,12 @@
 	transition-timing-function: var(--transition-easing);
 	visibility: hidden;
 	width: 100%;
-}
-
-[data-open="true"] .site-header__navigation {
-	opacity: 1;
-	transition-duration: var(--transition-duration-400);
-	visibility: visible;
+	
+	&[data-open="true"] {
+		opacity: 1;
+		transition-duration: var(--transition-duration-400);
+		visibility: visible;
+	}
 }
 
 .site-header__navigation-content {
@@ -88,6 +87,7 @@
 	transition-property: opacity, visibility;
 	transition-timing-function: var(--transition-easing);
 	visibility: hidden;
+	z-index: 1;
 }
 
 [data-open="true"] .site-header__navigation-content {
