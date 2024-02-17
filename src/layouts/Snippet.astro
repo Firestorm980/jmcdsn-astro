@@ -1,5 +1,5 @@
 ---
-import type { Entry, Post } from '../types';
+import type { Entry, Snippet } from '../types';
 
 interface Props {
     entry: Entry;
@@ -16,21 +16,21 @@ const {
     date,
     draft,
     categories,
-    featured_image = ''
-} = data as Post;
+    lastmod,
+} = data as Snippet;
 const { Content } = await entry.render();
 
 const layoutProps = {
     title,
     description,
-    image: featured_image,
-    bodyClass: 'single single--post',
+    bodyClass: 'single single--snippet',
 }
 ---
 <BaseLayout {...layoutProps}>
     <article>
         <h1>{title}</h1>
-        <FormattedDate date={date} />
+        <p>Created: <FormattedDate date={date} /></p>
+        <p>Modified: <FormattedDate date={lastmod} /></p>
         <div class="entry-content">
             <Content />
         </div>

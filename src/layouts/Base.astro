@@ -1,0 +1,28 @@
+---
+import SiteFooter from "../components/SiteFooter.astro";
+import SiteHead from "../components/SiteHead.astro";
+import SiteHeader from "../components/SiteHeader.astro";
+
+const {
+    bodyClass,
+    title,
+    description,
+    image
+} = Astro.props;
+---
+<html lang="en">
+	<head>
+        <SiteHead
+            title={title}
+            description={description}
+            image={image}
+        />
+	</head>
+	<body class={bodyClass}>
+		<SiteHeader />
+        <main id="main" class="site-main">
+            <slot />
+        </main>
+        <SiteFooter />
+	</body>
+</html>
