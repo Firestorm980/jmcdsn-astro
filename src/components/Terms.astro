@@ -1,0 +1,20 @@
+---
+interface Props {
+    terms: string[];
+    taxonomy: string;
+}
+
+const { terms, taxonomy } = Astro.props;
+const cn = `terms terms--${taxonomy}`;
+---
+
+<ul class={ cn }>
+	{terms.map((tag) => {
+		const classes = `tag tag--${tag.toLowerCase().replace(' ','-')}`;
+		return (
+			<li>
+				<span class={classes}>{tag}</span>
+			</li>
+		)
+	}).sort()}
+</ul>

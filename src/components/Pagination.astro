@@ -1,0 +1,92 @@
+---
+import type { PaginationPage } from '../types';
+
+interface Props {
+    ariaCurrent?: 'page' | 'step' | 'location' | 'date' | 'time' | 'true' | 'false';
+    ariaLabel?: string;
+    endSize?: number;
+    midSize?: number;
+    page: PaginationPage;
+    showFirstLast?: boolean;
+    showPreviousNext?: boolean;
+}
+
+const {
+    ariaCurrent = 'page',
+    ariaLabel,
+    endSize = 1,
+    midSize = 2,
+    page,
+    showFirstLast = true,
+    showPreviousNext = true,
+} = Astro.props;
+const { end, size, total, currentPage, lastPage, url } = page;
+
+const pathArray = Astro.url.pathname.split('/').filter(item => item);
+const path = (currentPage > 1) ? pathArray.slice(0, -1).join('/') : pathArray.join('/');
+const base = `${Astro.url.origin}/${path}`;
+
+let dots = false;
+
+const allPages = Array.from({length: lastPage}, (_, i) => i + 1);
+const paginationList = allPages.map((page) => {
+    if ( page === currentPage ) {
+        return { page, current: true, dots: false };
+    } else {
+        if ( (page <= endSize || ( currentPage && page >= currentPage - midSize && page <= currentPage + midSize ) || page > lastPage - endSize) ) {
+            dots = true;
+            return { page, current: false, dots: false };
+        } else if (dots) {
+            dots = false;
+            return { page: -1, current: false, dots: true };
+        }
+    }
+
+    return { page: null, current: false, dots: false };
+}).filter(({ page }) => page !== null);
+
+---
+{lastPage >= 2 && (
+    <nav aria-label={ariaLabel} class="pagination">
+        {showFirstLast && (
+            <a class="pagination__link pagination__link--first" href={base} aria-label={`Go to first page`}>First</a>
+        )}
+
+        {showPreviousNext && url.prev && (
+            <a class="pagination__link pagination__link--previous" href={url.prev} aria-label={`Go to previous page`}>Previous</a>
+        )}
+        
+        <div class="pagination__pages">
+            {paginationList.map(({ page, current }) => {
+                if (current) {
+                    return (
+                        <span class="pagination__link pagination__link--current" aria-current={ariaCurrent}>{ page }</span>
+                    )
+                }
+                if (page === -1) {
+                    return (
+                        <span class="pagination__separator" aria-hidden="true">&hellip;</span>
+                    )
+                }
+    
+                if (page === 1) {
+                    return (
+                        <a class="pagination__link pagination__link--page" href={base} aria-label={`Go to page ${page}`}>{ page }</a>
+                    )
+                }
+    
+                return (
+                    <a class="pagination__link pagination__link--page" href={`${ base }/${ page }`} aria-label={`Go to page ${page}`}>{ page }</a>
+                )
+            })}
+        </div>
+
+        {showPreviousNext && url.next && (
+            <a class="pagination__link pagination__link--next" href={url.next} aria-label={`Go to next page`}>Next</a>
+        )}
+
+        {showFirstLast && (
+            <a class="pagination__link pagination__link--last" href={`${ base }/${ lastPage }`} aria-label={`Go to last page`}>Last</a>
+        )}
+    </nav>
+)}

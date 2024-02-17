@@ -1,0 +1,26 @@
+---
+import { Image } from 'astro:assets';
+
+interface Props {
+    src: string;
+    alt: string;
+    caption?: string;
+    width: number;
+    height: number;
+}
+
+const { caption, src, alt, width, height } = Astro.props;
+
+// The following code is a recipe for dynamically importing images in Astro.
+// https://docs.astro.build/en/recipes/dynamically-importing-images/#recipe
+const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/images/posts/*.{jpeg,jpg,png,gif}');
+
+// Ensure the image exists. Error if it doesn't.
+if (!images[src]) throw new Error(`"${src}" does not exist in glob: "/src/assets/images/posts/*.{jpeg,jpg,png,gif}"`);
+
+const image = images[src]();
+---
+<figure>
+    <Image src={image} alt={alt} width={width} height={height} />
+    {caption && (<figcaption>{caption}</figcaption>)}
+</figure>

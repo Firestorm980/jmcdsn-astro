@@ -1,0 +1,35 @@
+---
+interface Props {
+    src: string;
+    title: string;
+}
+
+const { src, title } = Astro.props;
+
+const NON_COOKIE_DOMAINS = [
+    'www.youtube.com',
+    'www.youtu.be',
+    'youtu.be',
+    'youtube.com',
+];
+
+const url = new URL(src);
+const isNonCookieDomain = NON_COOKIE_DOMAINS.some((domain) => url.hostname.includes(domain));
+
+if ( isNonCookieDomain ) {
+    url.hostname = 'www.youtube-nocookie.com';
+}
+
+---
+<figure class="embed embed--youtube">
+    <iframe
+        width="560"
+        height="315"
+        src={url.toString()}
+        title={title}
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen
+    ></iframe>
+    {title && (<figcaption>{title}</figcaption>)}
+</figure>
