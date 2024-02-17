@@ -1,0 +1,20 @@
+---
+import { getCollection } from "astro:content";
+import Single from "@/layouts/Single.astro";
+import { filterDrafts } from "@/utils";
+import type { PaginationEntry } from "@/types";
+
+export async function getStaticPaths() {
+  let entries = await getCollection("my-thoughts") as PaginationEntry[];
+
+  entries = filterDrafts(entries);
+
+  return entries.map((entry) => ({
+    params: { slug: entry.slug }, props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+---
+
+<Single entry={entry} />

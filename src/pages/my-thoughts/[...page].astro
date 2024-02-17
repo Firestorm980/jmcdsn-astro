@@ -1,52 +1,27 @@
 ---
-import { getCollection } from 'astro:content';
-
-import Archive from '@layouts/Archive.astro';
-import Single from '@layouts/Single.astro';
+import { getCollection } from "astro:content";
+import Archive from '../../layouts/Archive.astro';
+import Pagination from "../../components/Pagination.astro";
+import EntryList from "../../components/EntryList.astro";
+import type { PaginationPage, PaginationEntry } from "../../types";
+import { filterDrafts, sortEntriesByDate } from "../../utils";
 
 export async function getStaticPaths({ paginate }) {
-	let posts = await getCollection('my-thoughts');
+    let entries = await getCollection('my-thoughts') as PaginationEntry[];
 
-	// Sort posts in reverse chronological order (newest first).
-	posts.sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
+    entries = sortEntriesByDate(entries);
+    entries = filterDrafts(entries);
 
-	// Remap URLs for posts and add params.
-	const postParams = posts.map(post => {
-		const slug = post.slug.split('/').pop()
-
-		return {
-			params: {
-				page: slug
-			},
-			props: {
-				kind: 'single single-post',
-				post: {...post}
-			}
-		};
-	});
-
-	// Create pagination.
-	let paginationParams = paginate(posts);
-	paginationParams = paginationParams.map((params) => {
-		return {
-			...params,
-			props: {
-				...params.props,
-				kind: 'archive'
-			}
-		}
-	});
-
-	// Return the combined params.
-	return [
-		...postParams,
-		...paginationParams
-	];
-};
-
-const { kind, page, post } = Astro.props;
----
-{'archive' !== kind
-	? <Single kind={kind} post={post} />
-	: <Archive kind={kind} page={page} />
+    return paginate(entries);
 }
+
+const { page } : { page: PaginationPage } = Astro.props;
+const title = 'My thoughts';
+const description = "A collection of my thoughts on various subjects.";
+---
+
+<Archive title={`${title} | Page ${page.currentPage}`} description={description}>
+    <h1>{title}</h1>
+    <EntryList data={page.data} />
+    <Pagination page={page} ariaLabel={`Pagination for: ${title}`} />
+</Archive>

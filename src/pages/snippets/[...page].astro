@@ -1,48 +1,27 @@
 ---
-import { getCollection } from 'astro:content';
-import ArchiveSnippet from '@layouts/ArchiveSnippet.astro';
-import Single from '@layouts/Single.astro';
+import { getCollection } from "astro:content";
+import Archive from '../../layouts/Archive.astro';
+import Pagination from "../../components/Pagination.astro";
+import EntryList from "../../components/EntryList.astro";
+import { sortEntriesByTitle, filterDrafts } from "../../utils";
+import type { PaginationPage, PaginationEntry } from "../../types";
 
 export async function getStaticPaths({ paginate }) {
-	const snippets = await getCollection('snippets')
+    let entries = await getCollection('snippets') as PaginationEntry[];
 
-	// Remap URLs for snippets and add params.
-	const snippetParams = snippets.map(snippet => {
-		return {
-			params: {
-				page: snippet.slug,
-			},
-			props: {
-				kind: 'single single-snippet',
-				post: {...snippet}
-			}
-		};
-	});
+    entries = sortEntriesByTitle(entries);
+    entries = filterDrafts(entries);
 
-	// Create pagination.
-	let paginationParams = paginate(snippets);
-	paginationParams = paginationParams.map((params) => {
-		return {
-			...params,
-			props: {
-				...params.props,
-				kind: 'archive'
-			}
-		}
-	});
-
-	return [
-		// Individual
-		...snippetParams,
-		// Archive
-		...paginationParams,
-	];
+    return paginate(entries);
 }
 
-const { kind, snippets, post } = Astro.props;
+const { page } : { page: PaginationPage } = Astro.props;
+const title = 'Snippets';
+const description = "A collection of snippets I have for web development.";
 ---
-{
-	'archive' !== kind
-	? <Single kind={kind} post={post} />
-	: <ArchiveSnippet kind={kind} snippets={snippets} />
-}
+
+<Archive title={`${title} | Page ${page.currentPage}`} description={description}>
+    <h1>{title}</h1>
+    <EntryList data={page.data} />
+    <Pagination page={page} ariaLabel={`Pagination for: ${title}`} />
+</Archive>
