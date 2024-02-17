@@ -2,7 +2,6 @@
 import Tags from '@/components/Tags.astro';
 import FormattedDate from '@/components/FormattedDate.astro';
 import Link from '@/components/Link.astro';
-import FormattedDate from './FormattedDate.astro';
 
 const { post } = Astro.props;
 const { data } = post;
@@ -15,6 +14,8 @@ const slug = `my-thoughts/${post.slug.split('/').pop()}`
 			{title}
 		</Link>
 	</h3>
-	<FormattedDate class="card__date" date={date} />
+	<div class="card__date">
+		<FormattedDate date={date} />
+	</div>
 	{categories.length && <div class="card__tags"><Tags tags={categories} /></div>}
 </article>
