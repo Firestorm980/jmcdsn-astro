@@ -1,0 +1,232 @@
+{
+  "$schema": "https://frontmatter.codes/frontmatter.schema.json",
+  "frontMatter.framework.id": "astro",
+  "frontMatter.preview.host": "http://localhost:4321",
+  "frontMatter.content.publicFolder": "[[workspace]]/src/assets/images/posts",
+  "frontMatter.content.pageFolders": [
+    {
+      "title": "My Thoughts",
+      "previewPath": "/{{fm.type}}/",
+      "path": "[[workspace]]/src/content/my-thoughts",
+      "contentTypes": [
+        "my-thoughts"
+      ]
+    },
+    {
+      "title": "Snippets",
+      "previewPath": "/{{fm.type}}/",
+      "path": "[[workspace]]/src/content/snippets",
+      "contentTypes": [
+        "snippets"
+      ]
+    },
+    {
+      "title": "Projects",
+      "previewPath": "/{{fm.type}}/",
+      "path": "[[workspace]]/src/content/projects",
+      "contentTypes": [
+        "projects"
+      ]
+    }
+  ],
+  "frontMatter.taxonomy.customTaxonomy": [
+    {
+      "id": "company",
+      "options": [
+        "First Scribe",
+        "MoCo",
+        "Westwerk",
+        "10up"
+      ]
+    }
+  ],
+  "frontMatter.taxonomy.contentTypes": [
+    {
+      "name": "my-thoughts",
+      "previewPath": "/{{fm.type}}/",
+      "pageBundle": false,
+      "clearEmpty": true,
+      "fileType": "mdx",
+      "fields": [
+        {
+          "title": "Title",
+          "name": "title",
+          "type": "string",
+          "single": true,
+          "required": true
+        },
+        {
+          "title": "Date",
+          "name": "date",
+          "type": "datetime",
+          "single": true,
+          "required": true,
+          "default": "{{now}}",
+          "isPublishDate": true
+        },
+        {
+          "title": "Description",
+          "name": "description",
+          "type": "string",
+          "single": true
+        },
+        {
+          "title": "Is in draft",
+          "name": "draft",
+          "type": "draft"
+        },
+        {
+          "title": "Tags",
+          "name": "tags",
+          "type": "tags"
+        },
+        {
+          "title": "Categories",
+          "name": "categories",
+          "type": "categories"
+        },
+        {
+          "title": "Slug",
+          "name": "slug",
+          "type": "slug",
+          "editable": true,
+          "default": "{{slug}}"
+        },
+        {
+          "title": "Featured Image",
+          "name": "featured_image",
+          "type": "image"
+        }
+      ]
+    },
+    {
+      "name": "snippets",
+      "previewPath": "/{{fm.type}}/",
+      "pageBundle": false,
+      "clearEmpty": true,
+      "fields": [
+        {
+          "title": "Title",
+          "name": "title",
+          "type": "string",
+          "single": true,
+          "required": true
+        },
+        {
+          "title": "Publishing date",
+          "name": "date",
+          "type": "datetime",
+          "default": "{{now}}",
+          "isPublishDate": true
+        },
+        {
+          "title": "Last modified date",
+          "name": "lastmod",
+          "type": "datetime",
+          "isModifiedDate": true
+        },
+        {
+          "title": "Description",
+          "name": "description",
+          "type": "string",
+          "single": true
+        },
+        {
+          "title": "Is in draft",
+          "name": "draft",
+          "type": "draft"
+        },
+        {
+          "title": "Tags",
+          "name": "tags",
+          "type": "tags"
+        },
+        {
+          "title": "Categories",
+          "name": "categories",
+          "type": "categories"
+        },
+        {
+          "title": "Slug",
+          "name": "slug",
+          "type": "slug",
+          "editable": true,
+          "default": "{{slug}}"
+        }
+      ]
+    },
+    {
+      "name": "projects",
+      "previewPath": "/{{fm.type}}/",
+      "pageBundle": false,
+      "clearEmpty": true,
+      "fileType": "mdx",
+      "fields": [
+        {
+          "title": "Title",
+          "name": "title",
+          "type": "string",
+          "single": true,
+          "required": true
+        },
+        {
+          "title": "Date",
+          "name": "date",
+          "type": "datetime",
+          "single": true,
+          "required": true,
+          "default": "{{now}}",
+          "isPublishDate": true
+        },
+        {
+          "title": "Description",
+          "name": "description",
+          "type": "string",
+          "single": true
+        },
+        {
+          "title": "Is in draft",
+          "name": "draft",
+          "type": "draft"
+        },
+        {
+          "title": "Tags",
+          "name": "tags",
+          "type": "tags"
+        },
+        {
+          "title": "Categories",
+          "name": "categories",
+          "type": "categories"
+        },
+        {
+          "title": "Slug",
+          "name": "slug",
+          "type": "slug",
+          "editable": true,
+          "default": "{{slug}}"
+        },
+        {
+          "title": "Featured Image",
+          "name": "featured_image",
+          "type": "image"
+        },
+        {
+          "title": "Company",
+          "name": "company",
+          "type": "taxonomy",
+          "taxonomyId": "company",
+          "taxonomyLimit": 1,
+          "singleValueAsString": true
+        }
+      ]
+    }
+  ],
+  "frontMatter.content.snippets": {
+    "Figure": {
+      "description": "Image with the <Figure> component. Uses dynamic source.",
+      "body": "<Figure caption=\"[[caption]]\" src=\"/src/assets/images/posts[[&mediaUrl]]\" alt=\"[[alt]]\" width=\"[[mediaWidth]]\" height=\"[[mediaHeight]]\" />",
+      "isMediaSnippet": true,
+    }
+  }
+}

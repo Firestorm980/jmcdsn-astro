@@ -1,0 +1,131 @@
+---
+title: "The power of CSS custom properties: dynamic updates"
+date: 2021-07-02T17:00:00.000Z
+draft: true
+slug: power-css-custom-properties-dynamic-updates
+type: my-thoughts
+tags:
+    - 10up
+categories:
+    - JavaScript
+    - Web Design & Development
+    - CSS
+---
+import Codepen from '@/components/Codepen.astro';
+
+In the previous article on custom properties, The power of CSS custom properties: an introduction, we learned about custom properties and some of the things that they can do just with plain CSS. Namely, how they can use the cascade, be changed with things like media queries, have fallback values, and be combined with calc(). But there is something else custom properties can do that previous CSS "variables" can't: interact with JavaScript.
+
+## Update based off of form values
+
+Typically when using custom properties with JavaScript, we're sending the CSS updated information that has been changed by some kind of interaction on the front end. Let's say that we wanted to let the user select a theme from a predefined list. We may start with something like this in the CSS:
+
+```css
+:root {
+    --theme-setting-color: #fff;
+    /* ... other settings */
+}
+```
+
+On the front end, we could have a form with options that will change the theme settings. When submitted, it can update the value. Something like:
+
+```html
+<select name="theme-color" id="theme-color">
+    <option value="#fff">White</option>
+    <option value="#0074d9">Blue</option>
+    <option value="#7fdbff">Aqua</option>
+    <!-- more options ...-->
+</select>
+```
+
+```js
+// Handle the submit
+form.addEventListener('submit', (event) => {
+    // No actual submit
+    event.preventDefault();
+    
+    // Get the color
+    const color = select.value;
+  
+    // Set the color on the doc
+    document.documentElement.style.setProperty(`--${key}`, color);
+    
+    // Set in local storage
+    localStorage.setItem(key, color);
+  });
+```
+This could then change the entire UI for the user and save their preference via local storage. That way, when they come back next time, their preferences can be loaded from their browser right at the start. Here is a full [working example on Codepen](https://codepen.io/JMChristensen/pen/VwpqLwR).
+
+Taking it another way, what if we want the browser to update based on different values? How about a color update based on the time of year? Remember, we can break up a color like HSL into different values and update them independently.
+
+```css
+.gradient {
+    --hue: 180;
+    --lightness: 50%;
+    --saturation: 75%;
+    
+    /* ... */
+    background-image: radial-gradient(
+      circle at bottom center,
+      hsl(var(--hue), var(--saturation), var(--lightness)),
+      hsl(var(--hue), var(--saturation), calc(var(--lightness) / 5))
+    );
+}
+```
+
+```js
+const updateGradient = (value) => {
+    const dateObject = new Date(value);
+  
+    const month = dateObject.getMonth();
+    const day = dateObject.getDay();
+    
+    const diff = 360 / 12;
+    const hue = diff * (month + 1);
+    const lightness = normalize(day, 1, 31, 0, diff);
+    
+    gradient.style.setProperty('--hue', hue + lightness);
+}
+```
+
+Use [the full example](https://codepen.io/JMChristensen/pen/ExWQGgV) and change the date with the field in the pen. Our gradient background will automatically update with it by updating our property.
+
+## Pointer special effects!
+
+We've been talking about doing more animation and UI effects here at 10up. While not entirely confined to the realm of CSS custom properties, they can help coordinate and make pointer based effects with a lot less JS to update multiple elements.
+
+The quick (and possibly only) JS we may need would be something like:
+
+```js
+document.addEventListener('pointermove', debounce((event) => {
+    document.documentElement.style.setProperty('--pointer-x', event.clientX);
+    document.documentElement.style.setProperty('--pointer-y', event.clientY);
+}));
+```
+
+Notice, we're including a debounce helper function with this to keep it performant. Within the CSS, we can then have one or more selectors that use these values internally. Here is a very simple example from CSS-Tricks. Move your mouse in the area to see it at work.
+
+<Codepen url="https://codepen.io/chriscoyier/pen/yxVQJG" title="Set CSS Variable with JavaScript" />
+
+Use your mouse to update the position of the square with custom properties. [Link to mouse position Codepen](https://codepen.io/chriscoyier/pen/yxVQJG).
+
+Many examples you'll find use custom properties simply to make more interactive cursors. While it is great to update a single element, custom properties allow us an easy way to dynamically update many elements (including pseudo elements), without setting any inline styles. [See this "flashlight" Codepen](https://codepen.io/JMChristensen/pen/qBrYWeM) as an example. The cool thing here is not only is the script updating the position of the "flashlight", but also dynamically updating the shadow.
+
+There are many ways we can utilize just this one technique. A similar [example that uses 3D CSS](https://codepen.io/JMChristensen/pen/bGqLOjZ) to make the component have a different kind of effect, but the underlying concept is the same. We're using a minimal amount of JS to update our custom property values and letting CSS do the work for any elements that use them.
+
+These examples have been using the movements of the mouse to modify the values of properties at the root level, but it doesn't have to. Instead, you can apply updates just to individual elements if you want to make unique effects. Here is a modified example of "direction aware" hovers to work on individual elements, so the effect changes depending on where your cursor enters and leaves. [See this example of direction aware hovers](https://codepen.io/JMChristensen/pen/XWMYBNa).
+
+## More advanced animations
+
+In the past, JavaScript would be in charge of certain kinds of animations. One such popular technique with animation is to stagger or offset elements as they appear. This can give them a more interesting motion and can direct the eye more effectively. An example here speaks a little better than words, so the following embed is an advanced stagger built with the popular animation library GSAP.
+
+<Codepen url="https://codepen.io/GreenSock/pen/jdawKx" slug="jdawKx" title="Advanced staggers in GSAP 3"  client:load  />
+
+With custom properties, we now have the ability to do some of these more advanced effects without the overhead of a large library. We can easily do so by applying an `index` custom property to the elements that we're staggering. Lightweight libraries like [Splitting.js](https://splitting.js.org/) can make our lives easier in this regard adding `index`, other helper custom properties (`total` for example), and wrapping our set of items for us. The actual animation is then handled by CSS. This has the potential of being more performant since we're likely just toggling the element's state in some way with JS, versus having it manage the animation. We're also potentially loading less JS and leaving the main thread less busy for ongoing work.
+
+By combining this technique with an intersection observer (also fairly lightweight) to see when an element enters the viewport, we can animate a set of elements, letters, words, or items as they become visible. Scroll around the docs at Splitting.js to see what I mean. They also have a handy [example of text effects](https://codepen.io/shshaw/pen/XVjKrG) on Codepen. Hover on a word to see the effect in action.
+
+## Wrapping up
+
+Much of this article has focused on updating custom properties in JS to do things like theming or animation, but there are likely other possibilities to updating the properties dynamically. Custom property values are very flexible, and what you could pass properties based on user feedback via JS could be just about anything. Maybe it could update the CSS based on date, location, network status, device orientation, a REST response, or something else entirely.
+
+Hopefully, this article may have gotten you thinking about things we could dynamically update to improve or enhance the UI in meaningful ways for our users. Beyond custom properties, the passing of Internet Explorer is opening up lots of possibilities for us to take advantage of these new APIs in ways that we just weren't able to before.

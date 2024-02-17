@@ -1,0 +1,75 @@
+---
+title: "The power of SVG: Upgrade a mega menu UI"
+date: 2020-02-29T00:00:00.000Z
+draft: true
+slug: power-svg-upgrade-mega-menu-ui
+type: my-thoughts
+categories:
+    - JavaScript
+    - Web Design & Development
+tags:
+    - SVG
+    - UI
+    - UX
+    - 10up
+---
+import Figure from '@/components/Figure.astro';
+import YouTube from '@/components/YouTube.astro';
+
+Commvault has an interesting mega menu, both visually and technically (worthy of another post). Seriously, go try it. It is probably one of the most intense menus I've worked on.
+
+The problem with mega menus is just that: they’re mega. They take up a ton of real estate and throw all these interactive items at you, spreading them around the window. Using one of these mega menus, you typically have a small (comparatively) parent link that opens or displays this big area of items. Often there is suddenly an issue of being able to get your cursor from point A (the small parent link) to point B (the link you want to click within the big area of items) without some weird hit area issues and/or having the menu disappear on you unintentionally. This is an issue I ran into a lot while I worked on the Commvault mega menu and it drove me nuts. In investigating a solution to this challenge, I came across an interesting way to resolve it.
+
+<Figure caption="" src="/src/assets/images/posts/it-crowd.gif" alt="" width="498" height="286" />
+
+In my investigations, I knew there had to be a way to get it so the browser would know if I hovered the parent item (and wanted to get to an item on the other side of the window), I could easily make a straight line (or, since humans aren’t machines, maybe even a curved line) directly between the links without the menu going away. In my explorations, using javascript and timeouts seemed to muddy up the transitions and didn’t always work because the item was so far away. Using pseudo elements seemed to not want to entirely cooperate either, having side effects like covering up other things and would need additional rules. What to do, what to do? Depending on how fast you moved the cursor, you may make it in time to the sub menu, you may not.
+
+## SVG to the rescue!
+
+Enter my secret weapon (you probably saw it coming): SVG! Since we know the coordinates of the parent element and the mega menu, we can translate those coordinates into a vector shape and put it on the page. Viola! Every time someone hovers over a parent item, we can use javascript to create an SVG on the fly with the coordinates we need. Below is a snippet from the site that actually creates the SVG.
+
+```js
+/**
+ * Get an SVG element to help us hover.
+ * @param {HTMLElement} from Where we're hovering from
+ * @param {HTMLElement} to Where we're hovering to
+ * @returns {SVGElement}
+ */
+const getHitAreaHelper = ( from, to ) => {
+	const compensator = 16; // For the transform on to
+	const fromRect = from.getBoundingClientRect();
+	const toRect = to.getBoundingClientRect();
+	const svg = document.createElementNS( 'http://www.w3.org/2000/svg', 'svg' );
+	const path = document.createElementNS( 'http://www.w3.org/2000/svg', 'path' );
+
+	// Setup SVG
+	svg.setAttribute( 'class', 'menu-item__hit-area-helper' );
+
+	// Make a path
+	path.setAttributeNS( null, 'd', `
+		M ${fromRect.right}, ${fromRect.top}
+		Q ${fromRect.right} ${toRect.top + compensator},
+		  ${toRect.right} ${toRect.top + compensator}
+		L ${toRect.left}, ${toRect.top + compensator}
+		Q ${fromRect.left} ${toRect.top + compensator},
+		  ${fromRect.left} ${fromRect.top}
+		L ${fromRect.left}, ${fromRect.bottom}
+		L ${fromRect.right}, ${fromRect.bottom}
+	z` );
+
+	// Add path to svg
+	svg.appendChild( path );
+
+	// Return the SVG element
+	return svg;
+};
+```
+
+In doing so, the path of the SVG is invisible to the user through CSS, but can still receive pointer events from the cursor. Thus, the SVG acts as a literal “bridge” from the parent item to the menu for your cursor. This allows the user to take a more natural path to their destination link. Awesome! This helped the UI tremendously, and it also helped keep things clean (no weird timeouts) and reusable (only a few rules, works responsively) in the codebase. Check out the video below to see an example of it in action with the SVG visible.
+Here, you can see the outline of the SVG path being created on the fly. In practice, the SVG is transparent.
+
+I can't take all the credit though. This idea is modified from a talk that Hakim El Hattab gave called Building Better Interfaces (which just happened to be around the time we were building the site). You can watch it on YouTube with the embed below (he starts talking about this technique at about 15:35). Even before the talk, some of you may remember a similar concept being used on Amazon's menu back in the day.
+
+<YouTube src="https://www.youtube.com/embed/o0NtjY17v5" title="Building Better Interfaces talk by Hakim El Hattab at CSS Day 2019" />
+
+Need to tame a mega menu? Although we use SVG a lot for icons and illustrations, they can be very powerful outside of that context as well. Using an SVG in this case to resolve this issue of moving cursor from parent nav to mega nav item solves the challenge in an efficient and effective way, and has the potential to be applied in other scenarios as well. Sometimes the way we use an SVG can even change how you interact with a page without you even knowing it.

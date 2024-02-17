@@ -3,8 +3,11 @@ title: debounce
 categories:
 - JavaScript
 - Performance
-last_updated: '2022-11-13'
+date: 2022-11-13
+lastmod: 2022-11-13
 description: Debounce a function using `requestAnimationFrame`
+type: snippets
+draft: false
 ---
 ```js
 /**

@@ -2,8 +2,11 @@
 title: emitEvent
 categories:
 - JavaScript
-last_updated: '2022-11-13'
+date: 2022-11-13
+lastmod: 2022-11-13
 description: Emit a custom event.
+type: snippets
+draft: false
 ---
 ```js
 /**

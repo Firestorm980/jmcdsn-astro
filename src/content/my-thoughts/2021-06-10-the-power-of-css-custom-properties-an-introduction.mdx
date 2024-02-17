@@ -1,0 +1,156 @@
+---
+title: "The power of CSS custom properties: an introduction"
+date: 2021-06-10T16:00:00.696Z
+draft: true
+slug: power-css-custom-properties-introduction
+type: my-thoughts
+tags:
+    - 10up
+categories:
+    - CSS
+    - Web Design & Development
+---
+import Codepen from '@/components/Codepen.astro';
+
+With the WordPress Core team phasing out support for IE and considering options for adding custom properties for dark mode in the WP admin and other areas, it seems like a good time to go over just how awesome CSS custom properties are and what they can unlock for us now that we won't have to worry (as much) about the dreaded browser that is Internet Explorer.
+
+## Just what are "custom properties" anyways?
+
+You may have heard them by a different name. They are also commonly referred to as CSS variables. When defined in CSS, they usually take the form of something like this:
+
+```css
+:root {
+  --my-custom-property: 'hello world!';
+}
+```
+
+While we've had some form of "variables" with CSS for awhile via pre and post processors like LESS, SCSS, and PostCSS, these were typically transformed at some point during the build process. So what makes custom properties so great over those? There are a few big advantages to using custom properties: they don't need a build process, they cascade, and they can be updated via JS in the browser. While not needing the build process is a pretty simple win to understand, the others can be a little tougher. Let's look at why that is so awesome.
+
+## Oh, the things you can do
+
+Looking throughout history, people have different relationships with the cascade in CSS. Some love it, others hate it. I have no doubt that some of us have been hurt by it. This isn't about that (that's for a support group). Let's use the example below of why custom properties can be so useful in the cascade:
+
+```css
+.main {
+  --custom-color: red;
+}
+.block {
+  background-color: var(--custom-color, rebeccapurple);
+}
+.sidebar {
+  --custom-color: blue;
+}
+```
+
+What will our .block color be? Since the custom property will cascade, if .block appears in the .sidebar, it'll inherit the new color that was defined in its nearest ancestor, in this case "blue". If .block appears in .main, it'll get the color specified there, which is "red". Change based on context, without adding additional selectors! The eagle eyed among you may have noticed that our var has another value. This is a fallback value for our color, which you can also think of like a default. So, if .block isn't nested in another element which specifies a value for `--custom-color`, it'll fallback to the one specified in the var, "rebeccapurple" in this case. Fun fact: you can nest fallbacks, so you can have multiple values to fallback to! Changes based on the location of a component in markup is pretty cool, but we can add rules based on other changes of context.
+
+```css
+body {
+  color: var(--color-text, black);
+  background-color: var(--color-background, white);
+}
+
+@media screen and (prefers-color-scheme: dark) {
+  body {
+    --color-text: white;
+    --color-background: black;
+  }
+}
+```
+
+Using media queries, we can also change the value of our custom properties. In this case, to support dark mode. We only have a single selector here, but imagine updating all the other elements of our design by just updating the variables they use. With just these concepts we can do some pretty cool stuff. You might be able to see how we could make things like theming, design systems, and reusable components easier. Let's kick it up a notch just one more time:
+
+```postcss
+// Globals we want everyone to have!
+// If this were a complete project, these would be things like spacing, theme colors, typography, etc.
+:root {
+  --color-primary-hue: 200;  
+}
+
+.grid {
+  // These grid properties will be available to the .item inside it (see below).
+    --grid-column-width: 1fr;
+    --grid-column-count: 4;
+    --grid-gap: 1.25rem;
+
+    @media (min-width: 60em) {
+        --grid-column-count: 8;
+    }
+
+    @media (min-width: 80em) {
+        --grid-gap: 2.5rem;
+        --grid-column-count: 12;
+    }
+  
+  display: grid;
+  grid-gap: var(--grid-gap);
+  grid-template-columns: repeat(
+    var(--grid-column-count),
+    var(--grid-column-width)
+  );
+  
+  // We can repeat custom property values elsewhere we find them useful.
+  // In this case, combining these with calc() might be even more powerful to fit our theme.
+  padding-left: var(--grid-gap);
+  padding-right: var(--grid-gap);
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 90rem;
+}
+
+.item {
+  // Calculate saturation based on the position of the element in the set.
+  // Since we only manipulate this per item, it makes sense to define it here.
+  --saturation: calc(var(--index) * (100 / var(--items)) * 1%);
+  
+  // You can use the custom property as part of a value like HSL.
+  // Notice that we're using a global for the hue (theming anyone?)
+  background: hsl(var(--color-primary-hue), var(--saturation), 40%);
+  border-color: hsl(var(--color-primary-hue), var(--saturation), 50%);
+  
+  border-style: solid;
+  border-width: 0.125rem;
+  border-radius: 0.5rem;
+  height: 10rem;
+  
+  // The grid column is set here and is updated through modifier classes (see below).
+  // We're using a fallback which matches our grid automatically all the time.
+  grid-column: span var(--span, var(--grid-column-count));
+}
+
+.item--half {
+  @media (min-width: 60em) {
+        --span: 4;
+    }
+
+    @media (min-width: 80em) {
+        --span: 6;
+    }
+}
+
+.item--third {
+    @media (min-width: 80em) {
+        --span: 4;
+    }
+}
+
+.item--fourth {
+    @media (min-width: 60em) {
+        --span: 2;
+    }
+
+    @media (min-width: 80em) {
+        --span: 3;
+    }
+}
+```
+
+<Codepen url="https://codepen.io/JMChristensen/pen/vYxgWzL" height="400" />
+
+Example of how custom properties can be used to manipulate colors, layout, and more.
+
+Open the full example in Codepen to play with the resizing and to see the markup. There is a lot going on here. We're using custom properties for colors and the grid layout. We're taking advantage of setting custom properties in inline styles (great for index), the cascade, media queries, fallbacks, and `calc()` combined with `var()`!
+
+## Wrapping up
+
+This is just some of the power of CSS custom properties. As we transition over to building more and more with modern browsers and have better support, we'll be looking for opportunities to better leverage their abilities. Next time, we'll explore how custom properties can interact with JavaScript, which unlocks potential for some more interesting interaction and tricks.
