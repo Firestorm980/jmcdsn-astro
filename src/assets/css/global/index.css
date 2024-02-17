@@ -1,4 +1,6 @@
 @import "./colors.css";
+@import "./mixins.css";
 @import "./sizing.css";
 @import "./transitions.css";
 @import "./typography.css";
+@import "./variables.css";

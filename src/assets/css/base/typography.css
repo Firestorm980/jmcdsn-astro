@@ -1,4 +1,6 @@
 html {
+	accent-color: var(--color-primary);
+	color-scheme: light dark;
 	font-size: 100%;
 }
 
@@ -24,7 +26,7 @@ h5,
 h6 {
 	color: var(--color-headings);
 	font-family: inherit;
-	font-weight: var(--font-weight-medium);
+	font-weight: var(--font-weight-bold);
 	line-height: 1.2;
 	margin-bottom: 0.5em;
 	margin-left: -0.04em;
@@ -66,28 +68,19 @@ h5,
 }
 
 a {
-	background-image: linear-gradient(to bottom, transparent 1px, var(--color-primary) 1px);
-	background-position-x: right;
-	background-position-y: bottom;
-	background-repeat: no-repeat;
-	background-size: 0% min(0.125em, 3px);
 	color: var(--color-primary);
-	text-decoration: none;
+	text-decoration: underline;
+	text-underline-offset: 0.125rem;
+	text-decoration-thickness: 0rem;
+	text-decoration-color: color-mix(in srgb, var(--color-primary), transparent 100%);
 	transition-duration: var(--transition-duration);
-	transition-property: background-color, background-size, border-color, color;
+	transition-property: background-color, background-size, border-color, color, text-decoration-color, text-decoration-thickness, text-underline-offset;
 	transition-timing-function: var(--transition-easing);
 
-	&:hover,
-	&:focus {
-		--bg-color: hsl(var(--color-amber-900));
-
-		background-color: var(--bg-color);
-		background-position-x: left;
-		background-size: 100% min(0.125em, 3px);
-
-		@media (prefers-color-scheme: light) {
-			--bg-color: hsl(var(--color-indigo-200));
-		}
+	&:is(:hover, :focus) {
+		text-decoration: underline;
+		text-decoration-thickness: 0.125rem;
+		text-decoration-color: color-mix(in srgb, var(--color-primary), transparent 0%);
 	}
 }
 
@@ -102,7 +95,7 @@ q::before {
 	color: var(--color-primary);
 }
 
-li::marker {
+::marker {
 	color: var(--color-primary);
 }
 
@@ -115,26 +108,32 @@ kbd {
 
 blockquote {
 	font-size: var(--step-1);
-	font-weight: 300;
 	margin-left: auto;
 	margin-right: auto;
-	padding: 1rem 3rem;
-	position: relative;
+	padding: 3rem;
 
-	&::before {
-		background-image: linear-gradient(to bottom, var(--color-primary), transparent);
-		border-radius: 0.125rem;
-		content: "";
-		height: 100%;
-		left: 0;
-		position: absolute;
-		top: 0;
-		width: 0.25rem;
+	& :first-child {
+		margin-top: 0;
+	}
+	
+	& :last-child {
+		margin-bottom: 0;
 	}
 }
 
+figure {
+	display: table;
+}
+
+figcaption {
+	caption-side: bottom;
+	display: table-caption;
+}
+
+figcaption,
 cite {
-	font-size: var(--step-0);
+	font-size: var(--step--1);
+	font-style: italic;
 }
 
 table {
@@ -157,7 +156,7 @@ table {
 
 dt {
 	color: var(--color-headings);
-	font-weight: 700;
+	font-weight: var(--font-weight-bold);
 }
 
 dd {
@@ -172,4 +171,20 @@ dd::before {
 	left: 1rem;
 	position: absolute;
 	top: 0;
+}
+
+code {
+	background-color: #24292e;
+	border-radius: 0.25rem;
+	color: #e1e4e8;
+	padding: 0.25rem 0.5rem;
+}
+
+.astro-code {
+	border-radius: 0.5rem;
+	padding: 1rem;
+}
+
+.astro-code code {
+	all: revert;
 }
