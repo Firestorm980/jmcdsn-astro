@@ -123,6 +123,16 @@ blockquote {
 
 figure {
 	display: table;
+	margin-inline: 0;
+	width: 100%;
+
+	& img,
+	& video,
+	& iframe {
+		display: block;
+		height: auto;
+		max-width: 100%;
+	}
 }
 
 figcaption {
