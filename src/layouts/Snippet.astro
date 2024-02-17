@@ -15,7 +15,6 @@ const {
     description = '',
     date,
     draft,
-    categories,
     lastmod,
 } = data as Snippet;
 const { Content } = await entry.render();
@@ -28,11 +27,19 @@ const layoutProps = {
 ---
 <BaseLayout {...layoutProps}>
     <article>
-        <h1>{title}</h1>
-        <p>Created: <FormattedDate date={date} /></p>
-        <p>Modified: <FormattedDate date={lastmod} /></p>
-        <div class="entry-content">
-            <Content />
-        </div>
+        <header class="single__header section">
+			<h1 class="single__heading">{title}</h1>
+            <div class="single__date">
+                <FormattedDate date={date} />
+                
+                {lastmod && lastmod !== date && (
+                    <br />
+                    <span>(Last modified: <FormattedDate date={lastmod} />)</span>
+                )}
+            </div>
+		</header>
+		<div class="content single__content section">
+			<Content />
+		</div>
     </article>
 </BaseLayout>
