@@ -218,6 +218,86 @@
           "taxonomyId": "company",
           "taxonomyLimit": 1,
           "singleValueAsString": true
+        },
+        {
+          "title": "Subtitle",
+          "name": "subtitle",
+          "type": "string"
+        },
+        {
+          "title": "Roles",
+          "name": "roles",
+          "type": "choice",
+          "multiple": true,
+          "choices": [
+            "Developer",
+            "Designer",
+            "Lead"
+          ]
+        },
+        {
+          "title": "CMS / Platform",
+          "name": "platforms",
+          "type": "choice",
+          "choices": [
+            "Drupal",
+            "Magento",
+            "Sanity",
+            "Symfony",
+            "WordPress"
+          ]
+        },
+        {
+          "title": "Libraries",
+          "name": "libraries",
+          "type": "choice",
+          "multiple": true,
+          "choices": [
+            "Angular",
+            "Astro",
+            "D3.js",
+            "Gatsby",
+            "GSAP",
+            "jQuery",
+            "Next.js",
+            "Nuxt.js",
+            "Preact",
+            "React",
+            "Svelte",
+            "Three.js",
+            "Velocity.js",
+            "Vue"
+          ]
+        },
+        {
+          "title": "Technologies",
+          "name": "technologies",
+          "type": "choice",
+          "multiple": true,
+          "choices": [
+            "Amazon Web Services",
+            "Babel",
+            "Bootstrap",
+            "ES6",
+            "ESLint",
+            "Git",
+            "Google Maps API",
+            "Grunt",
+            "Gulp",
+            "Gutenberg",
+            "LESS",
+            "Responsive Design",
+            "REST API",
+            "SASS",
+            "Stylelint",
+            "SVG",
+            "SVN",
+            "Tailwind CSS",
+            "Twig",
+            "Vimeo API",
+            "Vite",
+            "Webpack"
+          ]
         }
       ]
     }
@@ -226,7 +306,7 @@
     "Figure": {
       "description": "Image with the <Figure> component. Uses dynamic source.",
       "body": "<Figure caption=\"[[caption]]\" src=\"/src/assets/images/posts[[&mediaUrl]]\" alt=\"[[alt]]\" width=\"[[mediaWidth]]\" height=\"[[mediaHeight]]\" />",
-      "isMediaSnippet": true,
+      "isMediaSnippet": true
     }
   }
 }
