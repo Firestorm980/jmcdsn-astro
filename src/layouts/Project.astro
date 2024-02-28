@@ -4,9 +4,7 @@ interface Props {
 }
 
 import BaseLayout from '@/layouts/Base.astro';
-import FormattedDate from '@/components/FormattedDate.astro';
-import Tags from '@/components/Tags.astro';
-import type { Entry, Post } from '@/types';
+import type { Entry, Project } from '@/types';
 import FrontMatterImage from '@/components/FrontMatterImage.astro';
 
 const { entry } = Astro.props;
@@ -14,10 +12,14 @@ const { data } = entry;
 const {
     title,
     description = '',
-    date,
-    categories,
-    featured_image = ''
-} = data as Post;
+	company,
+	subtitle,
+	featured_image,
+	roles,
+	libraries,
+	technologies,
+	platforms,
+} = data as Project;
 const { Content } = await entry.render();
 
 const layoutProps = {
@@ -34,12 +36,62 @@ const layoutProps = {
 				<FrontMatterImage src={featured_image} />
 			</div>
 			<div class="single__header-content">
-				<h1 class="single__heading">{title}</h1>
-				<div class="single__date">
-					<FormattedDate date={date} />
-				</div>
+				<h1 class="single__heading">
+					{title}
+					<div class="subtitle">{subtitle}</div>
+				</h1>
 			</div>
 		</header>
+		<div class="single__meta section">
+			<dl>
+				<div>
+					<dt>Company</dt>
+					<dd>
+						{company}
+					</dd>
+				</div>
+				<div>
+					<dt>Roles</dt>
+					<dd>
+						<ul>
+							{roles.map(role => (
+								<li>{role}</li>
+							))}
+						</ul>
+					</dd>
+				</div>
+				<div>
+					<dt>Libraries</dt>
+					<dd>
+						<ul>
+							{libraries.map(library => (
+								<li>{library}</li>
+							))}
+						</ul>
+					</dd>
+				</div>
+				<div>
+					<dt>Technologies</dt>
+					<dd>
+						<ul>
+							{technologies.map(technology => (
+								<li>{technology}</li>
+							))}
+						</ul>
+					</dd>
+				</div>
+				<div>
+					<dt>Platforms</dt>
+					<dd>
+						<ul>
+							{platforms.map(platform => (
+								<li>{platform}</li>
+							))}
+						</ul>
+					</dd>
+				</div>
+			</dl>
+		</div>
 		<div class="content single__content section">
 			<Content />
 		</div>

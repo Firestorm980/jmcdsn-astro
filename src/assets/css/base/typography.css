@@ -115,7 +115,7 @@ blockquote {
 	& :first-child {
 		margin-top: 0;
 	}
-	
+
 	& :last-child {
 		margin-bottom: 0;
 	}
@@ -173,14 +173,6 @@ dd {
 	margin-left: 0;
 	padding-left: 3rem;
 	position: relative;
-}
-
-dd::before {
-	color: var(--color-primary);
-	content: "⮩";
-	left: 1rem;
-	position: absolute;
-	top: 0;
 }
 
 code {

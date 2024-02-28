@@ -20,6 +20,16 @@ export type Snippet = EntryData & {
     lastmod: Date;
 }
 
+export type Project = EntryData & {
+	company: string;
+	subtitle: string;
+	featured_image: string;
+	roles: string[];
+	libraries: string[];
+	technologies: string[];
+	platforms: string[];
+}
+
 export type PaginationEntry = Entry & {
     id: string;
     slug: string;

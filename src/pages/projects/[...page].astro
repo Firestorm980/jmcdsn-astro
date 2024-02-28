@@ -1,16 +1,16 @@
 ---
 import { getCollection } from "astro:content";
 import Archive from '@/layouts/Archive.astro';
-import { sortEntriesByTitle, filterDrafts } from "@/utils";
-import type { PaginationPage, PaginationEntry, Snippet } from "@/types";
+import { filterDrafts, sortEntriesByDate } from "@/utils";
+import type { PaginationPage, PaginationEntry, Project } from "@/types";
 import Section from "@/components/Section.astro";
-import FormattedDate from "@/components/FormattedDate.astro";
 import Link from "@/components/Link.astro";
+import FrontMatterImage from "@/components/FrontMatterImage.astro";
 
 export async function getStaticPaths({ paginate }) {
     let entries = await getCollection('projects') as PaginationEntry[];
 
-    entries = sortEntriesByTitle(entries) as PaginationEntry[];
+    entries = sortEntriesByDate(entries) as PaginationEntry[];
     entries = filterDrafts(entries) as PaginationEntry[];
 
     return paginate(entries);
@@ -30,41 +30,27 @@ const description = "Some of the things I've worked on. Check 'em out.";
 		</h1>
 	</Section>
 	<Section>
-		<div class="snippets">
-			<table class="snippets__table">
-				<thead>
-					<tr>
-						<th>Name</th>
-						<th>Description</th>
-						<th>Categories</th>
-						<th>Last Updated</th>
-					</tr>
-				</thead>
-				<tbody>
-					{page.data.map(snippet => {
-						const { data } = snippet;
-						const { title, description, lastmod, categories } = data as Snippet;
-						const href = `${snippet.collection}/${snippet.slug}`;
+		<ul class="post-list post-list--projects">
+			{page.data.map((post) => {
+				const { data } = post;
+				const { title, featured_image } = data as Project;
+				const href = `${post.collection}/${post.slug}`;
 
-						return (
-							<tr>
-								<td>
-									<Link href={href}>{title}</Link>
-								</td>
-								<td>
-									{description}
-								</td>
-								<td>
-									{categories.join(', ')}
-								</td>
-								<td>
-									<FormattedDate date={lastmod} />
-								</td>
-							</tr>
-						)
-					})}
-				</tbody>
-			</table>
-		</div>
+				return (
+					<li class="post-list-item">
+						<div class="post-list-item__image">
+							<FrontMatterImage src={featured_image} />
+						</div>
+						<div class="post-list-item__content">
+							<h3 class="post-list-item__title">
+								<Link href={href}>
+									{title}
+								</Link>
+							</h3>
+						</div>
+					</li>
+				)
+			})}
+		</ul>
 	</Section>
 </Archive>

@@ -12,6 +12,7 @@
 
 		& img {
 			border-radius: 0;
+			height: 100%;
 			inset: 0;
 			object-fit: cover;
 			object-position: center;
@@ -30,5 +31,51 @@
 
 	& .single__header-content {
 		position: relative;
+	}
+
+	& .single__meta {
+
+		& dl {
+			display: flex;
+			flex-wrap: wrap;
+			gap: var(--space-s-m);
+			justify-content: space-between;
+			margin: 0;
+		}
+
+		& div  {
+			display: flex;
+			flex-direction: column;
+			flex-grow: 1;
+			gap: var(--space-2xs);
+		}
+
+		& dt {
+			display: flex;
+			flex-direction: column;
+			gap: var(--space-2xs);
+			margin: 0;
+			padding: 0;
+
+			&::after {
+				background-image: var(--color-gradient);
+				border-radius: 0.125rem;
+				content: "";
+				display: block;
+				height: 0.125rem;
+				width: 100%;
+			}
+		}
+
+		& dd {
+			margin: 0;
+			padding: 0;
+		}
+
+		& ul {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+		}
 	}
 }
