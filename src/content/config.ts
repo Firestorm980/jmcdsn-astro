@@ -25,7 +25,13 @@ const snippetsCollection = defineCollection({
 const projectsCollection = defineCollection({
 	schema: z.object({
 		...defaults,
-		company: z.array(z.string()),
+		company: z.string(),
+		subtitle: z.string(),
+		featured_image: z.string(),
+		roles: z.array(z.string()),
+		libraries: z.array(z.string()),
+		technologies: z.array(z.string()),
+		platforms: z.array(z.string()),
 	})
 });
 // 3. Export a single `collections` object to register your collection(s)
