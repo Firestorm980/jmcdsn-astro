@@ -1,57 +1,57 @@
 html {
     /* Colors */
-    --color-white: hsl(0, 0%, 100%);
-	--color-black: hsl(0, 0%, 0%);
-	--color-amber-50: hsl(48, 100%, 96.1%);
-	--color-amber-100: hsl(48, 96.5%, 88.8%);
-	--color-amber-200: hsl(48, 96.6%, 76.7%);
-	--color-amber-300: hsl(45.9, 96.7%, 64.5%);
-	--color-amber-400: hsl(43.3, 96.4%, 56.3%);
-	--color-amber-500: hsl(37.7, 92.1%, 50.2%);
-	--color-amber-600: hsl(32.1, 94.6%, 43.7%);
-	--color-amber-700: hsl(26, 90.5%, 37.1%);
-	--color-amber-800: hsl(22.7, 82.5%, 31.4%);
-	--color-amber-900: hsl(21.7, 77.8%, 26.5%);
-	--color-gray-cool-50: hsl(210, 20%, 98%);
-	--color-gray-cool-100: hsl(220, 14.3%, 95.9%);
-	--color-gray-cool-200: hsl(220, 13%, 91%);
-	--color-gray-cool-300: hsl(216, 12.2%, 83.9%);
-	--color-gray-cool-400: hsl(217.9, 10.6%, 64.9%);
-	--color-gray-cool-500: hsl(220, 8.9%, 46.1%);
-	--color-gray-cool-600: hsl(215, 13.8%, 34.1%);
-	--color-gray-cool-700: hsl(216.9, 19.1%, 26.7%);
-	--color-gray-cool-800: hsl(215, 27.9%, 16.9%);
-	--color-gray-cool-900: hsl(220.9, 39.3%, 11%);
-	--color-gray-50: hsl(0, 0%, 98%);
-	--color-gray-100: hsl(240, 4.8%, 95.9%);
-	--color-gray-200: hsl(240, 5.9%, 90%);
-	--color-gray-300: hsl(240, 4.9%, 83.9%);
-	--color-gray-400: hsl(240, 5%, 64.9%);
-	--color-gray-500: hsl(240, 3.8%, 46.1%);
-	--color-gray-600: hsl(240, 5.2%, 33.9%);
-	--color-gray-700: hsl(240, 5.3%, 26.1%);
-	--color-gray-800: hsl(240, 3.7%, 15.9%);
-	--color-gray-900: hsl(240, 5.9%, 10%);
-	--color-gray-warm-50: hsl(60, 9.1%, 97.8%);
-	--color-gray-warm-100: hsl(60, 4.8%, 95.9%);
-	--color-gray-warm-200: hsl(20, 5.9%, 90%);
-	--color-gray-warm-300: hsl(24, 5.7%, 82.9%);
-	--color-gray-warm-400: hsl(24, 5.4%, 63.9%);
-	--color-gray-warm-500: hsl(25, 5.3%, 44.7%);
-	--color-gray-warm-600: hsl(33.3, 5.5%, 32.4%);
-	--color-gray-warm-700: hsl(30, 6.3%, 25.1%);
-	--color-gray-warm-800: hsl(12, 6.5%, 15.1%);
-	--color-gray-warm-900: hsl(24, 9.8%, 10%);
-	--color-indigo-50: hsl(225.9, 100%, 96.7%);
-	--color-indigo-100: hsl(226.5, 100%, 93.9%);
-	--color-indigo-200: hsl(228, 96.5%, 88.8%);
-	--color-indigo-300: hsl(229.7, 93.5%, 81.8%);
-	--color-indigo-400: hsl(234.5, 89.5%, 73.9%);
-	--color-indigo-500: hsl(238.7, 83.5%, 66.7%);
-	--color-indigo-600: hsl(243.4, 75.4%, 58.6%);
-	--color-indigo-700: hsl(244.5, 57.9%, 50.6%);
-	--color-indigo-800: hsl(243.7, 54.5%, 41.4%);
-	--color-indigo-900: hsl(242.2, 47.4%, 34.3%);
+    --color-white: hsl(0deg 0% 100%);
+	--color-black: hsl(0deg 0% 0%);
+	--color-amber-50: hsl(48deg 100% 96.1%);
+	--color-amber-100: hsl(48deg 96.5% 88.8%);
+	--color-amber-200: hsl(48deg 96.6% 76.7%);
+	--color-amber-300: hsl(45.9deg 96.7% 64.5%);
+	--color-amber-400: hsl(43.3deg 96.4% 56.3%);
+	--color-amber-500: hsl(37.7deg 92.1% 50.2%);
+	--color-amber-600: hsl(32.1deg 94.6% 43.7%);
+	--color-amber-700: hsl(26deg 90.5% 37.1%);
+	--color-amber-800: hsl(22.7deg 82.5% 31.4%);
+	--color-amber-900: hsl(21.7deg 77.8% 26.5%);
+	--color-gray-cool-50: hsl(210deg 20% 98%);
+	--color-gray-cool-100: hsl(220deg 14.3% 95.9%);
+	--color-gray-cool-200: hsl(220deg 13% 91%);
+	--color-gray-cool-300: hsl(216deg 12.2% 83.9%);
+	--color-gray-cool-400: hsl(217.9deg 10.6% 64.9%);
+	--color-gray-cool-500: hsl(220deg 8.9% 46.1%);
+	--color-gray-cool-600: hsl(215deg 13.8% 34.1%);
+	--color-gray-cool-700: hsl(216.9deg 19.1% 26.7%);
+	--color-gray-cool-800: hsl(215deg 27.9% 16.9%);
+	--color-gray-cool-900: hsl(220.9deg 39.3% 11%);
+	--color-gray-50: hsl(0deg 0% 98%);
+	--color-gray-100: hsl(240deg 4.8% 95.9%);
+	--color-gray-200: hsl(240deg 5.9% 90%);
+	--color-gray-300: hsl(240deg 4.9% 83.9%);
+	--color-gray-400: hsl(240deg 5% 64.9%);
+	--color-gray-500: hsl(240deg 3.8% 46.1%);
+	--color-gray-600: hsl(240deg 5.2% 33.9%);
+	--color-gray-700: hsl(240deg 5.3% 26.1%);
+	--color-gray-800: hsl(240deg 3.7% 15.9%);
+	--color-gray-900: hsl(240deg 5.9% 10%);
+	--color-gray-warm-50: hsl(60deg 9.1% 97.8%);
+	--color-gray-warm-100: hsl(60deg 4.8% 95.9%);
+	--color-gray-warm-200: hsl(20deg 5.9% 90%);
+	--color-gray-warm-300: hsl(24deg 5.7% 82.9%);
+	--color-gray-warm-400: hsl(24deg 5.4% 63.9%);
+	--color-gray-warm-500: hsl(25deg 5.3% 44.7%);
+	--color-gray-warm-600: hsl(33.3deg 5.5% 32.4%);
+	--color-gray-warm-700: hsl(30deg 6.3% 25.1%);
+	--color-gray-warm-800: hsl(12deg 6.5% 15.1%);
+	--color-gray-warm-900: hsl(24deg 9.8% 10%);
+	--color-indigo-50: hsl(225.9deg 100% 96.7%);
+	--color-indigo-100: hsl(226.5deg 100% 93.9%);
+	--color-indigo-200: hsl(228deg 96.5% 88.8%);
+	--color-indigo-300: hsl(229.7deg 93.5% 81.8%);
+	--color-indigo-400: hsl(234.5deg 89.5% 73.9%);
+	--color-indigo-500: hsl(238.7deg 83.5% 66.7%);
+	--color-indigo-600: hsl(243.4deg 75.4% 58.6%);
+	--color-indigo-700: hsl(244.5deg 57.9% 50.6%);
+	--color-indigo-800: hsl(243.7deg 54.5% 41.4%);
+	--color-indigo-900: hsl(242.2deg 47.4% 34.3%);
 
     /* Themes */
     &[data-theme="dark"] {
@@ -76,6 +76,7 @@ html {
 	--font-family-sans-serif: "General Sans", sans-serif;
 
 	/* Size */
+
 	/* @link https://utopia.fyi/type/calculator?c=320,16,1.125,1280,18,1.414,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l */
 	--step--2: clamp(0.79rem, 0.87rem + -0.38vw, 0.56rem);
 	--step--1: clamp(0.89rem, 0.92rem + -0.16vw, 0.8rem);
@@ -104,14 +105,16 @@ html {
 	--transition-ease-in: cubic-bezier(0.11, 0, 0.5, 0);
 	--transition-ease-out: cubic-bezier(0.5, 1, 0.89, 1);
 	--transition-ease-in-out: var(--transition-easing);
-    
+
     /* Grid */
+
     /* @link https://utopia.fyi/grid/calculator?c=320,16,1.125,1280,18,1.414,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
     --grid-max-width: 69.75rem;
     --grid-gutter: var(--space-s-l, clamp(1rem, 0.4975rem + 2.5126vw, 2.25rem));
     --grid-columns: 12;
 
     /* Space */
+
     /* @link https://utopia.fyi/space/calculator?c=320,16,1.125,1280,18,1.414,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
     --space-3xs: clamp(0.25rem, 0.2292rem + 0.1042vi, 0.3125rem);
     --space-2xs: clamp(0.5rem, 0.4792rem + 0.1042vi, 0.5625rem);

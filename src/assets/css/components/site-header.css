@@ -68,7 +68,8 @@
 	transition-timing-function: var(--transition-easing);
 	visibility: hidden;
 	width: 100%;
-	
+	z-index: 10;
+
 	&[data-open="true"] {
 		opacity: 1;
 		transition-duration: var(--transition-duration-400);

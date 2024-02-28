@@ -1,2 +1,3 @@
-@import "./home.css";
-@import "./single.css";
+@import url("./home.css");
+@import url("./project.css");
+@import url("./single.css");
