@@ -1,0 +1,144 @@
+---
+title: CSS Scroll Animations
+date: 2023-08-04T14:47:00.000Z
+draft: true
+slug: css-scroll-animations
+type: my-thoughts
+categories:
+    - Animation
+    - CSS
+    - Web Design & Development
+tags:
+    - 10up
+    - CSS
+    - UI
+---
+import Codepen from '@/components/Codepen.astro';
+
+Scroll-driven animations hit a major milestone recently, moving out behind browser flags to become released in Chrome and Edge versions 115. With that, we now have the ability to make some really powerful and performant animations all inside CSS (as well as JavaScript).
+
+So note, if you want to try out any of these demos without messing with flags, make sure you use the latest Chrome or Edge.
+
+
+## **"Scroll triggered" versus "scroll driven"**<a id="scroll-triggered-versus-scroll-driven"></a>
+
+Typically, when we think of scrolling being responsible for animation, we'd probably think of one of two scenarios:
+
+1. As the user scrolls, when a certain threshold is crossed (usually an element coming into the viewport) and an animation is triggered. The animation plays in its entirety when this event happens, regardless of whether the user continues to scroll.
+
+2. As the user scrolls, an animation is "scrubbed". The scrolling action is directly tied to how advanced the animation is.
+
+These scenarios tend to be referred to as "scroll triggered" and "scroll driven", respectively. The new CSS are geared towards "scroll driven", since scrolling directly controls the progress of the animation. However, we can make some animations very close to their "scroll triggered" counterparts (more on that in a few paragraphs). In many of those instances, an API like[ Intersection Observer](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API) would still do the trick.
+
+
+## **animation-timeline**<a id="animation-timeline"></a>
+
+Meet our new CSS property that helps make the magic happen:[ `animation-timeline`](https://developer.mozilla.org/en-US/docs/Web/CSS/animation-timeline). This is a little technical, but all animations on the page are usually attributed to the document timeline. The document timeline is the amount of time that has passed since the page loaded. The new API gives us access to two additional timelines: scroll timeline and view timeline.
+
+
+### **Scroll timeline**<a id="scroll-timeline"></a>
+
+For the scrolling timeline, the progress of the scroll is converted to the progress through an animation. This can be the nearest parent with scroll, but it can be a scrolling area specified. You can also specify the axis that you're working on. Something like the following:
+
+```css
+.element {
+  animation-timeline: scroll(root block);
+}
+```
+
+The above is an example of an anonymous timeline, using the[ `scroll()`](https://developer.mozilla.org/en-US/docs/Web/CSS/animation-timeline/scroll) function. For a named timeline, you could use the aptly named[ `scroll-timeline-name`](https://developer.mozilla.org/en-US/docs/Web/CSS/scroll-timeline-name) property on the scrolling element you're interested in, and then use that value with the animating element's `animation-timeline`. Here's[ a visualizer tool](https://scroll-driven-animations.style/tools/scroll-timeline/progress/?) to help you see how an animation and scroll position are linked. Some of you may note that this could closely resemble implementations of "reading progress", but without all the extra JavaScript.
+
+
+### **View timeline**<a id="view-timeline"></a>
+
+View timeline is based on element visibility inside a scrollable area (or "scroller"). By default, when an element is first visible at one edge, the animation is at 0%. When it reaches the opposite edge, the animation progresses to 100% (though these settings can be changed as well). Like the other timeline, you can use anonymous or named timelines via[ `view()`](https://developer.mozilla.org/en-US/docs/Web/CSS/animation-timeline/view) and[ `view-timeline-name`](https://developer.mozilla.org/en-US/docs/Web/CSS/view-timeline-name). An anonymous implementation might look something like:
+
+```css
+.element {
+  animation-timeline: view(block);
+}
+```
+
+When combined with another new property,[ animation-range](https://developer.mozilla.org/en-US/docs/Web/CSS/animation-range), this can be particularly powerful, and get very close to "scroll triggered" animations mentioned earlier. This is all a lot to wrap your mind around, so[ this interactive playground](https://scroll-driven-animations.style/tools/view-timeline/ranges/) may help, as well as[ this simplified demo](https://scroll-driven-animations.style/tools/view-timeline/progress/), and this[ "Fast and Furious" demo](https://codepen.io/jh3y/pen/BaqBLEO).
+
+If you want to know more on the technical aspects as well as some additional examples, MDN has this wonderful[ blog post by Michelle Barker](https://developer.mozilla.org/en-US/blog/scroll-progress-animations-in-css/) that can help explain things as well.
+
+
+## **But why?**<a id="but-why"></a>
+
+According to[ this article by Yuriko Hirota](https://developer.chrome.com/blog/scroll-animation-performance-case-study/) on Google's Chrome Developers blog:
+
+In the past, the only way to create scroll-driven animations was to respond to the scroll event on the main thread. This caused two major problems:
+
+> - Scrolling is performed on a separate thread and therefore delivers scroll events asynchronously.
+>
+> - Main thread animations are [subject to jank](https://developer.chrome.com/blog/inside-browser-part3/#updating-rendering-pipeline-is-costly).
+>
+> ...The API tries to use as few main thread resources as possible, making scroll-driven animations far easier to implement, and also much smoother.
+
+Yuriko does a deep dive on the performance side in their article, comparing classic JavaScript techniques to the new API in both CSS and JavaScript (yes, we also got this as part of the Web Animations API). This provides some great insight into why performant animations are so important to a great user experience, and how easily some can be derailed by heavy main thread work.
+
+
+## **Enough! Show us some demos!**<a id="enough-show-us-some-demos"></a>
+
+We're lucky on our team to now have Jhey Tompkins, who not only has a _bunch_ of awesome demos in his Codepen, but helped work on the API itself!
+
+
+### **Chrometober**<a id="chrometober"></a>
+
+This first one is something we previously saw with[ Chrometober 2022](https://web.dev/chrometober-2022/). Scroll horizontally to “read” the book! Then, read up on[ how it was built](https://web.dev/building-chrometober/).
+
+<video controls src="https://storage.googleapis.com/web-dev-uploads/video/Dyx9FwYgMyNqy1kMGx8Orz6q0qC3/nIBMYSqI5NRCFoLSbeNh.mp4"></video>
+
+
+### **"Cover flow"**<a id="cover-flow"></a>
+
+All of you out there with fancy Apple devices have probably seen their "cover flow" layout at one point or another. Now, this type of animation can be done entirely with CSS. Check out[ the cover flow demo](https://scroll-driven-animations.style/demos/cover-flow/css/).
+
+<video controls src="https://scroll-driven-animations.style/demos/cover-flow/cover.mp4"></video>
+
+
+### **Apple style text reveal**<a id="apple-style-text-reveal"></a>
+
+Jhey has some[ Apple inspired scrolling](https://codepen.io/jh3y/pen/MWzQvKK) as well!
+
+<Codepen url="https\://codepen.io/jh3y/pen/MWzQvKK" />
+
+This is a great example of how scroll driven animation could lead to a more immersive experience as the user scrolls down the page. Particularly because it builds off of some design ideas quite a few of us have already experienced.
+
+
+### **Stacking cards**<a id="stacking-cards"></a>
+
+Another from the same site as the "cover flow", this[ stacking cards animation](https://scroll-driven-animations.style/demos/stacking-cards/css/) shows how versatile these animations can get. These cards animate into frame and "stick" to the top, creating layers as you get more cards.
+
+<video controls src="https://scroll-driven-animations.style/demos/stacking-cards/cover.mp4"></video>
+
+### **Horizontal scrolling with transform**<a id="horizontal-scrolling-with-transform"></a>
+
+Jhey is back again. This time, using inspiration from a site that posted their element on Awwwards. Here is a video of the original:
+
+Normally, this type of animation might be pretty intense on performance and potentially difficult to get just right going horizontally. Not with our new CSS superpowers.[ Check out Jhey's version](https://codepen.io/jh3y/pen/xxQdPae).
+
+<Codepen url="https\://codepen.io/jh3y/pen/xxQdPae" />
+
+
+### **"Tokyo Scroll"**<a id="tokyo-scroll"></a>
+
+Jhey pointed me to this one as well, which does a great job of visualizing some of the settings specifically for[ `animation-range`](https://developer.mozilla.org/en-US/docs/Web/CSS/animation-range). Fun fact, even the numbered percentage on the progress bars is done with pure CSS 🤯.
+
+<Codepen url="https\://codepen.io/jh3y/pen/BaqBLEO" />
+
+
+## **Scroll animations FTW**<a id="scroll-animations-ftw"></a>
+
+This is just the tip of the iceberg, but I hope it has you excited for when these finally[ get full support in all modern browsers](https://caniuse.com/mdn-css_properties_animation-timeline). Just this small step has me really excited for what we could do in the future. There are even more updates incoming, like[ `timeline-scope`](https://developer.mozilla.org/en-US/docs/Web/CSS/timeline-scope) (still behind flags for another version at least).
+
+If you need more inspiration, Jhey has a bunch more demos[ on his Codepen](https://codepen.io/jh3y) (and you should just follow him anyways). Big thanks to Jhey for letting me name drop him so much on this post, proofing, and using his work as examples.
+
+I'd also like to mention with the above articles, there are a couple good YouTube videos on this by Google Chrome Developers as well. Check them out!
+
+- [What's new in web animations](https://www.youtube.com/watch?v=oDcb3fvtETs) (Google I/O 2023)
+
+- [Scroll-Linked Animations with ScrollTimeline and ViewTimeline](https://www.youtube.com/watch?v=Qf5wdXOxW3E) (HTTP 203)
+
+Happy scrolling!
