@@ -33,7 +33,7 @@
 	& .card__date,
 	& .tag {
 		transition-duration: var(--transition-duration);
-		transition-property: background-color, background-size, border-color, color;
+		transition-property: background-color, background-size, border-color, color, text-decoration;
 		transition-timing-function: var(--transition-easing);
 	}
 }
@@ -45,14 +45,14 @@
 }
 
 .card__link {
-	text-decoration: none;
+	color: var(--color-base);
+	text-decoration-color: transparent;
 
 	&::after {
 		content: "";
 		height: 100%;
-		left: 0;
+		inset: 0;
 		position: absolute;
-		top: 0;
 		width: 100%;
 	}
 
@@ -64,6 +64,6 @@
 
 .card__date {
 	color: var(--color-accent);
-	font-size: var(--step--1);
+	font-size: var(--step-negative-1);
 	margin-bottom: 1rem;
 }
