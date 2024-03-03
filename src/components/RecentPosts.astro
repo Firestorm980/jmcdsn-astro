@@ -2,15 +2,16 @@
 import { getCollection } from 'astro:content';
 import Card from '@/components/Card.astro';
 import { filterDrafts, sortEntriesByDate } from '@/utils';
+import type { Entry } from '@/types';
 
-let entries = await getCollection('my-thoughts')
+let entries = await getCollection('my-thoughts') as Entry[];
 
 entries = sortEntriesByDate(entries);
 entries = filterDrafts(entries);
 ---
 <div class="recent-posts">
 	<ul class="recent-posts__list">
-		{entries.slice(0, 4).map((post) => {
+		{entries.slice(0, 6).map((post) => {
 			return (
 				<li class="recent-posts__list-item">
 					<Card post={post} />

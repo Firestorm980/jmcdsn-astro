@@ -21,4 +21,11 @@
 			}
 		}
 	}
+
+	& .content {
+
+		& > * {
+			max-width: calc(1200 / 16 * 1rem);
+		}
+	}
 }

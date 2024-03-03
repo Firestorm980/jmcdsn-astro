@@ -28,9 +28,7 @@ h6 {
 	font-family: inherit;
 	font-weight: var(--font-weight-bold);
 	line-height: 1.2;
-	margin-bottom: 0.5em;
-	margin-left: -0.04em;
-	margin-top: 1em;
+	margin-inline: 1em 0.5em;
 }
 
 h1,
@@ -70,17 +68,17 @@ h5,
 a {
 	color: var(--color-primary);
 	text-decoration: underline;
-	text-underline-offset: 0.125rem;
-	text-decoration-thickness: 0rem;
 	text-decoration-color: color-mix(in srgb, var(--color-primary), transparent 100%);
+	text-decoration-thickness: 0;
+	text-underline-offset: 0.125rem;
 	transition-duration: var(--transition-duration);
 	transition-property: background-color, background-size, border-color, color, text-decoration-color, text-decoration-thickness, text-underline-offset;
 	transition-timing-function: var(--transition-easing);
 
 	&:is(:hover, :focus) {
 		text-decoration: underline;
-		text-decoration-thickness: 0.125rem;
 		text-decoration-color: color-mix(in srgb, var(--color-primary), transparent 0%);
+		text-decoration-thickness: 0.125rem;
 	}
 }
 

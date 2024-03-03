@@ -1,7 +1,8 @@
 .content {
 
 	& > * {
-		max-width: 72ch;
+		margin-inline: auto;
+		max-width: calc(800 / 16 * 1rem);
 	}
 
 	& > :first-child {

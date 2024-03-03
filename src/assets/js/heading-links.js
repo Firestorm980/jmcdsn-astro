@@ -24,7 +24,7 @@ const init = () => {
     link.textContent = '#'
 
     // Update heading
-    heading.textContent = heading.textContent + ' '
+    heading.innerHTML = heading.innerHTML + '&nbsp;'
     heading.appendChild(link)
   })
 }
