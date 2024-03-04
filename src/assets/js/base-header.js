@@ -1,6 +1,9 @@
+import { debounce } from "./utils"
+
 const header = document.getElementById('site-header')
 const navigation = document.getElementById('site-header-navigation')
 const buttons = document.querySelectorAll('.site-header__button')
+const html = document.querySelector('html')
 
 export const close = (focus) => {
   const isOpen = false
@@ -14,12 +17,14 @@ export const close = (focus) => {
 
   navigation.addEventListener('transitionend', handleTransitionend, { once: true })
   navigation.setAttribute('aria-hidden', !isOpen)
-  navigation.setAttribute('data-open', isOpen)
+  header.setAttribute('data-open', isOpen)
 
   buttons.forEach(button => {
     button.setAttribute('aria-expanded', isOpen)
     button.setAttribute('data-open', isOpen)
   })
+
+  html.setAttribute('data-navigation-open', isOpen)
 }
 
 export const open = (focus) => {
@@ -34,12 +39,14 @@ export const open = (focus) => {
 
   navigation.addEventListener('transitionend', handleTransitionend, { once: true })
   navigation.setAttribute('aria-hidden', !isOpen)
-  navigation.setAttribute('data-open', isOpen)
+  header.setAttribute('data-open', isOpen)
 
   buttons.forEach(button => {
     button.setAttribute('aria-expanded', isOpen)
     button.setAttribute('data-open', isOpen)
   })
+
+  html.setAttribute('data-navigation-open', isOpen)
 }
 
 const onHeaderClick = (event) => {
@@ -50,7 +57,7 @@ const onHeaderClick = (event) => {
     return
   }
 
-  const isOpen = navigation.getAttribute('data-open') === 'true'
+  const isOpen = header.getAttribute('data-open') === 'true'
 
   if (isOpen) {
     close(focus)
@@ -104,23 +111,31 @@ const onNavigationClick = (event) => {
   close()
 }
 
+const onResize = () => {
+  html.style.setProperty('--scrollbar-width', `${window.innerWidth - document.documentElement.clientWidth}px`);
+}
+
 const setup = () => {
   const isOpen = false
 
   navigation.setAttribute('aria-hidden', !isOpen)
-  navigation.setAttribute('data-open', isOpen)
+  header.setAttribute('data-open', isOpen)
 
   buttons.forEach(button => {
     button.setAttribute('aria-controls', 'site-header-navigation')
     button.setAttribute('aria-expanded', isOpen)
     button.setAttribute('data-open', isOpen)
   })
+
+  html.setAttribute('data-navigation-open', isOpen)
+  onResize()
 }
 
 const bind = () => {
   header.addEventListener('click', onHeaderClick)
   navigation.addEventListener('click', onNavigationClick)
   navigation.addEventListener('keydown', onNavigationKeydown)
+  window.addEventListener('resize', debounce(onResize))
 }
 
 setup()

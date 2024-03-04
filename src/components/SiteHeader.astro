@@ -7,7 +7,7 @@ import ThemeSwitcher from '@/components/ThemeSwitcher.astro';
 ---
 <header id="site-header" class="site-header">
     <a href="#main" class="skip-link button button--primary">Skip to content</a>
-
+	<div class="site-header__backdrop"></div>
 	<div class="site-header__inner">
 		<SiteLogo />
 
@@ -17,7 +17,6 @@ import ThemeSwitcher from '@/components/ThemeSwitcher.astro';
 		</button>
 	</div>
 	<div id="site-header-navigation" class="site-header__navigation">
-		<div class="site-header__backdrop"></div>
 		<div class="site-header__inner">
 			<SiteLogo />
 			<button class="site-header__button" data-action="close" type="button">
