@@ -8,7 +8,6 @@ interface Props {
 }
 
 const { phone, tablet, desktop } = Astro.props;
-console.log({ phone, tablet, desktop });
 
 const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/images/posts/*.{jpeg,jpg,png,gif,webp}');
 
