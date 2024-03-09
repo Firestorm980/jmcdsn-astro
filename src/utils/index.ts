@@ -1,6 +1,7 @@
 import type { Entry } from "@/types";
 
 import Codepen from '@/components/Codepen.astro';
+import Devices from '@/components/Devices.astro';
 import Figure from '@/components/Figure.astro';
 import YouTube from '@/components/YouTube.astro';
 
@@ -39,7 +40,8 @@ export function filterByTag(entries: Entry[], tag: string) {
 export function getCustomComponents() {
 	return {
 		Codepen,
+		Devices,
 		Figure,
-		YouTube
+		YouTube,
 	}
 }

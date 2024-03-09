@@ -1,0 +1,74 @@
+.devices {
+	align-items: flex-end;
+	display: flex;
+	max-width: none;
+	position: relative;
+	width: 100%;
+
+	& svg {
+		display: inline-block;
+		fill: currentcolor;
+		height: auto;
+		max-width: 100%;
+		width: 100%;
+	}
+
+	& img {
+		left: 0;
+		position: absolute;
+		top: 0;
+	}
+
+	& .device {
+		background-color: #171717;
+		border-radius: 1em;
+		display: none;
+		margin: 0 auto;
+		position: relative;
+	}
+
+	& .device--large {
+		@media (width >= 50em) {
+			display: block;
+			width: 75%;
+		}
+
+		& img {
+			left: 4.4%;
+			top: 5.325%;
+			width: 91.45%;
+		}
+	}
+
+	& .device--medium {
+		display: block;
+		width: 75%;
+
+		@media (width >= 50em) {
+			margin-left: -4em;
+			width: 30%;
+		}
+
+		& img {
+			left: 6.9%;
+			top: 9.2%;
+			width: 86.275%;
+		}
+	}
+
+	& .device--small {
+		display: block;
+		margin-left: -1em;
+		width: 25%;
+
+		@media (width >= 50em) {
+			width: 10%;
+		}
+
+		& img {
+			left: 9%;
+			top: 15%;
+			width: 83%;
+		}
+	}
+}
