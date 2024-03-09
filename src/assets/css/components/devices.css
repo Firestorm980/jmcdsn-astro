@@ -14,13 +14,14 @@
 	}
 
 	& img {
+		border-radius: 0;
 		left: 0;
 		position: absolute;
 		top: 0;
 	}
 
 	& .device {
-		background-color: #171717;
+		background-color: var(--color-background);
 		border-radius: 1em;
 		display: none;
 		margin: 0 auto;
@@ -29,7 +30,7 @@
 
 	& .device--large {
 		@media (width >= 50em) {
-			display: block;
+			display: flex;
 			width: 75%;
 		}
 
@@ -41,7 +42,7 @@
 	}
 
 	& .device--medium {
-		display: block;
+		display: flex;
 		width: 75%;
 
 		@media (width >= 50em) {
@@ -57,7 +58,7 @@
 	}
 
 	& .device--small {
-		display: block;
+		display: flex;
 		margin-left: -1em;
 		width: 25%;
 
