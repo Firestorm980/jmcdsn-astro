@@ -1,7 +1,7 @@
 .navigation {
 
 	& button {
-		@media (min-width: 48em) {
+		@media (width >= 48em) {
 			display: none;
 		}
 	}
@@ -46,10 +46,7 @@
 		opacity: 0;
 		text-align: center;
 		transform: translateY(-50%);
-		transition-delay: calc(var(--index) * 50ms);
-		transition-duration: var(--transition-duration-400);
-		transition-property: opacity, transform, visibility;
-		transition-timing-function: var(--transition-ease-out);
+		transition: opacity var(--transition-duration-400) var(--transition-ease-out) calc(var(--index) * 50ms), transform var(--transition-duration-400) var(--transition-ease-out) calc(var(--index) * 50ms), visibility var(--transition-duration-400) var(--transition-ease-out) calc(var(--index) * 50ms);
 		visibility: hidden;
 		width: 100%;
 	}
@@ -71,10 +68,7 @@
 
 .navigation--social {
 	opacity: 0;
-	transition-delay: var(--transition-duration-400);
-	transition-duration: var(--transition-duration-400);
-	transition-property: opacity, visibility;
-	transition-timing-function: var(--transition-ease-out);
+	transition: opacity var(--transition-duration-400) var(--transition-ease-out) var(--transition-duration-400), visibility var(--transition-duration-400) var(--transition-ease-out) var(--transition-duration-400);
 	visibility: hidden;
 
 	& a {

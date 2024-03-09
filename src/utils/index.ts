@@ -1,5 +1,9 @@
 import type { Entry } from "@/types";
 
+import Codepen from '@/components/Codepen.astro';
+import Figure from '@/components/Figure.astro';
+import YouTube from '@/components/YouTube.astro';
+
 export function sortEntriesByDate(entries: Entry[]) {
     return entries.sort((a, b) => {
         return new Date(b.data.date).getTime() - new Date(a.data.date).getTime();
@@ -30,4 +34,12 @@ export function filterByTag(entries: Entry[], tag: string) {
         if ( !entry.data.tags ) return false;
         return entry.data.tags.includes(tag)
     });
+}
+
+export function getCustomComponents() {
+	return {
+		Codepen,
+		Figure,
+		YouTube
+	}
 }

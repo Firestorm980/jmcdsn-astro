@@ -5,6 +5,18 @@
 }
 
 html {
+	height: 100%;
+	overflow: hidden;
+	scroll-behavior: smooth;
+	scroll-padding-top: var(--height-header);
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	overflow: scroll;
+	padding-top: var(--height-header);
 	scroll-behavior: smooth;
 	scroll-padding-top: var(--height-header);
 
@@ -12,12 +24,4 @@ html {
 		overflow: hidden;
 		padding-inline-end: var(--scrollbar-width, 0);
 	}
-}
-
-body {
-	display: flex;
-	flex-direction: column;
-	padding-top: var(--height-header);
-	scroll-behavior: smooth;
-	scroll-padding-top: var(--height-header);
 }

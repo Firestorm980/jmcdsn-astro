@@ -1,11 +1,13 @@
 ---
 import { getCollection } from "astro:content";
 import Project from '@/layouts/Project.astro';
+import type { PaginationEntry } from "@/types";
+import { filterDrafts } from "@/utils";
 
 export async function getStaticPaths() {
-  const entries = await getCollection('projects', ({data}) => {
-    return import.meta.env.PROD ? data.draft !== true : true;
-  });
+  let entries = await getCollection("projects") as PaginationEntry[];
+
+  entries = filterDrafts(entries);
 
   return entries.map((entry) => ({
     params: { slug: entry.slug }, props: { entry },

@@ -5,6 +5,8 @@ interface Props {
 
 import BaseLayout from '@/layouts/Base.astro';
 import type { Entry, Project } from '@/types';
+import { getCustomComponents } from '@/utils';
+
 import FrontMatterImage from '@/components/FrontMatterImage.astro';
 
 const { entry } = Astro.props;
@@ -20,7 +22,12 @@ const {
 	technologies,
 	platforms,
 } = data as Project;
-const { Content } = await entry.render();
+const { Content, components } = await entry.render();
+
+const extendedComponents = {
+	...components,
+	...getCustomComponents(),
+}
 
 const layoutProps = {
     title,
@@ -93,7 +100,7 @@ const layoutProps = {
 			</dl>
 		</div>
 		<div class="content single__content section">
-			<Content />
+			<Content components={extendedComponents} />
 		</div>
     </article>
 </BaseLayout>

@@ -10,7 +10,6 @@ categories:
     - CSS
     - Web Design & Development
 ---
-import Codepen from '@/components/Codepen.astro';
 
 With the WordPress Core team phasing out support for IE and considering options for adding custom properties for dark mode in the WP admin and other areas, it seems like a good time to go over just how awesome CSS custom properties are and what they can unlock for us now that we won't have to worry (as much) about the dreaded browser that is Internet Explorer.
 
@@ -64,7 +63,7 @@ Using media queries, we can also change the value of our custom properties. In t
 // Globals we want everyone to have!
 // If this were a complete project, these would be things like spacing, theme colors, typography, etc.
 :root {
-  --color-primary-hue: 200;  
+  --color-primary-hue: 200;
 }
 
 .grid {
@@ -81,14 +80,14 @@ Using media queries, we can also change the value of our custom properties. In t
         --grid-gap: 2.5rem;
         --grid-column-count: 12;
     }
-  
+
   display: grid;
   grid-gap: var(--grid-gap);
   grid-template-columns: repeat(
     var(--grid-column-count),
     var(--grid-column-width)
   );
-  
+
   // We can repeat custom property values elsewhere we find them useful.
   // In this case, combining these with calc() might be even more powerful to fit our theme.
   padding-left: var(--grid-gap);
@@ -102,17 +101,17 @@ Using media queries, we can also change the value of our custom properties. In t
   // Calculate saturation based on the position of the element in the set.
   // Since we only manipulate this per item, it makes sense to define it here.
   --saturation: calc(var(--index) * (100 / var(--items)) * 1%);
-  
+
   // You can use the custom property as part of a value like HSL.
   // Notice that we're using a global for the hue (theming anyone?)
   background: hsl(var(--color-primary-hue), var(--saturation), 40%);
   border-color: hsl(var(--color-primary-hue), var(--saturation), 50%);
-  
+
   border-style: solid;
   border-width: 0.125rem;
   border-radius: 0.5rem;
   height: 10rem;
-  
+
   // The grid column is set here and is updated through modifier classes (see below).
   // We're using a fallback which matches our grid automatically all the time.
   grid-column: span var(--span, var(--grid-column-count));
