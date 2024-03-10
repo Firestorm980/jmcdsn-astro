@@ -136,6 +136,7 @@ figure {
 figcaption {
 	caption-side: bottom;
 	display: table-caption;
+	margin-block-start: 0.5em;
 }
 
 figcaption,

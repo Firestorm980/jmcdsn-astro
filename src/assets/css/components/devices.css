@@ -1,9 +1,14 @@
 .devices {
-	align-items: flex-end;
-	display: flex;
+	display: table;
 	max-width: none;
-	position: relative;
 	width: 100%;
+
+	& figcaption {
+		caption-side: bottom;
+		display: table-caption;
+		margin-inline: auto;
+		max-width: calc(800 / 16 * 1rem);
+	}
 
 	& svg {
 		display: inline-block;
@@ -18,6 +23,14 @@
 		left: 0;
 		position: absolute;
 		top: 0;
+	}
+
+	& .devices__inner {
+		align-items: flex-end;
+		display: flex;
+		max-width: none;
+		position: relative;
+		width: 100%;
 	}
 
 	& .device {
