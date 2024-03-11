@@ -51,3 +51,19 @@ export type PaginationPage = {
         next?: string;
     }
 }
+
+export type MediaDB = {
+	src: {
+		assets: {
+			images: {
+				posts: {
+					[key: string]: {
+						caption?: string;
+						alt?: string;
+						title?: string;
+					};
+				}
+			}
+		}
+	}
+}

@@ -7,7 +7,7 @@ import Section from "@/components/Section.astro";
 import FormattedDate from "@/components/FormattedDate.astro";
 import Link from "@/components/Link.astro";
 
-export async function getStaticPaths({ paginate }) {
+export async function getStaticPaths({ paginate }: { paginate: Function }) {
     let entries = await getCollection('snippets') as PaginationEntry[];
 
     entries = sortEntriesByTitle(entries) as PaginationEntry[];
@@ -55,7 +55,7 @@ const description = "A collection of snippets I have for web development.";
 									{description}
 								</td>
 								<td>
-									{categories.join(', ')}
+									{categories?.join(', ')}
 								</td>
 								<td>
 									<FormattedDate date={lastmod} />

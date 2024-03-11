@@ -14,7 +14,6 @@ const {
     title,
     description = '',
     date,
-    draft,
     lastmod,
 } = data as Snippet;
 const { Content } = await entry.render();
@@ -31,7 +30,7 @@ const layoutProps = {
 			<h1 class="single__heading">{title}</h1>
             <div class="single__date">
                 <FormattedDate date={date} />
-                
+
                 {lastmod && lastmod !== date && (
                     <br />
                     <span>(Last modified: <FormattedDate date={lastmod} />)</span>

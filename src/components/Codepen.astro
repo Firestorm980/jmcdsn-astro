@@ -10,7 +10,7 @@ const { url, title, height = 300, defaultTab = 'html,result' } = Astro.props;
 const updatedUrl = url.replace('/pen/', '/embed/');
 const src = `${updatedUrl}?default-tab=${defaultTab}`;
 ---
-<iframe class="codepen" height={height} style="width: 100%;" scrolling="no" title={title} src={src} frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+<iframe class="codepen" height={height} style="width: 100%;" title={title} src={src} loading="lazy" allowtransparency="true" allowfullscreen="true">
 	See the Pen on <a href={url}>CodePen</a>.
 </iframe>
 

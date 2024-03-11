@@ -7,7 +7,7 @@ import type { PaginationEntry } from "@/types";
 export async function getStaticPaths() {
   let entries = await getCollection("my-thoughts") as PaginationEntry[];
 
-  entries = filterDrafts(entries);
+  entries = filterDrafts(entries) as PaginationEntry[];
 
   return entries.map((entry) => ({
     params: { slug: entry.slug }, props: { entry },

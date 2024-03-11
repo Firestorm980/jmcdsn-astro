@@ -15,14 +15,17 @@ const srcWithPath = rawSrc.replace('/', '/src/assets/images/posts/');
 // https://docs.astro.build/en/recipes/dynamically-importing-images/#recipe
 const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/images/posts/*.{jpeg,jpg,png,gif,webp}');
 
-
 // Ensure the image exists. Error if it doesn't.
 if (!images[srcWithPath]) throw new Error(`"${srcWithPath}" does not exist in glob: "/src/assets/images/posts/*.{jpeg,jpg,png,gif,webp}"`);
 
 const image = images[srcWithPath]();
-const metadata = mediaDB?.src?.assets?.images?.posts?.[src] || {};
-const { alt } : { alt?: string; } = metadata;
 
+const metadata : {
+	alt?: string;
+	caption?: string;
+	title?: string;
+} = mediaDB?.src?.assets?.images?.posts?.[src as keyof typeof mediaDB.src.assets.images.posts] || {};
+const { alt } : { alt?: string; } = metadata;
 
 ---
 <Image src={image} alt={alt ? alt : ''} />

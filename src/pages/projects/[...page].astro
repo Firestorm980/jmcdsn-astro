@@ -7,7 +7,7 @@ import Section from "@/components/Section.astro";
 import Link from "@/components/Link.astro";
 import FrontMatterImage from "@/components/FrontMatterImage.astro";
 
-export async function getStaticPaths({ paginate }) {
+export async function getStaticPaths({ paginate }: { paginate: Function }) {
     let entries = await getCollection('projects') as PaginationEntry[];
 
     entries = sortEntriesByDate(entries) as PaginationEntry[];

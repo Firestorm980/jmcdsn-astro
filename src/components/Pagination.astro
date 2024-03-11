@@ -20,7 +20,7 @@ const {
     showFirstLast = true,
     showPreviousNext = true,
 } = Astro.props;
-const { end, size, total, currentPage, lastPage, url } = page;
+const { currentPage, lastPage, url } = page;
 
 const pathArray = Astro.url.pathname.split('/').filter(item => item);
 const path = (currentPage > 1) ? pathArray.slice(0, -1).join('/') : pathArray.join('/');
@@ -55,7 +55,7 @@ const paginationList = allPages.map((page) => {
         {showPreviousNext && url.prev && (
             <a class="pagination__link pagination__link--previous" href={url.prev} aria-label={`Go to previous page`}>Previous</a>
         )}
-        
+
         <div class="pagination__pages">
             {paginationList.map(({ page, current }) => {
                 if (current) {
@@ -68,13 +68,13 @@ const paginationList = allPages.map((page) => {
                         <span class="pagination__separator" aria-hidden="true">&hellip;</span>
                     )
                 }
-    
+
                 if (page === 1) {
                     return (
                         <a class="pagination__link pagination__link--page" href={base} aria-label={`Go to page ${page}`}>{ page }</a>
                     )
                 }
-    
+
                 return (
                     <a class="pagination__link pagination__link--page" href={`${ base }/${ page }`} aria-label={`Go to page ${page}`}>{ page }</a>
                 )

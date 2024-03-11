@@ -1,11 +1,13 @@
 ---
 import { getCollection } from "astro:content";
 import Snippet from '../../../layouts/Snippet.astro';
+import type { PaginationEntry } from "@/types";
+import { filterDrafts } from "@/utils";
 
 export async function getStaticPaths() {
-  const entries = await getCollection('snippets', ({data}) => {
-    return import.meta.env.PROD ? data.draft !== true : true;
-  });
+  let entries = await getCollection('snippets') as PaginationEntry[];
+
+	entries = filterDrafts(entries) as PaginationEntry[];
 
   return entries.map((entry) => ({
     params: { slug: entry.slug }, props: { entry },

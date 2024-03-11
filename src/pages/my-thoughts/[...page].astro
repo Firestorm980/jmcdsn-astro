@@ -7,7 +7,7 @@ import Card from "@/components/Card.astro";
 import type { PaginationPage, PaginationEntry } from "@/types";
 import { filterDrafts, sortEntriesByDate } from "@/utils";
 
-export async function getStaticPaths({ paginate }) {
+export async function getStaticPaths({ paginate }: { paginate: Function }) {
     let entries = await getCollection('my-thoughts') as PaginationEntry[];
 
     entries = sortEntriesByDate(entries) as PaginationEntry[];
