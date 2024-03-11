@@ -45,6 +45,9 @@ const paginationList = allPages.map((page) => {
     return { page: null, current: false, dots: false };
 }).filter(({ page }) => page !== null);
 
+const PrevTag = !url.prev ? 'span' : 'a';
+const NextTag = !url.next ? 'span' : 'a';
+
 ---
 {lastPage >= 2 && (
     <nav aria-label={ariaLabel} class="pagination">
@@ -52,8 +55,8 @@ const paginationList = allPages.map((page) => {
             <a class="pagination__link pagination__link--first" href={base} aria-label={`Go to first page`}>First</a>
         )}
 
-        {showPreviousNext && url.prev && (
-            <a class="pagination__link pagination__link--previous" href={url.prev} aria-label={`Go to previous page`}>Previous</a>
+        {showPreviousNext && (
+            <PrevTag class="pagination__link pagination__link--previous" href={url.prev} aria-label={`Go to previous page`}>Previous</PrevTag>
         )}
 
         <div class="pagination__pages">
@@ -81,8 +84,8 @@ const paginationList = allPages.map((page) => {
             })}
         </div>
 
-        {showPreviousNext && url.next && (
-            <a class="pagination__link pagination__link--next" href={url.next} aria-label={`Go to next page`}>Next</a>
+        {showPreviousNext && (
+            <NextTag class="pagination__link pagination__link--next" href={url.next} aria-label={`Go to next page`}>Next</NextTag>
         )}
 
         {showFirstLast && (
