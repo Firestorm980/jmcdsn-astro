@@ -1,9 +1,13 @@
 .site-footer {
-	border-top: 1px solid var(--color-gray-700);
 	font-size: var(--step-negative-1);
-	padding: 1rem clamp(5vw, 7.5vw, 10vw);
+	padding: 1rem var(--space-l-xl);
 
 	& p {
 		margin: 0;
 	}
+}
+
+.site-footer__inner {
+	margin-inline: auto;
+	max-width: calc(1200 / 16 * 1rem);
 }

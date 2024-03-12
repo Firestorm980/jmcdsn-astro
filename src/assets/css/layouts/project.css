@@ -6,6 +6,10 @@
 		position: relative;
 	}
 
+	& .single__heading {
+		margin: 0;
+	}
+
 	& .single__header-featured-image {
 		inset: 0;
 		position: absolute;
@@ -30,6 +34,9 @@
 	}
 
 	& .single__header-content {
+		margin-inline: auto;
+		max-width: calc(1200 / 16 * 1rem);
+		padding-block-start: var(--height-header);
 		position: relative;
 	}
 

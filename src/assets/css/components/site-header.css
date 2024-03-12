@@ -1,4 +1,6 @@
 .site-header {
+	background-image: linear-gradient(to bottom, var(--color-background), transparent);
+	height: var(--height-header);
 	left: 0;
 	padding: 0 var(--space-l-xl);
 	position: fixed;
