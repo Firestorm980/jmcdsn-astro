@@ -2,7 +2,6 @@
 	align-items: center;
 	display: flex;
 	flex-grow: 1;
-	margin-top: calc(var(--height-header) * -1);
 }
 
 .site-main__content {
