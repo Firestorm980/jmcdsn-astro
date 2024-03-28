@@ -1,5 +1,6 @@
 .devices {
 	display: table;
+	margin-block: var(--space-2xl);
 	max-width: none;
 	width: 100%;
 
@@ -8,6 +9,7 @@
 		display: table-caption;
 		margin-inline: auto;
 		max-width: calc(800 / 16 * 1rem);
+		text-align: center;
 	}
 
 	& svg {
@@ -35,7 +37,6 @@
 
 	& .device {
 		background-color: var(--color-background);
-		border-radius: 1em;
 		display: none;
 		margin: 0 auto;
 		position: relative;
@@ -55,6 +56,7 @@
 	}
 
 	& .device--medium {
+		border-radius: 5%;
 		display: flex;
 		width: 75%;
 
@@ -71,6 +73,7 @@
 	}
 
 	& .device--small {
+		border-radius: 15%;
 		display: flex;
 		margin-left: -1em;
 		width: 25%;

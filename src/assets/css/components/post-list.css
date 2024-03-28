@@ -63,7 +63,7 @@
 		& a {
 			color: inherit;
 			display: block;
-			padding: var(--space-xl) var(--space-l);
+			padding: var(--space-2xl) var(--space-xl);
 			text-decoration: none;
 		}
 	}
