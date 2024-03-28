@@ -27,5 +27,7 @@ const metadata : {
 } = mediaDB?.src?.assets?.images?.posts?.[src as keyof typeof mediaDB.src.assets.images.posts] || {};
 const { alt } : { alt?: string; } = metadata;
 
+const imageWidths = [480,640,960,1280,1920,2560,3840];
+
 ---
-<Image src={image} alt={alt ? alt : ''} />
+<Image src={image} alt={alt ? alt : ''} widths={imageWidths} />

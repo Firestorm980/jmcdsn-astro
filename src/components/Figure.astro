@@ -19,8 +19,9 @@ const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/images/
 if (!images[src]) throw new Error(`"${src}" does not exist in glob: "/src/assets/images/posts/*.{jpeg,jpg,png,gif,webp}"`);
 
 const image = images[src]();
+const imageWidths = [480,640,960,1280,1920,2560,3840];
 ---
 <figure>
-    <Image src={image} alt={alt} width={width} height={height} />
+    <Image src={image} alt={alt} width={width} height={height} widths={imageWidths} />
     {caption && (<figcaption>{caption}</figcaption>)}
 </figure>
