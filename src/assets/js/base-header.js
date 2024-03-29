@@ -1,9 +1,9 @@
-import { debounce } from "./utils"
+import { debounce } from './utils'
 
 const header = document.getElementById('site-header')
 const navigation = document.getElementById('site-header-navigation')
 const buttons = document.querySelectorAll('.site-header__button')
-const html = document.querySelector('html')
+const root = document.documentElement
 
 export const close = (focus) => {
   const isOpen = false
@@ -24,7 +24,7 @@ export const close = (focus) => {
     button.setAttribute('data-open', isOpen)
   })
 
-  html.setAttribute('data-navigation-open', isOpen)
+  root.setAttribute('data-navigation-open', isOpen)
 }
 
 export const open = (focus) => {
@@ -46,7 +46,7 @@ export const open = (focus) => {
     button.setAttribute('data-open', isOpen)
   })
 
-  html.setAttribute('data-navigation-open', isOpen)
+  root.setAttribute('data-navigation-open', isOpen)
 }
 
 const onHeaderClick = (event) => {
@@ -112,7 +112,7 @@ const onNavigationClick = (event) => {
 }
 
 const onResize = () => {
-  html.style.setProperty('--scrollbar-width', `${window.innerWidth - document.documentElement.clientWidth}px`);
+  root.style.setProperty('--scrollbar-width', `${window.innerWidth - document.documentElement.clientWidth}px`)
 }
 
 const setup = () => {
@@ -127,7 +127,7 @@ const setup = () => {
     button.setAttribute('data-open', isOpen)
   })
 
-  html.setAttribute('data-navigation-open', isOpen)
+  root.setAttribute('data-navigation-open', isOpen)
   onResize()
 }
 

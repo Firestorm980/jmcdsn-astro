@@ -5,7 +5,7 @@
 	padding: 0;
 	position: fixed;
 	top: 0;
-	width: 100%;
+	width: 100vw;
 	z-index: 1;
 }
 
@@ -79,9 +79,8 @@
 	transition-property: opacity, visibility;
 	transition-timing-function: var(--transition-easing);
 	visibility: hidden;
-	width: 100%;
+	width: 100vw;
 	z-index: 10;
-
 }
 
 [data-open="true"] .site-header__navigation {
