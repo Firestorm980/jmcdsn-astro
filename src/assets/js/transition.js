@@ -76,8 +76,8 @@ const options = [
 ]
 
 const init = () => {
-  // eslint-disable-next-line no-unused-vars
-  const swup = new Swup({
+  // eslint-disable-next-line no-new
+  new Swup({
     animateHistoryBrowsing: true,
     containers: ['#swup'],
     plugins: [

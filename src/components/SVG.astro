@@ -1,6 +1,6 @@
 ---
 const {path, name} = Astro.props;
-const svgs = import.meta.glob('../assets/images/**/*.svg', { as: 'raw' })
+const svgs = import.meta.glob('../assets/images/**/*.svg', { query: '?raw', import: 'default' })
 const match = svgs[`../assets/${path}.svg`];
 const svg = (await match())
 ---
