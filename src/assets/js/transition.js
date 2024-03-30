@@ -4,6 +4,7 @@ import SwupBodyClassPlugin from '@swup/body-class-plugin'
 import SwupProgressPlugin from '@swup/progress-plugin'
 import SwupScrollPlugin from '@swup/scroll-plugin'
 import SwupJsPlugin from '@swup/js-plugin'
+import SwupHeadPlugin from '@swup/head-plugin';
 import { close } from './base-header'
 
 /**
@@ -85,7 +86,8 @@ const init = () => {
       new SwupBodyClassPlugin(),
       new SwupProgressPlugin(),
       new SwupScrollPlugin(),
-      new SwupJsPlugin(options)
+      new SwupJsPlugin(options),
+      new SwupHeadPlugin()
     ]
   })
 }
