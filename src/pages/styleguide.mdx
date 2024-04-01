@@ -1,9 +1,9 @@
-import DefaultLayout from '@layouts/Default.astro';
-import Section from '@components/Section.astro';
+import PageLayout from '@/layouts/Page.astro';
+import Section from '@/components/Section.astro';
+
 export const title = 'Styleguide';
 
-<DefaultLayout content={{ title }}>
-
+<PageLayout title={title}>
 	<Section>
 		<h1>{title}</h1>
 
@@ -147,5 +147,4 @@ export const title = 'Styleguide';
 
 		Incididunt in culpa cupidatat mollit cillum qui proident sit. In cillum aliquip incididunt voluptate magna amet cupidatat cillum pariatur sint aliqua est _enim **anim** voluptate_. Magna aliquip proident incididunt id duis pariatur eiusmod incididunt commodo culpa dolore sit. Culpa do nostrud elit ad exercitation anim pariatur non minim nisi **adipisicing sunt _officia_**. Do deserunt magna mollit Lorem commodo ipsum do cupidatat mollit enim ut elit veniam ea voluptate.
 	</Section>
-
-</DefaultLayout>
+</PageLayout>

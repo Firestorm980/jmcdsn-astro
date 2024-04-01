@@ -1,4 +1,5 @@
-@import "./colors.css";
-@import "./sizing.css";
-@import "./transitions.css";
-@import "./typography.css";
+@import url("./mixins.css");
+@import url("./sizing.css");
+@import url("./transitions.css");
+@import url("./typography.css");
+@import url("./variables.css");

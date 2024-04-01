@@ -5,7 +5,7 @@ tags.sort();
 ---
 
 <ul class="tags">
-	{tags.map((tag) => {
+	{tags.map((tag: string) => {
 		const classes = `tag tag--${tag.toLowerCase().replace(' ','-')}`;
 		return (
 			<li>

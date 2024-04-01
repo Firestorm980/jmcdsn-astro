@@ -1,6 +1,6 @@
-import DefaultLayout from '@layouts/Default.astro';
-import Section from '@components/Section.astro';
-import Logos from '@components/Logos.astro';
+import PageLayout from '@/layouts/Page.astro';
+import Section from '@/components/Section.astro';
+import Logos from '@/components/Logos.astro';
 
 export const title = 'About Me';
 
@@ -24,9 +24,15 @@ export const tools = [
 	{ slug: 'images/tool-logos/postcss', name: 'PostCSS'},
 	{ slug: 'images/tool-logos/tailwindcss', name: 'Tailwind CSS'},
 	{ slug: 'images/tool-logos/wordpress', name: 'WordPress'},
+	{ slug: 'images/tool-logos/react', name: 'React'},
+	{ slug: 'images/tool-logos/webpack', name: 'webpack'},
+	{ slug: 'images/tool-logos/vscode', name: 'VS Code'},
+	{ slug: 'images/tool-logos/preact', name: 'Preact'},
+	{ slug: 'images/tool-logos/nextjs', name: 'Next JS'},
+	{ slug: 'images/tool-logos/astro', name: 'Astro'},
 ];
 
-<DefaultLayout content={{ title }}>
+<PageLayout title={title}>
 	<Section tag='header' emphasis>
 		<h1>
 			{title}
@@ -57,4 +63,4 @@ export const tools = [
 		I've worked with a lot of different clients. Here is just a short list of a few.
 		<Logos items={clients} />
 	</Section>
-</DefaultLayout>
+</PageLayout>

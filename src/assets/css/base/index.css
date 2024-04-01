@@ -1,5 +1,5 @@
-@import "./accessibility.css";
-@import "./button.css";
-@import "./image.css";
-@import "./layout.css";
-@import "./typography.css";
+@import url("./accessibility.css");
+@import url("./button.css");
+@import url("./image.css");
+@import url("./layout.css");
+@import url("./typography.css");

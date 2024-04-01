@@ -1,9 +1,13 @@
 ---
 title: getCountryFlagEmoji
 categories:
-- JavaScript
-last_updated: '2023-11-4'
+  - JavaScript
+date: 2023-11-04
+lastmod: 2023-11-04
 description: Automatically get the country flag emoji from the country code.
+type: snippets
+draft: false
+slug: getcountryflagemoji
 ---
 ```js
 /**

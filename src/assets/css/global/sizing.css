@@ -1,6 +1,6 @@
 :root {
 	/* Heights */
-	--height-header: 4rem;
+	--height-header: calc(60 / 16 * 1rem);
 
 	/* Widths */
 	--width-small: 40rem;

@@ -1,48 +1,70 @@
 ---
-import { getCollection } from 'astro:content';
-import ArchiveSnippet from '@layouts/ArchiveSnippet.astro';
-import Single from '@layouts/Single.astro';
+import { getCollection } from "astro:content";
+import Archive from '@/layouts/Archive.astro';
+import { sortEntriesByTitle, filterDrafts } from "@/utils";
+import type { PaginationPage, PaginationEntry, Snippet } from "@/types";
+import Section from "@/components/Section.astro";
+import FormattedDate from "@/components/FormattedDate.astro";
+import Link from "@/components/Link.astro";
 
-export async function getStaticPaths({ paginate }) {
-	const snippets = await getCollection('snippets')
+export async function getStaticPaths({ paginate }: { paginate: Function }) {
+    let entries = await getCollection('snippets') as PaginationEntry[];
 
-	// Remap URLs for snippets and add params.
-	const snippetParams = snippets.map(snippet => {
-		return {
-			params: {
-				page: snippet.slug,
-			},
-			props: {
-				kind: 'single single-snippet',
-				post: {...snippet}
-			}
-		};
-	});
+    entries = sortEntriesByTitle(entries) as PaginationEntry[];
+    entries = filterDrafts(entries) as PaginationEntry[];
 
-	// Create pagination.
-	let paginationParams = paginate(snippets);
-	paginationParams = paginationParams.map((params) => {
-		return {
-			...params,
-			props: {
-				...params.props,
-				kind: 'archive'
-			}
-		}
-	});
-
-	return [
-		// Individual
-		...snippetParams,
-		// Archive
-		...paginationParams,
-	];
+    return paginate(entries);
 }
 
-const { kind, snippets, post } = Astro.props;
+const { page } : { page: PaginationPage } = Astro.props;
+const title = 'Snippets';
+const description = "A collection of snippets I have for web development.";
 ---
-{
-	'archive' !== kind
-	? <Single kind={kind} post={post} />
-	: <ArchiveSnippet kind={kind} snippets={snippets} />
-}
+
+<Archive title={`${title} | Page ${page.currentPage}`} description={description} kind="snippets">
+	<Section tag='header' emphasis>
+		<h1>
+			{title}
+
+			<span class="subtitle">A repository of little code goodies</span>
+		</h1>
+	</Section>
+	<Section>
+		<div class="snippets">
+			<table class="snippets__table">
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Description</th>
+						<th>Categories</th>
+						<th>Last Updated</th>
+					</tr>
+				</thead>
+				<tbody>
+					{page.data.map(snippet => {
+						const { data } = snippet;
+						const { title, description, lastmod, categories } = data as Snippet;
+						const href = `${snippet.collection}/${snippet.slug}`;
+
+						return (
+							<tr>
+								<td>
+									<Link href={href}>{title}</Link>
+								</td>
+								<td>
+									{description}
+								</td>
+								<td>
+									{categories?.join(', ')}
+								</td>
+								<td>
+									<FormattedDate date={lastmod} />
+								</td>
+							</tr>
+						)
+					})}
+				</tbody>
+			</table>
+		</div>
+	</Section>
+</Archive>

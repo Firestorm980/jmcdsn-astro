@@ -1,7 +1,7 @@
 .navigation {
 
 	& button {
-		@media (min-width: 48em) {
+		@media (width >= 48em) {
 			display: none;
 		}
 	}
@@ -46,18 +46,9 @@
 		opacity: 0;
 		text-align: center;
 		transform: translateY(-50%);
-		transition-delay: calc(var(--index) * 50ms);
-		transition-duration: var(--transition-duration-400);
-		transition-property: opacity, transform, visibility;
-		transition-timing-function: var(--transition-ease-out);
+		transition: opacity var(--transition-duration-400) var(--transition-ease-out) calc(var(--index) * 50ms), transform var(--transition-duration-400) var(--transition-ease-out) calc(var(--index) * 50ms), visibility var(--transition-duration-400) var(--transition-ease-out) calc(var(--index) * 50ms);
 		visibility: hidden;
 		width: 100%;
-
-		@nest [data-open="true"] & {
-			opacity: 1;
-			transform: translateY(0);
-			visibility: visible;
-		}
 	}
 
 	& a {
@@ -69,18 +60,16 @@
 	}
 }
 
+[data-open="true"] .navigation--primary li {
+	opacity: 1;
+	transform: translateY(0);
+	visibility: visible;
+}
+
 .navigation--social {
 	opacity: 0;
-	transition-delay: var(--transition-duration-400);
-	transition-duration: var(--transition-duration-400);
-	transition-property: opacity, visibility;
-	transition-timing-function: var(--transition-ease-out);
+	transition: opacity var(--transition-duration-400) var(--transition-ease-out) var(--transition-duration-400), visibility var(--transition-duration-400) var(--transition-ease-out) var(--transition-duration-400);
 	visibility: hidden;
-
-	@nest [data-open="true"] & {
-		opacity: 1;
-		visibility: visible;
-	}
 
 	& a {
 		color: var(--color-base);
@@ -100,6 +89,11 @@
 		margin: 0 2rem;
 		padding: 1rem 0;
 	}
+}
+
+[data-open="true"] .navigation--social {
+	opacity: 1;
+	visibility: visible;
 }
 
 .navigation--pagination {

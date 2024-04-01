@@ -4,8 +4,11 @@ categories:
 - JavaScript
 - Animation
 - Performance
-last_updated: '2022-11-13'
+date: 2022-11-13
+lastmod: 2022-11-13
 description: Custom First Last Invert Play function handler.
+type: snippets
+draft: false
 ---
 ```js
 /**

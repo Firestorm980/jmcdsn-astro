@@ -1,0 +1,106 @@
+---
+interface Props {
+    entry: Entry;
+}
+
+import BaseLayout from '@/layouts/Base.astro';
+import type { Entry, Project } from '@/types';
+import { getCustomComponents } from '@/utils';
+
+import FrontMatterImage from '@/components/FrontMatterImage.astro';
+
+const { entry } = Astro.props;
+const { data } = entry;
+const {
+    title,
+    description = '',
+	company,
+	subtitle,
+	featured_image,
+	roles,
+	libraries,
+	technologies,
+	platforms,
+} = data as Project;
+const { Content, components } = await entry.render();
+
+const extendedComponents = {
+	...components,
+	...getCustomComponents(),
+}
+
+const layoutProps = {
+    title,
+    description,
+    image: featured_image,
+    bodyClass: 'single single--project',
+}
+---
+<BaseLayout {...layoutProps}>
+    <article>
+        <header class="single__header section">
+			<div class="single__header-featured-image">
+				<FrontMatterImage src={featured_image} />
+			</div>
+			<div class="single__header-content">
+				<h1 class="single__heading">
+					{title}
+					<div class="subtitle">{subtitle}</div>
+				</h1>
+			</div>
+		</header>
+		<div class="single__meta section">
+			<dl>
+				<div>
+					<dt>Company</dt>
+					<dd>
+						{company}
+					</dd>
+				</div>
+				<div>
+					<dt>Roles</dt>
+					<dd>
+						<ul>
+							{roles.map(role => (
+								<li>{role}</li>
+							))}
+						</ul>
+					</dd>
+				</div>
+				<div>
+					<dt>Libraries</dt>
+					<dd>
+						<ul>
+							{libraries.map(library => (
+								<li>{library}</li>
+							))}
+						</ul>
+					</dd>
+				</div>
+				<div>
+					<dt>Technologies</dt>
+					<dd>
+						<ul>
+							{technologies.map(technology => (
+								<li>{technology}</li>
+							))}
+						</ul>
+					</dd>
+				</div>
+				<div>
+					<dt>Platforms</dt>
+					<dd>
+						<ul>
+							{platforms.map(platform => (
+								<li>{platform}</li>
+							))}
+						</ul>
+					</dd>
+				</div>
+			</dl>
+		</div>
+		<div class="content single__content section">
+			<Content components={extendedComponents} />
+		</div>
+    </article>
+</BaseLayout>

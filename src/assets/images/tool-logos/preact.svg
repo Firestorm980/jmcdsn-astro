@@ -1,0 +1,8 @@
+<svg viewBox="0 0 1893 530" width="1893" height="530" xmlns="http://www.w3.org/2000/svg">
+  <path d="m229.702 9 221.703 128v256L229.702 521 8 393V137L229.702 9Z" style="fill:none;stroke:currentColor;stroke-width:16px"/>
+  <g transform="translate(8 9)">
+    <path d="M267.36 196.498c85.878 65.897 135.055 145.957 109.84 178.819-25.216 32.862-115.276 6.081-201.155-59.816C90.167 249.604 40.99 169.544 66.205 136.682c25.216-32.862 115.276-6.081 201.155 59.816Zm0 119.003c-85.879 65.897-175.939 92.678-201.155 59.816-25.215-32.862 23.962-112.922 109.84-178.819 85.879-65.897 175.939-92.678 201.155-59.816 25.215 32.862-23.962 112.922-109.84 178.819Z" stroke-width="16" style="paint-order:fill;stroke:currentColor" fill="none"/>
+    <circle cx="221.702" cy="256" r="34" style="fill:currentColor"/>
+  </g>
+  <text x="479.702" y="393" font-size="350" font-family="Helvetica Neue,helvetica,arial" font-weight="300" fill="currentColor" style="white-space:pre;font-size:350px">PREACT</text>
+</svg>

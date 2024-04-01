@@ -1,17 +1,17 @@
-@import "normalize.css";
+@import url("normalize.css");
 
 /* Global */
 
-@import "./global/index.css";
+@import url("./global/index.css");
 
 /* Base */
 
-@import "./base/index.css";
+@import url("./base/index.css");
 
 /* Components */
 
-@import "./components/index.css";
+@import url("./components/index.css");
 
 /* Layouts */
 
-@import "./layouts/index.css";
+@import url("./layouts/index.css");

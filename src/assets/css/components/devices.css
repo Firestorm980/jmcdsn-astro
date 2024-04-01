@@ -1,0 +1,91 @@
+.devices {
+	display: table;
+	margin-block: var(--space-2xl);
+	max-width: none;
+	width: 100%;
+
+	& figcaption {
+		caption-side: bottom;
+		display: table-caption;
+		margin-inline: auto;
+		max-width: calc(800 / 16 * 1rem);
+		text-align: center;
+	}
+
+	& svg {
+		display: inline-block;
+		fill: currentcolor;
+		height: auto;
+		max-width: 100%;
+		width: 100%;
+	}
+
+	& img {
+		border-radius: 0;
+		left: 0;
+		position: absolute;
+		top: 0;
+	}
+
+	& .devices__inner {
+		align-items: flex-end;
+		display: flex;
+		max-width: none;
+		position: relative;
+		width: 100%;
+	}
+
+	& .device {
+		background-color: var(--color-background);
+		display: none;
+		margin: 0 auto;
+		position: relative;
+	}
+
+	& .device--large {
+		@media (width >= 50em) {
+			display: flex;
+			width: 75%;
+		}
+
+		& img {
+			left: 4.4%;
+			top: 5.325%;
+			width: 91.45%;
+		}
+	}
+
+	& .device--medium {
+		border-radius: 5%;
+		display: flex;
+		width: 75%;
+
+		@media (width >= 50em) {
+			margin-left: -4em;
+			width: 30%;
+		}
+
+		& img {
+			left: 6.9%;
+			top: 9.2%;
+			width: 86.275%;
+		}
+	}
+
+	& .device--small {
+		border-radius: 15%;
+		display: flex;
+		margin-left: -1em;
+		width: 25%;
+
+		@media (width >= 50em) {
+			width: 10%;
+		}
+
+		& img {
+			left: 9%;
+			top: 15%;
+			width: 83%;
+		}
+	}
+}

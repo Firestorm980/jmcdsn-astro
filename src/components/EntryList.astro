@@ -1,0 +1,26 @@
+---
+import type { PaginationEntry } from '../types';
+
+interface Props {
+    data: PaginationEntry[];
+}
+
+const { data } = Astro.props;
+---
+<div class="entry-list">
+    <ul>
+        {data.map((entry) => {
+            return (
+                <li>
+                    <article>
+                        <h2>
+                            <a href={`/${entry.collection}/${entry.slug}`}>
+                                {entry.data.title}
+                            </a>
+                        </h2>
+                    </article>
+                </li>
+            )
+        })}
+    </ul>
+</div>

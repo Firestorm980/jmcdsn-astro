@@ -1,0 +1,12 @@
+.pagination {
+	display: flex;
+	gap: var(--space-s);
+	justify-content: space-between;
+}
+
+.pagination__pages {
+	display: flex;
+	flex-grow: 1;
+	gap: var(--space-xs);
+	justify-content: center;
+}

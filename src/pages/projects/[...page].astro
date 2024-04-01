@@ -1,0 +1,56 @@
+---
+import { getCollection } from "astro:content";
+import Archive from '@/layouts/Archive.astro';
+import { filterDrafts, sortEntriesByDate } from "@/utils";
+import type { PaginationPage, PaginationEntry, Project } from "@/types";
+import Section from "@/components/Section.astro";
+import Link from "@/components/Link.astro";
+import FrontMatterImage from "@/components/FrontMatterImage.astro";
+
+export async function getStaticPaths({ paginate }: { paginate: Function }) {
+    let entries = await getCollection('projects') as PaginationEntry[];
+
+    entries = sortEntriesByDate(entries) as PaginationEntry[];
+    entries = filterDrafts(entries) as PaginationEntry[];
+
+    return paginate(entries);
+}
+
+const { page } : { page: PaginationPage } = Astro.props;
+const title = 'Projects';
+const description = "Some of the things I've worked on. Check 'em out.";
+---
+
+<Archive title={`${title} | Page ${page.currentPage}`} description={description} kind="snippets">
+	<Section tag='header' emphasis>
+		<h1>
+			{title}
+
+			<span class="subtitle">Below are some of the things I've worked on. Check 'em out. </span>
+		</h1>
+	</Section>
+	<Section>
+		<ul class="post-list post-list--projects">
+			{page.data.map((post) => {
+				const { data } = post;
+				const { title, featured_image } = data as Project;
+				const href = `${post.collection}/${post.slug}`;
+
+				return (
+					<li class="post-list-item">
+						<div class="post-list-item__image">
+							<FrontMatterImage src={featured_image} />
+						</div>
+						<div class="post-list-item__content">
+							<h3 class="post-list-item__title">
+								<Link href={href}>
+									{title}
+								</Link>
+							</h3>
+						</div>
+					</li>
+				)
+			})}
+		</ul>
+	</Section>
+</Archive>

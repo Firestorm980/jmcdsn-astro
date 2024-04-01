@@ -1,12 +1,10 @@
 // postcss.config.js
 module.exports = ({ env }) => ({
   plugins: {
-    'postcss-reporter': {},
-    autoprefixer: {},
-    'postcss-import': {},
     'postcss-mixins': {},
-    'postcss-nesting': {},
-    'postcss-custom-media': {},
+    'postcss-preset-env': {
+      stage: 0,
+    },
     cssnano:
         env === 'production'
           ? { preset: 'default' }

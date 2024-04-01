@@ -1,0 +1,20 @@
+---
+interface Props {
+	date: Date;
+	year?: "numeric" | "2-digit";
+	month?: "numeric" | "2-digit" | "long" | "short" | "narrow";
+	day?: "numeric" | "2-digit";
+}
+
+const { date, year = 'numeric', month = 'short', day = 'numeric' } = Astro.props;
+---
+
+<time datetime={date.toISOString()}>
+	{
+		date.toLocaleDateString('en-us', {
+			year,
+			month,
+			day,
+		})
+	}
+</time>

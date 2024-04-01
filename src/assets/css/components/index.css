@@ -1,11 +1,14 @@
 @import url("./astro-code.css");
 @import url("./card.css");
+@import url("./codepen.css");
 @import url("./content.css");
+@import url("./devices.css");
 @import url("./icon.css");
 @import url("./link.css");
 @import url("./logo.css");
 @import url("./logos.css");
 @import url("./navigation.css");
+@import url("./pagination.css");
 @import url("./post-list.css");
 @import url("./prisim.css");
 @import url("./recent-posts.css");

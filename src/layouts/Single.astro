@@ -1,22 +1,50 @@
 ---
-import Tags from '@components/Tags.astro';
-import DefaultLayout from '@layouts/Default.astro';
-import Time from '@components/Time.astro';
+interface Props {
+    entry: Entry;
+}
 
-const { kind, post } = Astro.props;
-const { data: { title, date, categories, last_updated } } = post;
-const { Content } = await post.render();
+import BaseLayout from '@/layouts/Base.astro';
+import type { Entry, Post } from '@/types';
+import { getCustomComponents } from '@/utils';
+
+import Tags from '@/components/Tags.astro';
+import FormattedDate from '@/components/FormattedDate.astro';
+
+const { entry } = Astro.props;
+const { data } = entry;
+const {
+    title,
+    description = '',
+    date,
+    categories,
+    featured_image = ''
+} = data as Post;
+const { Content, components } = await entry.render();
+
+const layoutProps = {
+    title,
+    description,
+    image: featured_image,
+    bodyClass: 'single single--post',
+}
+
+const extendedComponents = {
+	...components,
+	...getCustomComponents(),
+}
+
 ---
-<DefaultLayout content={{title, bodyClass: kind}}>
-	<article>
-		<header class="single__header section">
+<BaseLayout {...layoutProps}>
+    <article>
+        <header class="single__header section">
 			<h1 class="single__heading">{title}</h1>
-			<Time date={date} class="single__date" />
-			<Time date={last_updated} class="single__date" />
+            <div class="single__date">
+                <FormattedDate date={date} />
+            </div>
 			{categories?.length && <div class="single__tags"><Tags tags={categories} /></div>}
 		</header>
 		<div class="content single__content section">
-			<Content />
+			<Content components={extendedComponents} />
 		</div>
-	</article>
-</DefaultLayout>
+    </article>
+</BaseLayout>

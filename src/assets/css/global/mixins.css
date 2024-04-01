@@ -1,0 +1,25 @@
+@define-mixin theme-light {
+    --color-base: var(--color-gray-cool-900);
+    --color-primary: var(--color-indigo-500);
+    --color-accent: var(--color-gray-cool-600);
+    --color-accent-background: var(--color-gray-cool-100);
+    --color-accent-border: var(--color-gray-300);
+    --color-body: var(--color-gray-cool-700);
+    --color-headings: var(--color-gray-cool-800);
+    --color-background: var(--color-gray-cool-50);
+    --color-gradient: linear-gradient(165deg, #6366f1, #6363f0, #645ced, #6552e9, #6745e4, #6a38df, #6c2ddb, #6d28d9);
+    --color-shadow: var(--color-indigo-900);
+}
+
+@define-mixin theme-dark {
+    --color-base: var(--color-gray-50);
+    --color-primary: var(--color-amber-500);
+    --color-accent: var(--color-gray-300);
+    --color-accent-background: var(--color-gray-800);
+    --color-accent-border: var(--color-gray-700);
+    --color-body: var(--color-gray-200);
+    --color-headings: var(--color-gray-50);
+    --color-background: var(--color-gray-900);
+    --color-gradient: linear-gradient(165deg, #f59e0b, #f39909, #ed8c06, #e37a05, #d96606, #ce5409, #c5460b, #c2410c);
+    --color-shadow: var(--color-amber-900);
+}

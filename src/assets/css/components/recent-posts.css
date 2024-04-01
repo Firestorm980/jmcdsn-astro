@@ -1,5 +1,5 @@
 .recent-posts {
-	max-width: none;
+	max-width: none !important;
 }
 
 .recent-posts__list {
@@ -11,7 +11,7 @@
 	margin-top: 3rem;
 	padding: 0;
 
-	@media (min-width: 30em) {
+	@media (width >= 30em) {
 		grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
 	}
 }

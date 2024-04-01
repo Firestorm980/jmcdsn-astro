@@ -1,0 +1,44 @@
+---
+import type { Entry, Snippet } from '../types';
+
+interface Props {
+    entry: Entry;
+}
+
+import BaseLayout from '../layouts/Base.astro';
+import FormattedDate from '../components/FormattedDate.astro';
+
+const { entry } = Astro.props;
+const { data } = entry;
+const {
+    title,
+    description = '',
+    date,
+    lastmod,
+} = data as Snippet;
+const { Content } = await entry.render();
+
+const layoutProps = {
+    title,
+    description,
+    bodyClass: 'single single--snippet',
+}
+---
+<BaseLayout {...layoutProps}>
+    <article>
+        <header class="single__header section">
+			<h1 class="single__heading">{title}</h1>
+            <div class="single__date">
+                <FormattedDate date={date} />
+
+                {lastmod && lastmod !== date && (
+                    <br />
+                    <span>(Last modified: <FormattedDate date={lastmod} />)</span>
+                )}
+            </div>
+		</header>
+		<div class="content single__content section">
+			<Content />
+		</div>
+    </article>
+</BaseLayout>
