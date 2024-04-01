@@ -1,8 +1,10 @@
 .single--project {
 
+	& .site-main__content {
+		margin-block-start: calc(-1 * var(--height-header));
+	}
+
 	& .single__header {
-		border-radius: 0.5rem;
-		overflow: hidden;
 		position: relative;
 	}
 
@@ -36,7 +38,6 @@
 	& .single__header-content {
 		margin-inline: auto;
 		max-width: calc(1200 / 16 * 1rem);
-		padding-block-start: var(--height-header);
 		position: relative;
 	}
 
