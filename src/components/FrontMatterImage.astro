@@ -1,6 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 import mediaDB from '../../.frontmatter/database/mediaDb.json';
+import { getImageWidths } from '@/utils';
 
 interface Props {
 	src: string;
@@ -27,7 +28,7 @@ const metadata : {
 } = mediaDB?.src?.assets?.images?.posts?.[src as keyof typeof mediaDB.src.assets.images.posts] || {};
 const { alt } : { alt?: string; } = metadata;
 
-const imageWidths = [480,640,960,1280,1920,2560,3840];
+const imageWidths = getImageWidths();
 
 ---
 <Image src={image} alt={alt ? alt : ''} widths={imageWidths} />

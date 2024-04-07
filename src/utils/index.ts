@@ -45,3 +45,7 @@ export function getCustomComponents() {
 		YouTube,
 	}
 }
+
+export function getImageWidths () {
+	return [480,640,960,1280,1920,2560,3840];
+}
