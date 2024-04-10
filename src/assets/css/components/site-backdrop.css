@@ -1,0 +1,39 @@
+.site-backdrop {
+	--size: 80vmax;
+
+	height: var(--size);
+	left: calc(-1 * var(--size) / 2);
+	mask-image: radial-gradient(circle at center, black 0%, transparent 70%);
+	mask-repeat: no-repeat;
+	mask-size: contain;
+	opacity: 0.1;
+	pointer-events: none;
+	position: fixed;
+	top: calc(-1 * var(--size) / 2);
+	transform: translate3d(50vw, 50vh, 0);
+	width: var(--size);
+	z-index: -1;
+}
+
+&[data-theme="light"] {
+
+	& .site-backdrop {
+		background-image: linear-gradient(
+			to bottom,
+			var(--color-indigo-500),
+			var(--color-indigo-700)
+		);
+	}
+}
+
+&[data-theme="dark"] {
+
+	& .site-backdrop {
+		background-image: linear-gradient(
+			to bottom,
+			var(--color-amber-500),
+			var(--color-amber-700)
+		);
+	}
+}
+

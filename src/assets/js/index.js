@@ -1,3 +1,4 @@
+import './backdrop'
 import './base-header'
 import './heading-links'
 import './theme-switcher'
