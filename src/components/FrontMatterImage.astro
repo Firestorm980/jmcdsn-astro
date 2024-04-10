@@ -14,7 +14,7 @@ const srcWithPath = rawSrc.replace('/', '/src/assets/images/posts/');
 
 // The following code is a recipe for dynamically importing images in Astro.
 // https://docs.astro.build/en/recipes/dynamically-importing-images/#recipe
-const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/images/posts/*.{jpeg,jpg,png,gif,webp}');
+const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/images/posts/**/*.{jpeg,jpg,png,gif,webp}');
 
 // Ensure the image exists. Error if it doesn't.
 if (!images[srcWithPath]) throw new Error(`"${srcWithPath}" does not exist in glob: "/src/assets/images/posts/*.{jpeg,jpg,png,gif,webp}"`);

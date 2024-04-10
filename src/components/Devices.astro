@@ -10,7 +10,7 @@ interface Props {
 
 const { phone, tablet, desktop, caption } = Astro.props;
 
-const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/images/posts/*.{jpeg,jpg,png,gif,webp}');
+const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/images/posts/**/*.{jpeg,jpg,png,gif,webp}');
 
 const small = images[phone]();
 const medium = images[tablet]();
