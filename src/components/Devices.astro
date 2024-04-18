@@ -36,5 +36,5 @@ const large = images[desktop]();
 			<Image src={small} alt="" />
 		</div>
 	</div>
-	<figcaption>{caption}</figcaption>
+	{caption && (<figcaption>{caption}</figcaption>)}
 </figure>
