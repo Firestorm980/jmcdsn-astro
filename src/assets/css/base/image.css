@@ -13,3 +13,18 @@ video {
 	max-width: 100%;
 	width: 100%;
 }
+
+figure {
+	display: table;
+	margin-block: var(--space-2xl);
+	margin-inline: 0;
+	width: 100%;
+
+	& img,
+	& video,
+	& iframe {
+		display: block;
+		height: auto;
+		max-width: 100%;
+	}
+}
