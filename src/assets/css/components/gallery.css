@@ -14,24 +14,30 @@
 		margin-block: 0;
 	}
 
-	&:has(figure:nth-child(2)) {
+	&:has(figure:nth-child(even):last-child) {
 
 		& figure {
-			flex-basis: calc((100% / 2) - var(--space-s) + var(--space-s) / 2);
+			@media (width >= 50em) {
+				flex-basis: calc((100% / 2) - var(--space-s) + var(--space-s) / 2);
+			}
 		}
 	}
 
-	&:has(figure:nth-child(3)) {
+	&:has(figure:nth-child(3n):last-child) {
 
 		& figure {
-			flex-basis: calc((100% / 3) - var(--space-s) + var(--space-s) / 3);
+			@media (width >= 50em) {
+				flex-basis: calc((100% / 3) - var(--space-s) + var(--space-s) / 3);
+			}
 		}
 	}
 
-	&:has(figure:nth-child(4)) {
+	&:has(figure:nth-child(odd):last-child) {
 
 		& figure {
-			flex-basis: calc((100% / 3) - var(--space-s) + var(--space-s) / 3);
+			@media (width >= 50em) {
+				flex-basis: calc((100% / 2) - var(--space-s) + var(--space-s) / 2);
+			}
 
 			&:last-child {
 				flex-basis: 100%;
