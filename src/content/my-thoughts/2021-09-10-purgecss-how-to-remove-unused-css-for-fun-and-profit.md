@@ -1,7 +1,6 @@
 ---
 title: "PurgeCSS: How to remove unused CSS for fun and profit"
 date: 2021-09-10T22:00:00.150Z
-draft: true
 slug: purgecss-remove-unused-css-fun-profit
 type: my-thoughts
 tags:

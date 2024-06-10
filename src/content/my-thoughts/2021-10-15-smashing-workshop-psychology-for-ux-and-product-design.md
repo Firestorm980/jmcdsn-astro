@@ -1,7 +1,6 @@
 ---
 title: "Smashing Workshop: Psychology for UX and Product Design"
 date: 2021-10-15T19:00:00.656Z
-draft: true
 slug: smashing-workshop-psychology-ux-product-design
 type: my-thoughts
 tags:

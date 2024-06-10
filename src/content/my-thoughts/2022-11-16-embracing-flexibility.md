@@ -1,7 +1,6 @@
 ---
 title: Embracing flexibility
 date: 2022-11-17T00:00:00.704Z
-draft: true
 slug: embracing-flexibility
 type: my-thoughts
 tags:

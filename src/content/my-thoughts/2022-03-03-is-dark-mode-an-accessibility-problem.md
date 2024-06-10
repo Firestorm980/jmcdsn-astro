@@ -1,7 +1,6 @@
 ---
 title: Is dark mode an accessibility problem?
 date: 2022-03-04T00:00:00.477Z
-draft: true
 slug: dark-mode-accessibility-problem
 type: my-thoughts
 tags:
