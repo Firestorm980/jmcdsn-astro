@@ -3,8 +3,9 @@ import type { Entry } from "@/types";
 import Codepen from '@/components/Codepen.astro';
 import Devices from '@/components/Devices.astro';
 import Figure from '@/components/Figure.astro';
-import YouTube from '@/components/YouTube.astro';
 import Gallery from "@/components/Gallery.astro";
+import Stat from '@/components/Stat.astro';
+import YouTube from '@/components/YouTube.astro';
 
 export function sortEntriesByDate(entries: Entry[]) {
     return entries.sort((a, b) => {
@@ -44,6 +45,7 @@ export function getCustomComponents() {
 		Devices,
 		Figure,
 		Gallery,
+		Stat,
 		YouTube,
 	}
 }
