@@ -1,7 +1,6 @@
 ---
 title: "The power of SVG: Upgrade a mega menu UI"
 date: 2020-02-29T00:00:00.000Z
-draft: true
 slug: power-svg-upgrade-mega-menu-ui
 type: my-thoughts
 categories:
@@ -14,9 +13,9 @@ tags:
     - 10up
 ---
 
-Commvault has an interesting mega menu, both visually and technically (worthy of another post). Seriously, go try it. It is probably one of the most intense menus I've worked on.
+A client I worked on recently has an interesting mega menu, both visually and technically (worthy of another post). It is probably one of the most intense menus I've worked on.
 
-The problem with mega menus is just that: they’re mega. They take up a ton of real estate and throw all these interactive items at you, spreading them around the window. Using one of these mega menus, you typically have a small (comparatively) parent link that opens or displays this big area of items. Often there is suddenly an issue of being able to get your cursor from point A (the small parent link) to point B (the link you want to click within the big area of items) without some weird hit area issues and/or having the menu disappear on you unintentionally. This is an issue I ran into a lot while I worked on the Commvault mega menu and it drove me nuts. In investigating a solution to this challenge, I came across an interesting way to resolve it.
+The problem with mega menus is just that: they’re mega. They take up a ton of real estate and throw all these interactive items at you, spreading them around the window. Using one of these mega menus, you typically have a small (comparatively) parent link that opens or displays this big area of items. Often there is suddenly an issue of being able to get your cursor from point A (the small parent link) to point B (the link you want to click within the big area of items) without some weird hit area issues and/or having the menu disappear on you unintentionally. This is an issue I ran into a lot while I worked on this mega menu and it drove me nuts. In investigating a solution to this challenge, I came across an interesting way to resolve it.
 
 <Figure caption="An exaggerated example of the frustration a user may feel when a user interface does not work the way it is intended." src="/src/assets/images/posts/it-crowd.gif" alt="Character Moss from the show The IT Crowd, throws a monitor in frustration." width="498" height="286" />
 
@@ -63,11 +62,10 @@ const getHitAreaHelper = ( from, to ) => {
 };
 ```
 
-In doing so, the path of the SVG is invisible to the user through CSS, but can still receive pointer events from the cursor. Thus, the SVG acts as a literal “bridge” from the parent item to the menu for your cursor. This allows the user to take a more natural path to their destination link. Awesome! This helped the UI tremendously, and it also helped keep things clean (no weird timeouts) and reusable (only a few rules, works responsively) in the codebase. Check out the video below to see an example of it in action with the SVG visible.
-Here, you can see the outline of the SVG path being created on the fly. In practice, the SVG is transparent.
+In doing so, the path of the SVG is invisible to the user through CSS, but can still receive pointer events from the cursor. Thus, the SVG acts as a literal “bridge” from the parent item to the menu for your cursor. This allows the user to take a more natural path to their destination link. Awesome! This helped the UI tremendously, and it also helped keep things clean (no weird timeouts) and reusable (only a few rules, works responsively) in the codebase.
 
 I can't take all the credit though. This idea is modified from a talk that Hakim El Hattab gave called Building Better Interfaces (which just happened to be around the time we were building the site). You can watch it on YouTube with the embed below (he starts talking about this technique at about 15:35). Even before the talk, some of you may remember a similar concept being used on Amazon's menu back in the day.
 
-<YouTube src="https://www.youtube.com/embed/o0NtjY17v5" title="Building Better Interfaces talk by Hakim El Hattab at CSS Day 2019" />
+<YouTube src="https://www.youtube.com/embed/o0NtjY17v5w" title="Building Better Interfaces talk by Hakim El Hattab at CSS Day 2019" />
 
 Need to tame a mega menu? Although we use SVG a lot for icons and illustrations, they can be very powerful outside of that context as well. Using an SVG in this case to resolve this issue of moving cursor from parent nav to mega nav item solves the challenge in an efficient and effective way, and has the potential to be applied in other scenarios as well. Sometimes the way we use an SVG can even change how you interact with a page without you even knowing it.

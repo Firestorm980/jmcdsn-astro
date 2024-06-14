@@ -1,7 +1,6 @@
 ---
 title: Is dark mode an accessibility problem?
 date: 2022-03-04T00:00:00.477Z
-draft: true
 slug: dark-mode-accessibility-problem
 type: my-thoughts
 tags:
@@ -10,7 +9,7 @@ tags:
 categories:
     - Web Design & Development
 ---
-This question came into my mind not too long ago when working on a build and with Microsoft's new Moray framework. Now, the quick answer for many of you reading this that you'll probably be most interested in is _technically_, no. There is nothing in the current rule set that says anything about dark mode specifically.
+This question came into my mind not too long ago when working on a build and with a client's UI framework. Now, the quick answer for many of you reading this that you'll probably be most interested in is _technically_, no. There is nothing in the current rule set that says anything about dark mode specifically.
 
 Wait! Don't go yet! To clarify, I was wondering if a site _not_ _offering_ dark mode was an accessibility problem. Indeed, WCAG has nothing to say on the matter... for now. If you do a quick search for "dark mode accessibility" though, you'll find a lot of people before me have wondered the same thing.
 

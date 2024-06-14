@@ -1,0 +1,20 @@
+---
+interface Props {
+	statistic: string;
+	details: string;
+}
+
+const { statistic, details } = Astro.props;
+
+const characters = statistic.split('');
+---
+<div class="stat">
+	<p>
+		<span class="stat__statistic" style={`--char-total: ${characters.length};`}>
+			{ characters.map((character, index) => (
+				<span class="stat__character" style={`--char-index: ${index};`}>{ character }</span>
+			)) }
+		</span>
+		<span class="stat__details">{ details }</span>
+	</p>
+</div>

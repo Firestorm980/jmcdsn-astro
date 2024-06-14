@@ -239,6 +239,7 @@
           "title": "CMS / Platform",
           "name": "platforms",
           "type": "choice",
+          "multiple": true,
           "choices": [
             "Drupal",
             "Magento",

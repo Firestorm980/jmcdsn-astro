@@ -40,7 +40,7 @@
 
 .card__heading {
 	font-size: var(--step-2);
-	margin-block: 0;
+	margin-block-start: 0;
 	margin-inline: 0 1rem;
 }
 
@@ -65,5 +65,5 @@
 .card__date {
 	color: var(--color-accent);
 	font-size: var(--step-negative-1);
-	margin-bottom: 1rem;
+	margin-block: auto 1rem;
 }

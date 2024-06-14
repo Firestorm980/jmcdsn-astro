@@ -3,6 +3,7 @@
 @import url("./codepen.css");
 @import url("./content.css");
 @import url("./devices.css");
+@import url("./gallery.css");
 @import url("./icon.css");
 @import url("./link.css");
 @import url("./logo.css");
@@ -19,5 +20,6 @@
 @import url("./site-main.css");
 @import url("./skip-link.css");
 @import url("./snippets.css");
+@import url("./stat.css");
 @import url("./tags.css");
 @import url("./theme-switcher.css");
