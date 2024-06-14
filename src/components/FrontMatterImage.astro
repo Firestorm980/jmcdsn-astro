@@ -7,6 +7,14 @@ interface Props {
 	src: string;
 }
 
+type Metadata = {
+	alt?: string;
+};
+
+type NestedMetadata = {
+	[key: string]: Metadata;
+};
+
 const { src: rawSrc } = Astro.props;
 
 const src = rawSrc.replace('/', '');
@@ -21,11 +29,7 @@ if (!images[srcWithPath]) throw new Error(`"${srcWithPath}" does not exist in gl
 
 const image = images[srcWithPath]();
 
-const metadata : {
-	alt?: string;
-	caption?: string;
-	title?: string;
-} = mediaDB?.src?.assets?.images?.posts?.[src as keyof typeof mediaDB.src.assets.images.posts] || {};
+const metadata : Metadata | NestedMetadata = mediaDB?.src?.assets?.images?.posts?.[src as keyof typeof mediaDB.src.assets.images.posts] || {};
 const { alt } : { alt?: string; } = metadata;
 
 const imageWidths = getImageWidths();
