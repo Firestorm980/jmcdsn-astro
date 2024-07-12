@@ -1,7 +1,7 @@
 ---
+import feather from 'feather-icons';
+
 const {name} = Astro.props;
-const href = `#icon-${name}`
+const svg = feather.icons[name].toSvg();
 ---
-<svg class="icon" aria-hidden="true">
-	<use xlink:href={href}></use>
-</svg>
+<span class="icon" set:html={svg}></span>
