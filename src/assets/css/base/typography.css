@@ -25,7 +25,7 @@ h4,
 h5,
 h6 {
 	color: var(--color-headings);
-	font-family: inherit;
+	font-family: var(--font-family-heading);
 	font-weight: var(--font-weight-bold);
 	line-height: 1.2;
 	margin-inline: 1em 0.5em;
@@ -169,11 +169,6 @@ code {
 	padding: 0.25rem 0.5rem;
 }
 
-.astro-code {
-	border-radius: 0.5rem;
-	padding: 1rem;
-}
-
-.astro-code code {
-	all: revert;
+code, kbd, samp {
+	font-family: var(--font-family-mono);
 }

@@ -15,15 +15,13 @@
 */
 
 /**
-* This is a variable font
-* You can controll variable axes as shown below:
-* font-variation-settings: 'wght' 700.0;
-*
-* available axes:
-
-* 'wght' (range from 200.0 to 700.0)
-
-*/
+ * This is a variable font
+ * You can controll variable axes as shown below:
+ * font-variation-settings: 'wght' 700.0;
+ *
+ * available axes:
+ * 'wght' (range from 200.0 to 700.0)
+ */
 
 @font-face {
 	font-display: swap;
@@ -36,15 +34,13 @@
 }
 
 /**
-  * This is a variable font
-  * You can controll variable axes as shown below:
-  * font-variation-settings: 'wght' 700.0;
+ * This is a variable font
+ * You can controll variable axes as shown below:
+ * font-variation-settings: 'wght' 700.0;
   *
-  * available axes:
-
-  * 'wght' (range from 200.0 to 700.0)
-
-  */
+ * available axes:
+ * 'wght' (range from 200.0 to 700.0)
+ */
 
 @font-face {
 	font-display: swap;
@@ -54,5 +50,81 @@
 	src:
 		url("/assets/fonts/GeneralSans-VariableItalic.woff2") format("woff2"),
 		url("/assets/fonts/GeneralSans-VariableItalic.woff") format("woff");
+}
+
+/**
+ * @license
+ *
+ * Font Family: Outfit
+ * Designed by: On Brand Investments Pty Ltd, Rodrigo Fuenzalida
+ * URL: https://www.fontshare.com/fonts/outfit
+ * © 2024 Indian Type Foundry
+ *
+ * Outfit Variable (Variable font)
+ *
+ */
+
+/**
+ * This is a variable font
+ * You can control variable axes as shown below:
+ * font-variation-settings: wght 100.0;
+ *
+ * available axes:
+'wght' (range from 100.0 to 900.0
+ */
+@font-face {
+	font-display: swap;
+	font-family: Outfit;
+	font-style: normal;
+	font-weight: 100 900;
+	src: url('/assets/fonts/Outfit-Variable.woff2') format('woff2'),
+		 url('/assets/fonts/Outfit-Variable.woff') format('woff');
+}
+
+/**
+ * @license
+ *
+ * Font Family: JetBrains Mono
+ * Designed by: JetBrains, Philipp Nurullin, Konstantin Bulenkov
+ * URL: https://www.fontshare.com/fonts/jet-brains-mono
+ * © 2024 Indian Type Foundry
+ *
+ * JetBrains Mono Variable (Variable font)
+ * JetBrains Mono VariableItalic (Variable font)
+ *
+ */
+
+/**
+ * This is a variable font
+ * You can control variable axes as shown below:
+ * font-variation-settings: wght 400.0;
+ *
+ * available axes:
+'wght' (range from 100.0 to 800.0
+ */
+@font-face {
+	font-display: swap;
+	font-family: "Jet Brains Mono";
+	font-style: normal;
+	font-weight: 100 800;
+	src: url('/assets/fonts/JetBrainsMono-Variable.woff2') format('woff2'),
+		 url('/assets/fonts/JetBrainsMono-Variable.woff') format('woff');
+}
+
+/**
+ * This is a variable font
+ * You can control variable axes as shown below:
+ * font-variation-settings: wght 400.0;
+ *
+ * available axes:
+'wght' (range from 100.0 to 800.0
+ */
+@font-face {
+	font-display: swap;
+	font-family: "Jet Brains Mono";
+	font-style: italic;
+	font-weight: 100 800;
+	src: url('/assets/fonts/JetBrainsMono-VariableItalic.woff2') format('woff2'),
+		 url('/assets/fonts/JetBrainsMono-VariableItalic.woff') format('woff');
 }
 

@@ -71,9 +71,10 @@ html {
     }
 
 	/* Family */
-	--font-family-mono: monospace;
+	--font-family-mono: "Jet Brains Mono", monospace;
 	--font-family-serif: serif;
 	--font-family-sans-serif: "General Sans", sans-serif;
+	--font-family-heading: "Outfit", sans-serif;
 
 	/* Size */
 
