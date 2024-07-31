@@ -22,7 +22,7 @@ figure {
 
 	& img,
 	& video,
-	& iframe {
+	& iframe:not(.codepen) {
 		display: block;
 		height: auto;
 		max-width: 100%;
