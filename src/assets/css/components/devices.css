@@ -43,6 +43,8 @@
 	}
 
 	& .device--large {
+		background-color: transparent;
+
 		@media (width >= 50em) {
 			display: flex;
 			width: 75%;
