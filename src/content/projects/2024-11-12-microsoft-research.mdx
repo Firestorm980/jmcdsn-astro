@@ -43,9 +43,9 @@ I worked with the team to convert their site to Moray, which involved updating t
 
 <Figure src="/src/assets/images/posts/microsoft-research/msr_people.png" alt="Screenshot of the people page after conversion." width="1920" height="1080" />
 
-In addition, we converted a number of pre-existing components to use the new utility CSS. This involved updating the styles and classes to use the new utility CSS classes. Pages like their people directory had to maintain existing functionality while other pages like webinars were updated to align with the refreshed branding.
+In addition, we converted a number of pre-existing components to use their new utility CSS. This involved updating the styles and classes of components and content types throughout the entire site. Pages like their people directory had to maintain existing functionality while other pages like webinars were updated to align with the refreshed branding. As previously mentioned during their Gutenberg transition, we also had to make sure that core blocks and custom blocks were styled correctly with the new utility CSS, both in the WordPress editor and on the front end.
 
-In the end, this made their site not only align with Microsoft brand standards, but also improved the performance of their site overall. We were also able to layer on additional styles to give Microsoft Research a unique look and feel within the Microsoft brand.
+In the end, this made their site not only align with Microsoft brand standards, but also improved the performance of their site overall. In addition, pages which over time had diverged from each other now had a unified design, in addition to common UI patterns. We were also able to layer on additional styles to give Microsoft Research a unique look and feel within the Microsoft brand.
 
 <Gallery>
 	<Figure src="/src/assets/images/posts/microsoft-research/msr_lab.png" alt="Screenshot of the lab page." width="1920" height="1080" />
@@ -56,7 +56,7 @@ In the end, this made their site not only align with Microsoft brand standards, 
 
 ## Search Improvements
 
-The Microsoft Research site has a large amount of content, with literally thousands of pieces of individual content. With that in mind, the search functionality is a key part of the site. I worked with the team to improve the search functionality on their site (twice, in fact). In the most recent iteration, this involved updating the search functionality to use a custom REST API endpoint and as well as utilizing Preact for the front end to improve performance and user experience.
+The Microsoft Research site has a large amount of content, with literally thousands of posts and other items. With that in mind, the search functionality is a key part of the site. I worked with the team to improve the search functionality on their site (twice, in fact). In the first iteration, we used progressive enhancement with vanilla JavaScript to create a search experience that was accessible and functional, but also allowed for client side loading and filtering.
 
 <Devices
 	phone="/src/assets/images/posts/microsoft-research/msr_search_small.png"
@@ -65,8 +65,8 @@ The Microsoft Research site has a large amount of content, with literally thousa
 	caption="The new search experience on Microsoft Research features responsive design."
 />
 
-I had previously worked on the older implementation of the search. With years of lessons learned since then, we approached the search on a model from their sister sites at Microsoft, Microsot Cloud Blogs, which features a custom REST API endpoint, as well as a complete Preact application to handle filtering, routing, accessible components, displaying results, and more. Both were chosen initially to improve performance over the older implenetation, while also making ongoing maintenance easier.
+This worked well for some time, but perforamnce was not up to par with similar sites. With that in mind in the most recent iteration, the search functionality was redesigned from the ground up to use a custom REST API endpoint as well as utilizing Preact for the front end to improve performance and user experience. With years of lessons learned, we approached the search on a model from their sister sites at Microsoft, Microsot Cloud Blogs, which features a custom REST API endpoint, as well as a complete Preact application to handle filtering, routing, accessible components, displaying results, and more (which I also helped build). Both were chosen initially to improve performance over the older implenetation, while also making ongoing maintenance easier as more of the team was familiar with the technology and patterns.
 
-Microsoft Research did require some changes from those other sites though. We made a more realized custom search experience that included extra filtering options, a skeleton loader, and more robust search results entries. This was all done with the goal of making the search experience more user friendly and performant. We also tested their additional components and interactions to make sure they were accessible.
+Microsoft Research did require some changes from those other sites though. We made a more realized custom search experience that included extra filtering options, a skeleton loader, and more robust search results entries with rich content. This was all done with the goal of making the search experience more user friendly and performant. We also tested their additional components and interactions to make sure they were accessible.
 
 With the new search experience, the results load significantly faster than the previous implementation. We also take advantage of their Moray branding to make the search experience feel like a natural part of the site. The new search experience has been well received by the team at Microsoft Research and their users.
