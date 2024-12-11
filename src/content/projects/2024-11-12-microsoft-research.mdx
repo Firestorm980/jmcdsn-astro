@@ -1,0 +1,72 @@
+---
+title: Microsoft Research
+date: 2024-11-13T03:17:35.359Z
+draft: true
+slug: microsoft-research
+roles:
+    - Developer
+platforms:
+    - WordPress
+libraries:
+    - Preact
+    - React
+technologies:
+    - Git
+    - ES6
+    - Babel
+    - ESLint
+    - Gutenberg
+    - Responsive Design
+    - REST API
+    - Tailwind CSS
+    - Stylelint
+fmContentType: projects
+company: 10up
+subtitle: Advancing science and technology to benefit humanity
+featured_image: /microsoft-research/msr_health.jpg
+---
+Microsoft Research helps advance various areas of research and technology to benefit humanity. The Microsoft Research website, which is built on WordPress, has thousands of posts and is used by hundreds of researchers and editors. The team at Microsoft has always been interested in how they can improve their site incremetally. I worked with their team on multiple occations to push initiatives to improve their site.
+
+<Figure src="/src/assets/images/posts/microsoft-research/msr_homepage.png" alt="Screenshot of the Microsoft Research homepage after the Moray conversion." width="1920" height="1080" />
+
+## Gutenberg Transition
+
+The site itself had been around for some time before WordPress debuted the Gutenberg editor. The team at Microsoft Research wanted to transition their site to Gutenberg to take advantage of the new features and improvements. I worked with the team to transition their site to Gutenberg. This involved updating their content from the Classic Editor to Gutenberg, as well as converting certain features to custom blocks and utilizing the new editor UI.
+
+## Moray Conversion
+
+Originally, the Microsoft Research site ran off of an internal set of tools that included components and theming. However the time eventually came to convert their theme to a newer standard. Moray, which uses utility CSS, was the new standard for theming at Microsoft.
+
+<Figure src="/src/assets/images/posts/microsoft-research/msr_webinars.png" alt="Screenshot of the Microsoft Research webinars page after the Moray conversion." width="1920" height="1080" />
+
+I worked with the team to convert their site to Moray, which involved updating their components and styles to use the new utility CSS. A special part of the conversion included perforamnce. While their entire Moray library was considerably large, we were able to optimize the site to only include the necessary components and styles using tools from Tailwind to purge unused styles.
+
+<Figure src="/src/assets/images/posts/microsoft-research/msr_people.png" alt="Screenshot of the people page after conversion." width="1920" height="1080" />
+
+In addition, we converted a number of pre-existing components to use their new utility CSS. This involved updating the styles and classes of components and content types throughout the entire site. Pages like their people directory had to maintain existing functionality while other pages like webinars were updated to align with the refreshed branding. As previously mentioned during their Gutenberg transition, we also had to make sure that core blocks and custom blocks were styled correctly with the new utility CSS, both in the WordPress editor and on the front end.
+
+In the end, this made their site not only align with Microsoft brand standards, but also improved the performance of their site overall. In addition, pages which over time had diverged from each other now had a unified design, in addition to common UI patterns. We were also able to layer on additional styles to give Microsoft Research a unique look and feel within the Microsoft brand.
+
+<Gallery>
+	<Figure src="/src/assets/images/posts/microsoft-research/msr_lab.png" alt="Screenshot of the lab page." width="1920" height="1080" />
+	<Figure src="/src/assets/images/posts/microsoft-research/msr_research-area_data-platform-analytics.png" alt="Screenshot of the data platform research area page." width="1920" height="1080" />
+	<Figure src="/src/assets/images/posts/microsoft-research/msr_research-area_mr-ai.png" alt="Screenshot of the AI research area page." width="1920" height="1080" />
+	<Figure src="/src/assets/images/posts/microsoft-research/msr_academic-programs.png" alt="Screenshot of the Academic Programs page." width="1920" height="1080" />
+</Gallery>
+
+## Search Improvements
+
+The Microsoft Research site has a large amount of content, with literally thousands of posts and other items. With that in mind, the search functionality is a key part of the site. I worked with the team to improve the search functionality on their site (twice, in fact). In the first iteration, we used progressive enhancement with vanilla JavaScript to create a search experience that was accessible and functional, but also allowed for client side loading and filtering.
+
+<Devices
+	phone="/src/assets/images/posts/microsoft-research/msr_search_small.png"
+	tablet="/src/assets/images/posts/microsoft-research/msr_search_medium.png"
+	desktop="/src/assets/images/posts/microsoft-research/msr_search_large.png"
+	caption="The new search experience on Microsoft Research features responsive design."
+/>
+
+This worked well for some time, but perforamnce was not up to par with similar sites. With that in mind in the most recent iteration, the search functionality was redesigned from the ground up to use a custom REST API endpoint as well as utilizing Preact for the front end to improve performance and user experience. With years of lessons learned, we approached the search on a model from their sister sites at Microsoft, Microsot Cloud Blogs, which features a custom REST API endpoint, as well as a complete Preact application to handle filtering, routing, accessible components, displaying results, and more (which I also helped build). Both were chosen initially to improve performance over the older implenetation, while also making ongoing maintenance easier as more of the team was familiar with the technology and patterns.
+
+Microsoft Research did require some changes from those other sites though. We made a more realized custom search experience that included extra filtering options, a skeleton loader, and more robust search results entries with rich content. This was all done with the goal of making the search experience more user friendly and performant. We also tested their additional components and interactions to make sure they were accessible.
+
+With the new search experience, the results load significantly faster than the previous implementation. We also take advantage of their Moray branding to make the search experience feel like a natural part of the site. The new search experience has been well received by the team at Microsoft Research and their users.
