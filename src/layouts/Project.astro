@@ -1,16 +1,19 @@
 ---
+import type { CollectionEntry, DataEntryMap } from 'astro:content';
+
 interface Props {
-    entry: Entry;
+    entry: CollectionEntry<keyof DataEntryMap>;
 }
 
 import BaseLayout from '@/layouts/Base.astro';
-import type { Entry, Project } from '@/types';
+import type { Project } from '@/types';
 import { getCustomComponents } from '@/utils';
 
 import FrontMatterImage from '@/components/FrontMatterImage.astro';
+import { render } from 'astro:content';
 
 const { entry } = Astro.props;
-const { data } = entry;
+const { data } = entry as CollectionEntry<"projects">;
 const {
     title,
     description = '',
@@ -21,11 +24,10 @@ const {
 	libraries,
 	technologies,
 	platforms,
-} = data as Project;
-const { Content, components } = await entry.render();
+} = data;
+const { Content } = await render(entry);
 
 const extendedComponents = {
-	...components,
 	...getCustomComponents(),
 }
 

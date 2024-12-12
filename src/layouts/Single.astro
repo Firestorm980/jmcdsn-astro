@@ -1,25 +1,28 @@
 ---
+import type { CollectionEntry, DataEntryMap } from 'astro:content';
+
 interface Props {
-    entry: Entry;
+    entry: CollectionEntry<keyof DataEntryMap>;
 }
 
 import BaseLayout from '@/layouts/Base.astro';
-import type { Entry, Post } from '@/types';
 import { getCustomComponents } from '@/utils';
 
 import Tags from '@/components/Tags.astro';
 import FormattedDate from '@/components/FormattedDate.astro';
+import { render } from 'astro:content';
 
 const { entry } = Astro.props;
-const { data } = entry;
+const { data } = entry as CollectionEntry<"my-thoughts">;
 const {
     title,
     description = '',
     date,
     categories,
     featured_image = ''
-} = data as Post;
-const { Content, components } = await entry.render();
+} = data;
+const entryRender = await render(entry);
+const { Content } = entryRender;
 
 const layoutProps = {
     title,
@@ -29,10 +32,8 @@ const layoutProps = {
 }
 
 const extendedComponents = {
-	...components,
 	...getCustomComponents(),
 }
-
 ---
 <BaseLayout {...layoutProps}>
     <article>

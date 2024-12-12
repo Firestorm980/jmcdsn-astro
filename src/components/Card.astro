@@ -1,4 +1,11 @@
 ---
+import type { DataEntryMap } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+	post: CollectionEntry<keyof DataEntryMap>;
+}
+
 import Tags from '@/components/Tags.astro';
 import FormattedDate from '@/components/FormattedDate.astro';
 import Link from '@/components/Link.astro';
@@ -6,7 +13,8 @@ import Link from '@/components/Link.astro';
 const { post } = Astro.props;
 const { data } = post;
 const { title, date, categories } = data;
-const href = `${post.collection}/${post.slug}`;
+
+const href = `${post.collection}/${post.id}`;
 ---
 <article class="card">
 	<h3 class="card__heading">
@@ -17,5 +25,5 @@ const href = `${post.collection}/${post.slug}`;
 	<div class="card__date">
 		<FormattedDate date={date} />
 	</div>
-	{categories.length && <div class="card__tags"><Tags tags={categories} /></div>}
+	{categories?.length && <div class="card__tags"><Tags tags={categories} /></div>}
 </article>

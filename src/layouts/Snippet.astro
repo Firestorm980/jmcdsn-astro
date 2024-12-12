@@ -1,22 +1,23 @@
 ---
-import type { Entry, Snippet } from '../types';
+import type { CollectionEntry, DataEntryMap } from 'astro:content';
 
 interface Props {
-    entry: Entry;
+    entry: CollectionEntry<keyof DataEntryMap>;
 }
 
-import BaseLayout from '../layouts/Base.astro';
-import FormattedDate from '../components/FormattedDate.astro';
+import BaseLayout from '@/layouts/Base.astro';
+import FormattedDate from '@/components/FormattedDate.astro';
+import { render } from 'astro:content';
 
 const { entry } = Astro.props;
-const { data } = entry;
+const { data } = entry as CollectionEntry<"snippets">;
 const {
     title,
     description = '',
     date,
     lastmod,
-} = data as Snippet;
-const { Content } = await entry.render();
+} = data;
+const { Content } = await render(entry);
 
 const layoutProps = {
     title,

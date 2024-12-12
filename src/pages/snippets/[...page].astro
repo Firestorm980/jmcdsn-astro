@@ -2,21 +2,23 @@
 import { getCollection } from "astro:content";
 import Archive from '@/layouts/Archive.astro';
 import { sortEntriesByTitle, filterDrafts } from "@/utils";
-import type { PaginationPage, PaginationEntry, Snippet } from "@/types";
+import type { PaginationPage } from "@/types";
 import Section from "@/components/Section.astro";
 import FormattedDate from "@/components/FormattedDate.astro";
 import Link from "@/components/Link.astro";
+import type { CollectionEntry } from "astro:content";
 
 export async function getStaticPaths({ paginate }: { paginate: Function }) {
-    let entries = await getCollection('snippets') as PaginationEntry[];
+    const collectionEntries = await getCollection('snippets');
 
-    entries = sortEntriesByTitle(entries) as PaginationEntry[];
-    entries = filterDrafts(entries) as PaginationEntry[];
+    const sortedEntries = sortEntriesByTitle(collectionEntries);
+    const entries = filterDrafts(sortedEntries);
 
     return paginate(entries);
 }
 
 const { page } : { page: PaginationPage } = Astro.props;
+const posts = page.data as CollectionEntry<"snippets">[];
 const title = 'Snippets';
 const description = "A collection of snippets I have for web development.";
 ---
@@ -41,10 +43,10 @@ const description = "A collection of snippets I have for web development.";
 					</tr>
 				</thead>
 				<tbody>
-					{page.data.map(snippet => {
+					{posts.map((snippet) => {
 						const { data } = snippet;
-						const { title, description, lastmod, categories } = data as Snippet;
-						const href = `${snippet.collection}/${snippet.slug}`;
+						const { title, description, lastmod, categories } = data;
+						const href = `${snippet.collection}/${snippet.id}`;
 
 						return (
 							<tr>

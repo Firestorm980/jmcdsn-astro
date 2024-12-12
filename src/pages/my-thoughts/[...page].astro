@@ -4,14 +4,14 @@ import Archive from '@/layouts/Archive.astro';
 import Pagination from "@/components/Pagination.astro";
 import Section from "@/components/Section.astro";
 import Card from "@/components/Card.astro";
-import type { PaginationPage, PaginationEntry } from "@/types";
 import { filterDrafts, sortEntriesByDate } from "@/utils";
+import type { PaginationPage } from "@/types";
 
 export async function getStaticPaths({ paginate }: { paginate: Function }) {
-    let entries = await getCollection('my-thoughts') as PaginationEntry[];
+    const collectionEntries = await getCollection('my-thoughts')
 
-    entries = sortEntriesByDate(entries) as PaginationEntry[];
-    entries = filterDrafts(entries) as PaginationEntry[];
+    const sortedEntries = sortEntriesByDate(collectionEntries)
+    const entries = filterDrafts(sortedEntries)
 
     return paginate(entries);
 }
