@@ -1,4 +1,5 @@
 // 1. Import utilities from `astro:content`
+import { glob } from 'astro/loaders';
 import { z, defineCollection } from 'astro:content';
 
 const defaults = {
@@ -12,17 +13,21 @@ const defaults = {
 
 // 2. Define your collection(s)
 const postsCollection = defineCollection({
+	loader: glob({ pattern: "**/*.{md,mdx}", base: "./src/content/my-thoughts" }),
 	schema: z.object({
 		...defaults,
+		featured_image: z.string().optional(),
 	})
 });
 const snippetsCollection = defineCollection({
+	loader: glob({ pattern: "**/*.{md,mdx}", base: "./src/content/snippets" }),
 	schema: z.object({
 		...defaults,
 		lastmod: z.date(),
 	})
 });
 const projectsCollection = defineCollection({
+	loader: glob({ pattern: "**/*.{md,mdx}", base: "./src/content/projects" }),
 	schema: z.object({
 		...defaults,
 		company: z.string(),
