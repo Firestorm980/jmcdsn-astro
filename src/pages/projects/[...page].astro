@@ -2,21 +2,23 @@
 import { getCollection } from "astro:content";
 import Archive from '@/layouts/Archive.astro';
 import { filterDrafts, sortEntriesByDate } from "@/utils";
-import type { PaginationPage, PaginationEntry, Project } from "@/types";
+import type { PaginationPage } from "@/types";
 import Section from "@/components/Section.astro";
 import Link from "@/components/Link.astro";
 import FrontMatterImage from "@/components/FrontMatterImage.astro";
+import type { CollectionEntry } from "astro:content";
 
 export async function getStaticPaths({ paginate }: { paginate: Function }) {
-    let entries = await getCollection('projects') as PaginationEntry[];
+    const collectionEntries = await getCollection('projects');
 
-    entries = sortEntriesByDate(entries) as PaginationEntry[];
-    entries = filterDrafts(entries) as PaginationEntry[];
+    const sortedEntries = sortEntriesByDate(collectionEntries);
+    const entries = filterDrafts(sortedEntries);
 
     return paginate(entries);
 }
 
 const { page } : { page: PaginationPage } = Astro.props;
+const posts = page.data as CollectionEntry<"projects">[];
 const title = 'Projects';
 const description = "Some of the things I've worked on. Check 'em out.";
 ---
@@ -31,10 +33,10 @@ const description = "Some of the things I've worked on. Check 'em out.";
 	</Section>
 	<Section>
 		<ul class="post-list post-list--projects">
-			{page.data.map((post) => {
+			{posts.map((post) => {
 				const { data } = post;
-				const { title, featured_image } = data as Project;
-				const href = `${post.collection}/${post.slug}`;
+				const { title, featured_image } = data;
+				const href = `${post.collection}/${post.id}`;
 
 				return (
 					<li class="post-list-item">

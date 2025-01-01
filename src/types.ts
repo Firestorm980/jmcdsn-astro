@@ -1,3 +1,5 @@
+import type { CollectionEntry, DataEntryMap } from "astro:content";
+
 export type Entry = {
     data: EntryData;
     render: Function;
@@ -12,15 +14,15 @@ export type EntryData = {
     categories?: string[];
 }
 
-export type Post = EntryData & {
+export type Post = CollectionEntry<'my-thoughts'> & {
     featured_image?: any;
 }
 
-export type Snippet = EntryData & {
+export type Snippet = CollectionEntry<"snippets"> & {
     lastmod: Date;
 }
 
-export type Project = EntryData & {
+export type Project = CollectionEntry<"projects"> & {
 	company: string;
 	subtitle: string;
 	featured_image: string;
@@ -30,15 +32,8 @@ export type Project = EntryData & {
 	platforms: string[];
 }
 
-export type PaginationEntry = Entry & {
-    id: string;
-    slug: string;
-    body: string;
-    collection: string;
-}
-
 export type PaginationPage = {
-    data: PaginationEntry[];
+    data: CollectionEntry<keyof DataEntryMap>[];
     start: number;
     end: number;
     size: number;

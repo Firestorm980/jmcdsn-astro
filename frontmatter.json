@@ -46,7 +46,6 @@
       "previewPath": "/{{fm.type}}/",
       "pageBundle": false,
       "clearEmpty": true,
-      "fileType": "mdx",
       "fields": [
         {
           "title": "Title",
@@ -160,7 +159,6 @@
       "previewPath": "/{{fm.type}}/",
       "pageBundle": false,
       "clearEmpty": true,
-      "fileType": "mdx",
       "fields": [
         {
           "title": "Title",
@@ -309,5 +307,6 @@
       "body": "<Figure caption=\"[[caption]]\" src=\"/src/assets/images/posts[[&mediaUrl]]\" alt=\"[[alt]]\" width=\"[[mediaWidth]]\" height=\"[[mediaHeight]]\" />",
       "isMediaSnippet": true
     }
-  }
+  },
+  "frontMatter.content.supportedFileTypes": [ "md", "markdown", "mdx" ]
 }
