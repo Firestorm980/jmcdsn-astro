@@ -1,7 +1,6 @@
 ---
 title: AI Hammer Looking for a Nail
 date: 2025-04-03T23:51:42.859Z
-draft: true
 slug: ai-hammer-looking-for-a-nail
 fmContentType: my-thoughts
 categories:
