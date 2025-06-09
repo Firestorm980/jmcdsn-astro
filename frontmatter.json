@@ -265,7 +265,9 @@
             "Svelte",
             "Three.js",
             "Velocity.js",
-            "Vue"
+            "Vue",
+            "Framer Motion",
+            "Motion"
           ]
         },
         {

@@ -1,0 +1,88 @@
+---
+title: Hilton
+date: 2025-06-07T20:58:02.204Z
+draft: true
+slug: hilton
+roles:
+    - Developer
+    - Lead
+platforms:
+    - WordPress
+libraries:
+    - Next.js
+    - Framer Motion
+    - React
+technologies:
+    - Git
+    - ESLint
+    - ES6
+    - SVG
+    - Webpack
+    - Stylelint
+    - Gutenberg
+    - Responsive Design
+fmContentType: projects
+company: 10up
+categories: []
+keywords:
+    - hilton
+    - wicked
+    - animation
+subtitle: A wonderfully Wicked transformation
+featured_image: /hilton/hilton_wicked-suite.jpg
+description: Immersive homepage experience for Hilton’s Wicked campaign using Next.js, Gutenberg, and Framer Motion—all delivered on a tight deadline.
+---
+import introVideo from '../../assets/images/posts/hilton/hilton-wicked_intro_2_720.webm';
+
+Hilton is a global leader in hospitality, managing 18 brands across hotels, resorts, and vacation properties. Their "Stories from Hilton" website—built on WordPress using Gutenberg and powered by a Next.js front end—serves as a storytelling platform for brand content and promotions.
+
+In the summer of 2024, Hilton came to us with a bold, time-sensitive opportunity: a full homepage takeover and themed template redesign to promote their collaboration with Universal Studios and the upcoming release of *Wicked*. The challenge was to deliver a completely rebranded experience in just weeks, in time for a major October announcement and the film’s November release.
+
+## Challenge & Approach
+
+The goal was to craft a unique, immersive journey that merged the film's magic with Hilton’s “Stay Like Wicked” campaign—something visually stunning, interactive, and distinctly different from the rest of the site. Multiple rounds of approvals were required between Hilton and Universal, so agility and efficiency were key.
+
+We began by concepting homepage ideas that would capture the spirit of *Wicked* while working within the constraints of Hilton’s existing design system. To move quickly, we reused existing components wherever possible. Working closely with the designer on the project, we treated the visual direction like a thematic skin—one that emphasized the unique look of *Wicked* while preserving core functionality.
+
+## Branding like *Wicked*
+
+The article templates followed a similar approach. While they reused existing blocks, we added styles to give them a custom Wicked-inspired look and feel. We also introduced a new Gutenberg block to let editors insert themed elements—like the signature “gears” found throughout the page. This blend of existing and custom components saved time and ensured editorial flexibility.
+
+<Devices
+	phone="/src/assets/images/posts/hilton/hilton-wicked_article_small.png"
+	tablet="/src/assets/images/posts/hilton/hilton-wicked_article_medium.png"
+	desktop="/src/assets/images/posts/hilton/hilton-wicked_article_large.png"
+	caption="The updated Hilton article with a splash of Oz and Wicked branding."
+/>
+
+Technically, we created a set of new WordPress templates that added a unique class name for us in Next.js. This let us scope custom styles only to the relevant pages, avoiding unintended side effects. It also made the template reusable for future campaigns. React hooks like `useTemplate` allowed components to adapt specifically for Wicked, without disrupting the rest of the codebase.
+
+<Devices
+	phone="/src/assets/images/posts/hilton/hilton-wicked_homepage_small.png"
+	tablet="/src/assets/images/posts/hilton/hilton-wicked_homepage_medium.png"
+	desktop="/src/assets/images/posts/hilton/hilton-wicked_homepage_large.png"
+	caption="The updated Stories from Hilton homepage with a full takeover of the Wicked branding."
+/>
+
+## Welcome to Oz intro animation
+
+The centerpiece of the experience was the homepage animation—a scroll-driven sequence built with Framer Motion. The animation took users on a journey through the clouds into the world of *Wicked*, with visual elements unfolding as they scrolled into the Emerald City. This dynamic storytelling added a sense of immersion and control, while a skip button supported accessibility and remembered user preferences.
+
+<Figure caption="The end of the intro animation, where users have arrived at the Emerald City." src="/src/assets/images/posts/hilton/hilton-wicked_intro_bottom.png" alt="Image capture of the end of the animation with the Emerald City." width="3840" height="2160" />
+
+I collaborated closely with the designer to bring this animation to life, ensuring it was visually compelling but lightweight and performant. It was a first-of-its-kind effort for Hilton and a standout moment for the brand.
+
+<figure>
+	<video
+		controls
+		muted
+		width="1280"
+		height="720">
+		<source src={ introVideo } type="video/webm" />
+	</video>
+	<figcaption>Welcome to Oz intro animation in motion.</figcaption>
+</figure>
+
+## Results & Impact
+
+The results were immediate and impressive. The launch met all deadlines, and Hilton sold out every themed room within five days of the campaign going live. Thanks to our scoped design system, Hilton was able to toggle the takeover on and off as needed—relaunching it around the movie’s release in November. While the homepage experience was temporary, the updated article template remains live today on the [Stories from Hilton](https://stories.hilton.com) site.
