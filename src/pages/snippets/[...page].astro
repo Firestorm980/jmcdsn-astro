@@ -6,6 +6,7 @@ import type { PaginationPage } from "@/types";
 import Section from "@/components/Section.astro";
 import FormattedDate from "@/components/FormattedDate.astro";
 import Link from "@/components/Link.astro";
+import Markdown from "@/components/Markdown.astro";
 import type { CollectionEntry } from "astro:content";
 
 export async function getStaticPaths({ paginate }: { paginate: Function }) {
@@ -14,7 +15,7 @@ export async function getStaticPaths({ paginate }: { paginate: Function }) {
     const sortedEntries = sortEntriesByTitle(collectionEntries);
     const entries = filterDrafts(sortedEntries);
 
-    return paginate(entries);
+    return paginate(entries, { pageSize: 100 });
 }
 
 const { page } : { page: PaginationPage } = Astro.props;
@@ -51,10 +52,12 @@ const description = "A collection of snippets I have for web development.";
 						return (
 							<tr>
 								<td>
-									<Link href={href}>{title}</Link>
+									<Link href={href}>
+										<Markdown value={title} />
+									</Link>
 								</td>
 								<td>
-									{description}
+									<Markdown value={description || ''} />
 								</td>
 								<td>
 									{categories?.join(', ')}

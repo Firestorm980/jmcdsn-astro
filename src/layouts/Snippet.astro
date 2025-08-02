@@ -7,6 +7,7 @@ interface Props {
 
 import BaseLayout from '@/layouts/Base.astro';
 import FormattedDate from '@/components/FormattedDate.astro';
+import Markdown from '@/components/Markdown.astro';
 import { render } from 'astro:content';
 
 const { entry } = Astro.props;
@@ -28,7 +29,9 @@ const layoutProps = {
 <BaseLayout {...layoutProps}>
     <article>
         <header class="single__header section">
-			<h1 class="single__heading">{title}</h1>
+			<h1 class="single__heading">
+				<Markdown value={title} />
+			</h1>
             <div class="single__date">
                 <FormattedDate date={date} />
 
