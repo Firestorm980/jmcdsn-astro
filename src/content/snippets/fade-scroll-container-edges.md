@@ -1,7 +1,7 @@
 ---
 title: Fade Scroll Container Edges
 date: 2025-07-30T02:17:08.496Z
-draft: true
+draft: false
 slug: fade-scroll-container-edges
 fmContentType: snippets
 lastmod: 2025-07-30T02:18:52.358Z

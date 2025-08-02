@@ -1,7 +1,7 @@
 ---
 title: Previous Sibling Selector
 date: 2025-07-30T02:02:55.611Z
-draft: true
+draft: false
 slug: previous-sibling-selector
 fmContentType: snippets
 categories:

@@ -1,7 +1,7 @@
 ---
 title: Slugify a String with Multi-lingual Support
 date: 2025-07-30T02:28:17.662Z
-draft: true
+draft: false
 slug: slugify-string-multi-lingual-support
 fmContentType: snippets
 lastmod: 2025-07-30T02:29:35.496Z

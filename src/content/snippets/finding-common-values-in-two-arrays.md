@@ -1,7 +1,7 @@
 ---
 title: Finding Common Values in Two Arrays
 date: 2025-07-30T01:57:08.700Z
-draft: true
+draft: false
 slug: finding-common-values-arrays
 fmContentType: snippets
 description: Find common values between two arrays.

@@ -1,7 +1,7 @@
 ---
 title: Animated `details` + `summary`
 date: 2025-07-30T02:30:38.563Z
-draft: true
+draft: false
 slug: animated-details-summary
 fmContentType: snippets
 lastmod: 2025-07-30T02:30:52.387Z

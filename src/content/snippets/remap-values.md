@@ -1,7 +1,7 @@
 ---
 title: Remap Values
 date: 2025-07-30T01:59:14.812Z
-draft: true
+draft: false
 slug: remap-values
 fmContentType: snippets
 lastmod: 2025-07-30T01:59:47.678Z

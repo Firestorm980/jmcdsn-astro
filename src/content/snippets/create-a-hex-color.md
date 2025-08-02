@@ -1,7 +1,7 @@
 ---
 title: Create a Hex Color
 date: 2025-07-30T02:00:31.706Z
-draft: true
+draft: false
 slug: create-hex-color
 fmContentType: snippets
 lastmod: 2025-07-30T02:01:42.238Z
