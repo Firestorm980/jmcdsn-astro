@@ -1,13 +1,14 @@
 ---
-title: debounce
+title: Debounce
 categories:
-- JavaScript
-- Performance
+    - JavaScript
+    - Performance
 date: 2022-11-13
 lastmod: 2022-11-13
-description: Debounce a function using `requestAnimationFrame`
+description: Debounce a function using `requestAnimationFrame`.
 type: snippets
 draft: false
+slug: debounce
 ---
 ```js
 /**
@@ -18,27 +19,25 @@ draft: false
  */
 function debounce (fn) {
 
-	// Setup a timer
-	let timeout;
+    // Setup a timer
+    let timeout;
 
-	// Return a function to run debounced
-	return function () {
+    // Return a function to run debounced
+    return function () {
 
-		// Setup the arguments
-		let context = this;
-		let args = arguments;
+        // Setup the arguments
+        let context = this;
+        let args = arguments;
 
-		// If there's a timer, cancel it
-		if (timeout) {
-			window.cancelAnimationFrame(timeout);
-		}
+        // If there's a timer, cancel it
+        if (timeout) {
+            window.cancelAnimationFrame(timeout);
+        }
 
-		// Setup the new requestAnimationFrame()
-		timeout = window.requestAnimationFrame(function () {
-			fn.apply(context, args);
-		});
-
-	};
-
+        // Setup the new requestAnimationFrame()
+        timeout = window.requestAnimationFrame(function () {
+            fn.apply(context, args);
+        });
+    };
 }
 ```

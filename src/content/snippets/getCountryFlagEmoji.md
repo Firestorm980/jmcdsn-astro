@@ -1,5 +1,5 @@
 ---
-title: getCountryFlagEmoji
+title: Get Country Flag Emoji
 categories:
   - JavaScript
 date: 2023-11-04
@@ -18,8 +18,8 @@ slug: getcountryflagemoji
  * @returns {string} The country emoji flag.
  */
 function getCountryFlagEmoji (countryCode) {
-  return [...countryCode.toUpperCase()].map(char =>
-    String.fromCodePoint(127397 + char.charCodeAt())
-  ).reduce((a, b) => a + b)
+    return [...countryCode.toUpperCase()].map(char =>
+        String.fromCodePoint(127397 + char.charCodeAt())
+    ).reduce((a, b) => a + b)
 };
 ```
