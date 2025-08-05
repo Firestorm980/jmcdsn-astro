@@ -19,7 +19,7 @@ li:has(+ li.someclass) {
 ```html
 <ul>
     <li>Foo</li>
-    <li>Bar</li><-- This will be red -->
+    <li>Bar</li><!-- This will be red -->
     <li class="someclass">Hello</li>
     <li>World</li>
 </ul>
