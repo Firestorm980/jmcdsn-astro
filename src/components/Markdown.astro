@@ -14,6 +14,6 @@ const processedValue = await unified()
 	.use(remarkParse)
 	.use(remarkRehype)
 	.use(rehypeStringify)
-	.processSync(value);
+	.process(value);
 ---
 <>{processedValue}</>
