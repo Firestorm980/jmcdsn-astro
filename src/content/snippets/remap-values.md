@@ -17,7 +17,7 @@ categories:
  * @param {number} valueMin The lower bounds of the input.
  * @param {number} valueMax The upper bounds of the input.
  * @param {number} min The lower bounds of the output.
- * @param {number} max THe upper bounds of the output.
+ * @param {number} max The upper bounds of the output.
  * @return {number} The new value mapped to the output range.
  */
 function mapValue (value, valueMin, valueMax, min = 0, max = 1) {
