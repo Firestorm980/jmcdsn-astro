@@ -8,7 +8,7 @@ type: my-thoughts
 slug: is-chrome-the-new-ie
 ---
 
-This is something that I've been thinking about the past couple months. It is something I've seen discussed a few times in different places like [this mention on CSS-Tricks](https://css-tricks.com/chrome-not-standard/) or [this article from the Verge](https://www.theverge.com/2018/1/4/16805216/google-chrome-only-sites-internet-explorer-6-web-standards). It is a worrying topic for more than one reason, but the developer community (and even some outside of it) are worried about Chrome and it's current dominance of the browser landscape.
+This is something that I've been thinking about the past couple months. It is something I've seen discussed a few times in different places like [this mention on CSS-Tricks](https://css-tricks.com/chrome-not-standard/) or [this article from the Verge](https://www.theverge.com/2018/1/4/16805216/google-chrome-only-sites-internet-explorer-6-web-standards). It is a worrying topic for more than one reason, but the developer community (and even some outside of it) are worried about Chrome and its current dominance of the browser landscape.
 
 So let me start off by saying the near obligatory line that I also seem to see everywhere this is talked about: I like the Chrome browser. It's my daily driver. I use it for work and personal browsing. It has great debug tools and loads of extensions. It syncs all my stuff. I can use multiple user accounts on it. Seriously, I _do_ like Chrome a lot.
 
@@ -28,7 +28,7 @@ Then one day, the heavens parted and those at Google bestowed upon us our savior
 
 ## And there was much rejoicing
 
-Chrome grew in popularity with developers and non-developers. It was performant, extensible, standards compliant, and reguarly updated. Along with integration of Google's other services (mainly search), it seemed like everybody started flocking to it.
+Chrome grew in popularity with developers and non-developers. It was performant, extensible, standards compliant, and regularly updated. Along with integration of Google's other services (mainly search), it seemed like everybody started flocking to it.
 
 With the introduction of Chrome and a big name like Google behind it, Microsoft seemed to get the message that it was stagnating and stepped up its game, lest they lose a lot of market share. Of course, it didn't really catch on to that until a lot of its users already left. Some of why they were seemingly late to the game might be attributed to Microsoft's overconfidence that their browser couldn't be touched since it was the default on most systems. The mobile revolution also contributed, and Chrome became the default browser on Android.
 
@@ -46,12 +46,12 @@ https://twitter.com/slackhq/status/958645632620748800?lang=en
 
 Lately there has been a big surge of "Optimized for Chrome". Mainly within Google's own properties (this is a different kind of problem). What bugs me about this is other companies (and therefore other developers) outside of Google building sites optimized for Chrome. Using features that other browsers and users can and would benefit from, but decide not to, for whatever reason.
 
-After all I've seen and read about things like using progressive enhancement and/or graceful degredation with feature testing through the years and after the issues of one browser having so much dominance in the past, it just feels wrong. It also feels like we're headed down a very negative path. One where a singular browser has the most say about how the web is created and experienced. Something that goes against the very heart of what the web is.
+After all I've seen and read about things like using progressive enhancement and/or graceful degradation with feature testing through the years and after the issues of one browser having so much dominance in the past, it just feels wrong. It also feels like we're headed down a very negative path. One where a singular browser has the most say about how the web is created and experienced. Something that goes against the very heart of what the web is.
 
 ## So, _is_ Google the new IE?
 
-In many ways, it _could_ be. Even though Google is constantly pushing the web versus IE's old track record of not moving it hardly at all, I'd agrue that a browser with tons of market dominance in either direction is bad. Competition, like in many other areas of society, can be a very good thing.
+In many ways, it _could_ be. Even though Google is constantly pushing the web versus IE's old track record of not moving it hardly at all, I'd argue that a browser with tons of market dominance in either direction is bad. Competition, like in many other areas of society, can be a very good thing.
 
 Upon further reflection, is it really the browser that is at fault here, or the people building solely for it? Developers who have been around long enough already know and lived the mess that was here before with old IE. They don't want to go back to it. So they likely advocate and build for the _web_ and not for a singular browser.
 
-All I can do is look at the other developers building for a _browser_ and emplore them to open up another. I mentioned earlier that I use Chrome at work, but I actually do most of my development work in Firefox. Maybe we just need to all be more aware of our [Chrome Bias](https://css-tricks.com/chrome-bias-finding-things-like-firefox/). As developers, we're responsible. The only way all the bad things that _could_ happen don't happen, is if we embrace [our roles as gatekeepers](https://medium.com/@monteiro/what-is-a-designer-94ac32ff92d0) and do what we can do prevent it. That means continuing to build for the open web and advising our clients to support it as well. The consquences could be disasterous if we don't do our jobs, but there is still time and plenty of opportunity to make sure it doesn't happen.
+All I can do is look at the other developers building for a _browser_ and implore them to open up another. I mentioned earlier that I use Chrome at work, but I actually do most of my development work in Firefox. Maybe we just need to all be more aware of our [Chrome Bias](https://css-tricks.com/chrome-bias-finding-things-like-firefox/). As developers, we're responsible. The only way all the bad things that _could_ happen don't happen, is if we embrace [our roles as gatekeepers](https://medium.com/@monteiro/what-is-a-designer-94ac32ff92d0) and do what we can do prevent it. That means continuing to build for the open web and advising our clients to support it as well. The consequences could be disastrous if we don't do our jobs, but there is still time and plenty of opportunity to make sure it doesn't happen.

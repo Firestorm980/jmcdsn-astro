@@ -19,11 +19,11 @@ The problem with mega menus is just that: they’re mega. They take up a ton of 
 
 <Figure caption="An exaggerated example of the frustration a user may feel when a user interface does not work the way it is intended." src="/src/assets/images/posts/it-crowd.gif" alt="Character Moss from the show The IT Crowd, throws a monitor in frustration." width="498" height="286" />
 
-In my investigations, I knew there had to be a way to get it so the browser would know if I hovered the parent item (and wanted to get to an item on the other side of the window), I could easily make a straight line (or, since humans aren’t machines, maybe even a curved line) directly between the links without the menu going away. In my explorations, using javascript and timeouts seemed to muddy up the transitions and didn’t always work because the item was so far away. Using pseudo elements seemed to not want to entirely cooperate either, having side effects like covering up other things and would need additional rules. What to do, what to do? Depending on how fast you moved the cursor, you may make it in time to the sub menu, you may not.
+In my investigations, I knew there had to be a way to get it so the browser would know if I hovered the parent item (and wanted to get to an item on the other side of the window), I could easily make a straight line (or, since humans aren’t machines, maybe even a curved line) directly between the links without the menu going away. In my explorations, using JavaScript and timeouts seemed to muddy up the transitions and didn’t always work because the item was so far away. Using pseudo elements seemed to not want to entirely cooperate either, having side effects like covering up other things and would need additional rules. What to do, what to do? Depending on how fast you moved the cursor, you may make it in time to the sub menu, you may not.
 
 ## SVG to the rescue!
 
-Enter my secret weapon (you probably saw it coming): SVG! Since we know the coordinates of the parent element and the mega menu, we can translate those coordinates into a vector shape and put it on the page. Viola! Every time someone hovers over a parent item, we can use javascript to create an SVG on the fly with the coordinates we need. Below is a snippet from the site that actually creates the SVG.
+Enter my secret weapon (you probably saw it coming): SVG! Since we know the coordinates of the parent element and the mega menu, we can translate those coordinates into a vector shape and put it on the page. Voilà! Every time someone hovers over a parent item, we can use JavaScript to create an SVG on the fly with the coordinates we need. Below is a snippet from the site that actually creates the SVG.
 
 ```js
 /**

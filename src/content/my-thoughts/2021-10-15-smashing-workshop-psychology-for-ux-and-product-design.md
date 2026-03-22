@@ -8,7 +8,7 @@ tags:
 categories:
     - Web Design & Development
 ---
-Recently, I was able to use some time attend a [virtual workshop through Smashing Magazine: Psychology for UX and Product Design](https://smashingconf.com/online-workshops/workshops). I've been looking into UX related workshops specifically as a way to not only learn more about the discipline but also so I can better collaborate with the UX and design teams during the discovery and design phases on many of our projects.
+Recently, I was able to use some time to attend a [virtual workshop through Smashing Magazine: Psychology for UX and Product Design](https://smashingconf.com/online-workshops/workshops). I've been looking into UX related workshops specifically as a way to not only learn more about the discipline but also so I can better collaborate with the UX and design teams during the discovery and design phases on many of our projects.
 
 As a Front End Engineer, sometimes I don't always know some of the strategies and methods that are being employed. With the UX workshops I'm hoping to gain some insight into that and contribute additional solutions. As you can see from the title, this particular workshop was focused on the intersection of psychology and UX, led by Smashing Magazine contributor[ Joe Leech](https://www.smashingmagazine.com/author/joe-leech/).
 

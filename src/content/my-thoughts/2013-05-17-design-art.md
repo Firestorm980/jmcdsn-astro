@@ -32,7 +32,7 @@ At first, this made me quite angry. It seems so silly to me, given what I was t
 
 It baffled me. I suppose to an extent it still does. But today instead of anger about this predicament, I feel sadness at the whole affair.
 
-Reading the quote above gave me pause. Maybe those others in our profession never moved beyond thinking that design was art when they went to school (if they did). Maybe to them its more about them making their mark on a project than providing a worthwhile solution. Maybe its a combination of factors. I'm not entirely sure.
+Reading the quote above gave me pause. Maybe those others in our profession never moved beyond thinking that design was art when they went to school (if they did). Maybe to them it's more about them making their mark on a project than providing a worthwhile solution. Maybe it's a combination of factors. I'm not entirely sure.
 
 And that's where how I feel comes into play. Sadness that there are those in the design community who are either in it for themselves to make "art" or that they never learned what real design is. I more so feel sadness for our clients and our profession as a whole. The clients don't get well thought out solutions, they get "something that looks good." It doesn't really get at their goals in quite the right way. I feel sadness for our profession because the idea that design is art will continue to flourish because of this way of operating. Unfortunately, it will continue to create a barrier of misunderstanding between real designers and their clients and misinformation will continue to circulate among those who never are educated.
 
