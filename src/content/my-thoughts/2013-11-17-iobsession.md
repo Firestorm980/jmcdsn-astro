@@ -26,4 +26,4 @@ By specializing for particular device types, you're also making more work for yo
 
 ## Conclusion
 
-As designers we need to make sure we consider all the angles when building a site. If we're building for the future, then we need to show it. While iOS and Apple are undoubtedly part of that future, it isn't the only player in the game. This post is mostly about us paying to much attention to iOS and Apple products, but it really goes for any device type. Don't fall into the trap of thinking everyone or most people are using the same thing and specializing for it. It has chance of biting you later on.
+As designers we need to make sure we consider all the angles when building a site. If we're building for the future, then we need to show it. While iOS and Apple are undoubtedly part of that future, it isn't the only player in the game. This post is mostly about us paying too much attention to iOS and Apple products, but it really goes for any device type. Don't fall into the trap of thinking everyone or most people are using the same thing and specializing for it. It has chance of biting you later on.

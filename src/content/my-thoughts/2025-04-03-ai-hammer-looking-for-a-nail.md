@@ -30,7 +30,7 @@ After, I actually had several team members approach me via DMs on Slack and ment
 - Having a conversation with a program versus an actual person to get help might actually be *less* efficient in this case. Particularly if the user is impaired in some fashion (likely, according to our client).
 - Further, a person gets special training for this kind of scenario (think 911 operators, crisis hotline intervention specialists). While you could "train" the AI to also have that sensitivity, how effective would it be (see above)? Also, the time (and cost) to train it for something like that would be prohibitive.
 
-So, cased closed right? Well, not quite. This has stuck with me the past little while, and I think I know why.
+So, case closed right? Well, not quite. This has stuck with me the past little while, and I think I know why.
 
 ## Hammer, meet... everything
 

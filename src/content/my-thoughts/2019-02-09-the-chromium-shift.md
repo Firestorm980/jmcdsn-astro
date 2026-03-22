@@ -22,7 +22,7 @@ And so, fast forward a few years and Microsoft has decided to throw in the towel
 
 So, this is good right? Microsoft can be competitive again without devoting so much energy maintaining their own base. We get a better browser as another choice and the world moves on. Roll credits.
 
-Well, I'm not so sure about that. We get a new _browser_ but its using the same _engine_ as many others. That is the problem here that we should be concerned about.
+Well, I'm not so sure about that. We get a new _browser_ but it's using the same _engine_ as many others. That is the problem here that we should be concerned about.
 
 Believe it or not, a good chunk of browsers will now be running on Chromium as a base. Not all of them, but Chromium definitely has the market share advantage here.
 

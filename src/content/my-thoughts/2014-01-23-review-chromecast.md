@@ -8,7 +8,7 @@ type: my-thoughts
 slug: review-chromecast
 ---
 
-I was lucky enough for my birthday this year to receive a brand new Chromecast from a friend. I had been wanting once since they were announced, and after seeing the price tag ($35) I wanted one even more. So what are my impressions from about 2 months worth of time with it? Read on for my thoughts below.
+I was lucky enough for my birthday this year to receive a brand new Chromecast from a friend. I had been wanting one since they were announced, and after seeing the price tag ($35) I wanted one even more. So what are my impressions from about 2 months worth of time with it? Read on for my thoughts below.
 
 ## Initial Impressions
 

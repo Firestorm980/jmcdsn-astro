@@ -56,6 +56,6 @@ In my opinion, those benefits are worth it in the long run. In addition, I also 
 
 ## Conclusion
 
-As always, of course, it all depends. There may be a client who just can't wait or put in the effort for a responsive design. Maybe they don't have the budget (again, I don't personally believe in charging extra for it). Maybe its something unforeseen.
+As always, of course, it all depends. There may be a client who just can't wait or put in the effort for a responsive design. Maybe they don't have the budget (again, I don't personally believe in charging extra for it). Maybe it's something unforeseen.
 
 Like many comments on his article, I didn't fully agree with the author. Though I do think he made some good points in a couple of spots, his supporting arguments for some of them are flawed. But, it is just my opinion (for the most part). If we continue to take on a mobile first approach and don't penalize our clients with extra costs on what is a best practice, you've pretty much gotten past your dilemma on the matter. Certainly as more of us get used to designing and building these sites, our technique and skills will improve to meet the challenges and problems we currently face with responsive.
