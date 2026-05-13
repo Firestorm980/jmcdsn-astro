@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
-    "@astrojs/mdx": "^4.3.4",
+    "@astrojs/mdx": "^5.0.4",
     "@astrojs/sitemap": "^3.5.1",
     "@swup/a11y-plugin": "^4.5.0",
     "@swup/body-class-plugin": "^3.2.0",
@@ -19,7 +19,7 @@
     "@swup/js-plugin": "^3.2.0",
     "@swup/progress-plugin": "^3.2.0",
     "@swup/scroll-plugin": "^3.3.2",
-    "astro": "^5.18.1",
+    "astro": "^6.3.1",
     "normalize.css": "^8.0.1",
     "swup": "^4.7.0",
     "typescript": "^5.5.4"
