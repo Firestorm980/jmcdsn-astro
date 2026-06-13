@@ -1,6 +1,7 @@
 // 1. Import utilities from `astro:content`
 import { glob } from 'astro/loaders';
-import { z, defineCollection } from 'astro:content';
+import { z } from 'astro/zod';
+import { defineCollection } from 'astro:content';
 
 const defaults = {
 	title: z.string(),
