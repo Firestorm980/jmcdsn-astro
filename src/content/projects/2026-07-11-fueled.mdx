@@ -1,0 +1,67 @@
+---
+title: Fueled
+date: 2026-07-11T20:39:43.237Z
+draft: true
+slug: fueled
+roles:
+    - Developer
+platforms:
+    - WordPress
+libraries:
+    - React
+    - Motion
+technologies:
+    - ES6
+    - Git
+    - Gutenberg
+    - Responsive Design
+    - Stylelint
+    - SVG
+    - Webpack
+    - ChatGPT
+    - Copilot
+    - ESLint
+fmContentType: projects
+description: Building a new site for a new kind of WordPress agency.
+categories: []
+company: 10up / Fueled
+subtitle: "AI Powered WordPress Agency"
+featured_image: /fueled/fueled_WP-6.9-Header.webp
+---
+import imageSequenceBlockVideo from '../../assets/images/posts/fueled/fueled_company-3d-image-sequence.mp4';
+
+Fueled is a full-service digital agency that builds brands and products across web, mobile, and emerging platforms. The challenge was to deliver rich, interactive experiences that could still be managed entirely within the familiar confines of WordPress. The agency wanted to keep its content workflow intact while pushing the visual and performance envelope far beyond what a traditional theme can offer. This all had to be done with a new (and still in flux) design with a limited time frame.
+
+I answered by helping to build four custom Gutenberg blocks—Image Sequence, Background Blur, Hover Card, and Marquee—that let editors compose sophisticated animations without touching code. They all use Gutenberg for a smooth authoring experience; on the live site they run as vanilla JavaScript powered by WordPress’ Interactivity API. The Image Sequence block turns a series of  photos into a scroll-responsive animation with blend modes, Background Blur adds depth and movement behind any content block and acts as a transition between sections, Hover Card reveals a transparent looping gradient animation when hovered, and Marquee provides an easy way to display scrolling text or logos.
+
+## Motion & 3D Integration
+Behind the scenes, Motion choreographs all the animations. By coordinating timelines in JavaScript and applying subtle blend modes via CSS, I created fluid interactions that feel organic rather than gimmicky. Media optimization was another key focus: image sequences are first assembled with ffmpeg and then compressed into WebP format to keep bandwidth consumption low without sacrificing quality. Performance also stays fast with rendering done on the more complex blocks using canvas with images loading just in time.
+
+<figure>
+	<video
+		controls
+		muted
+		loop
+		autoplay
+		width="1920"
+		height="1080">
+		<source src={ imageSequenceBlockVideo } type="video/mp4" />
+	</video>
+	<figcaption>Various Image Sequence blocks used on the company page.</figcaption>
+</figure>
+
+## Performance Engineering
+Performance wasn’t an afterthought; it guided every decision from the outset. Critical CSS is extracted so that styles don’t block rendering, images load lazily out of view, and JavaScript bundles are split so each page only pulls what it needs. The result is a modern, performant site built in under two months, without compromising on craft. All Core Web Vital scores moved into the “passing” range after launch—LCP dropped from 4,941 milliseconds to a clean 1,850 milliseconds, CLS fell from 1.0 straight down to zero, and FID, TBT, and other metrics followed suit.
+
+## AI-Assisted Development
+A distinctive part of this project was my use of AI during development. ChatGPT-powered by GPT-4 helped me write the initial logic for the Image Sequence and Background Blur blocks, iterate on CSS filter combinations, and debug tricky edge cases. Using AI as a partner accelerated iteration cycles dramatically, letting us ship faster without compromising quality.
+
+<Devices
+	phone="/src/assets/images/posts/fueled/fueled_small_homepage.png"
+	tablet="/src/assets/images/posts/fueled/fueled_medium_homepage.png"
+	desktop="/src/assets/images/posts/fueled/fueled_large_homepage.png"
+	caption="Updated agency homepage with background graphic, marquee, and a whole new brand identity."
+/>
+
+## Takeaway
+Fueled.com proves that a WordPress-centric site can host sophisticated animations, 3D interactions, and AI-assisted development while delivering industry-class performance. The result is an engaging brand experience that feels native to the platform editors already love—ready for anyone who wants to blend creativity with technical excellence.
