@@ -19,7 +19,7 @@
     "@swup/js-plugin": "^3.2.0",
     "@swup/progress-plugin": "^3.2.0",
     "@swup/scroll-plugin": "^3.3.2",
-    "astro": "^6.4.6",
+    "astro": "^7.0.7",
     "normalize.css": "^8.0.1",
     "swup": "^4.7.0",
     "typescript": "^5.5.4"
