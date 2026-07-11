@@ -36,7 +36,7 @@
         "First Scribe",
         "MoCo",
         "Westwerk",
-        "10up"
+        "10up / Fueled"
       ]
     }
   ],
@@ -297,7 +297,11 @@
             "Twig",
             "Vimeo API",
             "Vite",
-            "Webpack"
+            "Webpack",
+            "Claude",
+            "Claude Code",
+            "ChatGPT",
+            "Copilot"
           ]
         }
       ]
@@ -310,5 +314,9 @@
       "isMediaSnippet": true
     }
   },
-  "frontMatter.content.supportedFileTypes": [ "md", "markdown", "mdx" ]
+  "frontMatter.content.supportedFileTypes": [
+    "md",
+    "markdown",
+    "mdx"
+  ]
 }
