@@ -230,7 +230,10 @@
           "choices": [
             "Developer",
             "Designer",
-            "Lead"
+            "Lead",
+            "Engineering",
+            "Design",
+            "UX"
           ]
         },
         {
