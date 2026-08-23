@@ -4,8 +4,9 @@ date: 2025-06-07T20:58:02.204Z
 draft: false
 slug: hilton
 roles:
-  - Developer
   - Lead
+  - Design
+  - Engineering
 platforms:
   - WordPress
 libraries:
@@ -55,7 +56,9 @@ The article templates followed a similar approach. While they reused existing bl
 	caption="The updated Hilton article with a splash of Oz and Wicked branding."
 />
 
-Technically, we created a set of new WordPress templates that added a unique class name for us in Next.js. This let us scope custom styles only to the relevant pages, avoiding unintended side effects. It also made the template reusable for future campaigns. React hooks like `useTemplate` allowed components to adapt specifically for Wicked, without disrupting the rest of the codebase.
+Technically, we created a set of new WordPress templates that added a unique class name for us in Next.js. This let us scope custom styles only to the relevant pages, avoiding unintended side effects. It also made the template reusable for future campaigns. Custom React hooks like `useTemplate` allowed components to adapt specifically for Wicked, without disrupting the rest of the codebase.
+
+Scoping the templates this way was as much a design decision as a technical one — it meant the Wicked takeover could feel like a total brand transformation without risking the rest of the Hilton site's stability or design consistency. That separation also meant future campaigns could reuse the same pattern without inheriting Wicked-specific styling.
 
 <Devices
 	phone="/src/assets/images/posts/hilton/hilton-wicked_homepage_small.png"
@@ -68,9 +71,11 @@ Technically, we created a set of new WordPress templates that added a unique cla
 
 The centerpiece of the experience was the homepage animation—a scroll-driven sequence built with Framer Motion. The animation took users on a journey through the clouds into the world of *Wicked*, with visual elements unfolding as they scrolled into the Emerald City. This dynamic storytelling added a sense of immersion and control, while a skip button supported accessibility and remembered user preferences.
 
+Every beat of the scroll sequence was a negotiation between spectacle and usability. We paced the animation so users felt swept into the story without losing control of their scroll, and we made the skip button prominent and persistent rather than tucked away knowing that not every visitor wants a slow reveal, especially on a return visit. Remembering that preference was a small detail, but it mattered: it respected the choice a user had already made instead of forcing them through the sequence again.
+
 <Figure caption="The end of the intro animation, where users have arrived at the Emerald City." src="/src/assets/images/posts/hilton/hilton-wicked_intro_bottom.png" alt="Image capture of the end of the animation with the Emerald City." width="3840" height="2160" />
 
-I collaborated closely with the designer to bring this animation to life, ensuring it was visually compelling but lightweight and performant. It was a first-of-its-kind effort for Hilton and a standout moment for the brand.
+I worked closely with the designer throughout, translating their storyboard into a scroll-driven sequence, figuring out where Framer Motion could deliver the visual richness they wanted without tanking performance, and flagging early where a design idea needed to be adapted for how scroll timing actually feels in the browser versus how it looks in a static mockup.
 
 <figure>
 	<video
@@ -85,4 +90,8 @@ I collaborated closely with the designer to bring this animation to life, ensuri
 
 ## Results & Impact
 
-The results were immediate and impressive. The launch met all deadlines, and Hilton sold out every themed room within five days of the campaign going live. Thanks to our scoped design system, Hilton was able to toggle the takeover on and off as needed—relaunching it around the movie’s release in November. While the homepage experience was temporary, the updated article template remains live today on the [Stories from Hilton](https://stories.hilton.com) site.
+The results were immediate and impressive. The launch met all deadlines, and Hilton sold out every themed room within five days of the campaign going live.
+
+That outcome validated the core design bet: that a bold, immersive takeover done carefully enough to stay fast and accessible was worth the engineering complexity it required.
+
+Thanks to our scoped design system, Hilton was able to toggle the takeover on and off as needed—relaunching it around the movie’s release in November. While the homepage experience was temporary, the updated article template remains live today on the [Stories from Hilton](https://stories.hilton.com) site.
