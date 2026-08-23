@@ -2,8 +2,6 @@
 title: Becket Law
 date: 2024-02-23T03:00:51.391Z
 slug: becket-law
-roles:
-    - Developer
 libraries:
     - jQuery
 technologies:
@@ -18,6 +16,9 @@ subtitle: Religious Liberty for All
 platforms:
     - WordPress
 featured_image: /becket-law/Robert-Soto-Production-Stills_16.jpg
+roles:
+    - Design
+    - Engineering
 ---
 Becket Fund is a non-profit organization that works for religious liberties and freedoms for all peoples of any religion. They work frequently on court cases where expression of religious freedom is on the line. Through the years they’ve become not only a fixture in the space, but also frequently referenced as a resource and contact. Because of this enormous responsibility and the amazing amount of content that the Becket Fund manages, they wanted to not only get it organized but also make it easy to edit and access.
 
@@ -25,6 +26,8 @@ Becket Fund is a non-profit organization that works for religious liberties and 
 ## Organizing a resource for all
 
 When the Becket Fund came to us, most of their content was already organized in a logical manner. However curating it all into one spot with consistent data was a project all in itself. We worked with them to think of a logical structure for this content and what metadata was needed. The eventual goal? A powerful search and filtering system built into their site from the start that would allow them and users to find things fast, whether it was a case, a document, or a piece of media.
+
+Getting there meant making real information-architecture decisions, not just technical ones. Deciding which attributes (court, case type, media type) actually mattered enough to surface as filters, and which would just add noise for someone trying to find a specific case quickly. That structure had to work for both Becket's own team managing hundreds of documents and a visitor who might only ever use the site once.
 
 <Devices
 	phone="/src/assets/images/posts/becket-law/becket-law-small.png"
@@ -46,4 +49,8 @@ Having all of this content and uploads can be a real strain on a CMS, even one a
 
 ## The little things
 
-Along with the usual refresh in design that usually accompanies these kind of projects, Becket Fund was interested in a few features to improve the user experience as well. Besides our search and filtering functions, effort was made to make sure the site was keyboard accessible. There are also great features for users like case tracking via email updates, case citation in multiple formats with the click of a button, and pages for high profile cases that help users quickly get information they need.
+Along with the usual refresh in design that usually accompanies these kind of projects, Becket Fund was interested in a few features to improve the user experience as well. Besides our search and filtering functions, effort was made to make sure the site was keyboard accessible.
+
+Accessibility wasn't treated as a checklist item here. A resource like this often gets used in exactly the moments people can least afford friction, like a journalist or researcher trying to verify a citation on deadline. That context shaped small decisions throughout, like making citation formatting and case tracking as low-effort as possible rather than burying them in menus.
+
+There are also great features for users like case tracking via email updates, case citation in multiple formats with the click of a button, and pages for high profile cases that help users quickly get information they need.
